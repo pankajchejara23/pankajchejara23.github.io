@@ -31,7 +31,7 @@ The following projects focus on utilizing the power of analytics to support teac
 
 ### CoTrack - Web application for monitoring collaboration behavior in classrooms
 
-:trophy: **Best Demo Award** at Learning Analytics and Knowledge (LAK2023) conference, Texas, USA (Core A rank)
+🏆 **Best Demo Award** at Learning Analytics and Knowledge (LAK2023) conference, Texas, USA (Core A rank)
 
 [Demo](https://youtu.be/l-B2hXGRvek) | [Publication](https://ceur-ws.org/Vol-2610/paper3.pdf) | [Source code](https://github.com/pankajchejara23/CoTrackv2)
 
