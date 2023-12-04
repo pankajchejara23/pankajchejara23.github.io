@@ -22,6 +22,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -165,48 +199,48 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="installation">Installation</h3>
 <p>I tried to install OpenFace on Mac OS but couldn’t succeed. There were a lot of errors and compatibility issues that I couldn’t get through. Therefore, I decided to install it on Ubuntu. For that, I installed a Virtual box on Mac and installed Ubuntu 18.04.</p>
 <p>To install OpenFace, I followed the steps given <a href="https://github.com/TadasBaltrusaitis/OpenFace/wiki/Unix-Installation">here</a></p>
-<pre class="shell"><code>sudo apt-get update
-sudo apt-get install build-essential
-sudo apt-get install g++-8
-
-sudo apt-get install cmake
-
-sudo apt-get install git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
-
-sudo apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libdc1394-22-dev
-
-wget https://github.com/opencv/opencv/archive/4.1.0.zip
-
-sudo unzip 4.1.0.zip
-cd opencv-4.1.0
-mkdir build
-cd build
-
-cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D BUILD_TIFF=ON -D WITH_TBB=ON ..
-make -j2
-sudo make install
-
-wget http://dlib.net/files/dlib-19.13.tar.bz2
-tar xf dlib-19.13.tar.bz2
-cd dlib-19.13
-mkdir build
-cd build
-cmake ..
-cmake --build . --config Release
-sudo make install
-sudo ldconfig
-cd ../..
-
-sudo apt-get install libboost-all-dev
-
-git clone https://github.com/TadasBaltrusaitis/OpenFace.git
-
-cd OpenFace
-mkdir build
-cd build
-
-cmake -D CMAKE_CXX_COMPILER=g++-8 -D CMAKE_C_COMPILER=gcc-8 -D CMAKE_BUILD_TYPE=RELEASE ..
-make</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get update</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install build-essential</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install g++-8</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install cmake</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libdc1394-22-dev</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://github.com/opencv/opencv/archive/4.1.0.zip</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> unzip 4.1.0.zip</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> opencv-4.1.0</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> build</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> build</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">-D</span> CMAKE_BUILD_TYPE=RELEASE <span class="at">-D</span> CMAKE_INSTALL_PREFIX=/usr/local <span class="at">-D</span> BUILD_TIFF=ON <span class="at">-D</span> WITH_TBB=ON ..</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> <span class="at">-j2</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> make install</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> http://dlib.net/files/dlib-19.13.tar.bz2</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="fu">tar</span> xf dlib-19.13.tar.bz2</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> dlib-19.13</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> build</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> build</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> ..</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">--build</span> . <span class="at">--config</span> Release</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> make install</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> ldconfig</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ../..</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install libboost-all-dev</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/TadasBaltrusaitis/OpenFace.git</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> OpenFace</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> build</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> build</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">-D</span> CMAKE_CXX_COMPILER=g++-8 <span class="at">-D</span> CMAKE_C_COMPILER=gcc-8 <span class="at">-D</span> CMAKE_BUILD_TYPE=RELEASE ..</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>At this point, we have installed OpenFace. Now we need to download models. You can either download it manually or use a script provided in the OpenFace library.</p>
 <p>Manual download links.</p>
 <ul>
@@ -216,26 +250,59 @@ make</code></pre>
 <li><p><a href="https://drive.google.com/uc?export=download&amp;id=1b8semX96A2yNe194PvKh_rkU1frcI4jr">scale 1.00</a></p></li>
 </ul>
 <p>I ran the following command to ran the script to download the model.</p>
-<pre class="shell"><code>cd ..
-sh ./download_models.sh</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ..</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sh</span> ./download_models.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The script will download models in the directory <code>OpenFace/lib/local/LandmarkDetector/model/patch_experts</code>.</p>
 <p>After completing this process, I ran the demo program by running the following command.</p>
-<pre class="shell"><code>./bin/FaceLandmarkVid -f ""../samples/changeLighting.wmv"" -f ""../samples/2015-10-15-15-14.avi</code></pre>
-<p>I got an error <code>CEN patch expert</code> not found. The command was searching the models in the <code>OpenFace/build/bin/model/patch_experts</code>. So I copied the files (<code>cen_patches_0.25_of.dat</code>,<code>cen_patches_0.35_of.dat</code>,<code>cen_patches_0.50_of.dat</code>,<code>cen_patches_1.00_of.dat</code>) in `<code>OpenFace/build/bin/model/patch_experts</code> directory.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./bin/FaceLandmarkVid</span> <span class="at">-f</span> <span class="st">""</span>../samples/changeLighting.wmv<span class="st">""</span> <span class="at">-f</span> <span class="st">""</span>../samples/2015-10-15-15-14.avi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Execution error
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>I got an error <code>CEN patch expert</code> not found. The command was searching the models in the <code>OpenFace/build/bin/model/patch_experts</code>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>I copied the files (<code>cen_patches_0.25_of.dat</code>,<code>cen_patches_0.35_of.dat</code>,<code>cen_patches_0.50_of.dat</code>,<code>cen_patches_1.00_of.dat</code>) in <code>OpenFace/build/bin/model/patch_experts</code> directory.</p>
+</div>
+</div>
 </section>
 <section id="running-demo" class="level3">
 <h3 class="anchored" data-anchor-id="running-demo">Running Demo</h3>
 <p>If you have a video with a single face, you can use <code>FaceLandmarkVid</code> or in case of multiple faces, you can use <code>FaceLandmarkVidMulti</code></p>
-<p>Following is the demonstration of OpenFace on a video clip with single face.</p>
-<pre><code>::: {.callout-note}
-Note that there are five types of callouts, including:
-`note`, `warning`, `important`, `tip`, and `caution`.
-:::</code></pre>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>These files will be available in <code>OpenFace/build/bin</code> directory. Either you can specify the full path to facial landmark detector or cd to the bin directory and run the following command.</p>
+</div>
+</div>
 <pre class="shell"><code>FaceLandmarkVid -f file_name</code></pre>
+<p>Following is the demonstration of OpenFace on a video clip with single face.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="https://www.youtube.com/watch?v=osk0ezhaO8I"><img src="https://img.youtube.com/vi/osk0ezhaO8I/0.jpg" class="img-fluid figure-img"></a></p>
-<figcaption class="figure-caption">IMAGE ALT TEXT HERE</figcaption>
 </figure>
 </div>
 

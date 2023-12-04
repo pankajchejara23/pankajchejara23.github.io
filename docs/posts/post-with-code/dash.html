@@ -199,13 +199,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><code>dash</code> uses <a href="https://plot.ly">plotly</a> graphics library for plotting graphs. In addition to their graphic feature, these graphs also have a lot of good features (e.g.&nbsp;automatic scaling of axis for timestamp data, etc). Please refer <a href="https://dash.plot.ly/?_ga=2.41664546.1609513145.1566397998-430691971.1566070872">dash documentation</a> for details.</p>
 <section id="installation" class="level3">
 <h3 class="anchored" data-anchor-id="installation">Installation</h3>
-<pre class="shell"><code>pip install dash-html-components==0.14.0  # HTML components
-pip install dash-core-components==0.44.0  # dash core components
-pip install dash-table==3.6.0  # Interactive DataTable component (new!)</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install dash-html-components==0.14.0  <span class="co"># HTML components</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install dash-core-components==0.44.0  <span class="co"># dash core components</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install dash-table==3.6.0  <span class="co"># Interactive DataTable component (new!)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="first-dash-application" class="level3">
 <h3 class="anchored">First dash application</h3>
-<p>Now, we are going to develop our first <code>dash</code> application. For this application, we are going to plot the following data (some records are taken from &lt;a href=““https://github.com/ywchiu/riii/blob/master/data/house-prices.csv”“&gt;here. This data has two attributes (House price and area).</p>
+<p>Now, we are going to develop our first <code>dash</code> application. For this application, we are going to plot the following data (some records are taken from <a href="https://github.com/ywchiu/riii/blob/master/data/house-prices.csv">here</a>. This data has two attributes (House price and area).</p>
 <p>A <code>dash</code> application can have number of components (e.g.&nbsp;div block, table, headings, graph). In our application, we are going to use two components - heading and a graph. Let’s begin developing it. First of all, we need to import the required packages</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> dash_core_components <span class="im">as</span> dcc</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> dash_html_components <span class="im">as</span> html</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -258,7 +258,7 @@ pip install dash-table==3.6.0  # Interactive DataTable component (new!)</code></
 </section>
 <section id="adding-css-style-to-the-app" class="level3">
 <h3 class="anchored" data-anchor-id="adding-css-style-to-the-app">Adding CSS style to the app</h3>
-<p>The next step towards generating a beautiful dashboard is to add a styling feature. We can use <code>css</code> (&lt;a href=““https://www.w3schools.com/css/”“&gt;what is css?) stylesheet in our application. It can be specified at the time of creating an application.</p>
+<p>The next step towards generating a beautiful dashboard is to add a styling feature. We can use <a href="https://www.w3schools.com/css/">css</a> stylesheet in our application. It can be specified at the time of creating an application.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> dash.app <span class="op">=</span> dash.Dash(<span class="va">__name__</span>,external_stylesheets<span class="op">=</span>style)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>With the above method, you can only add css which are available online. In case if you want to add your local <code>css</code> file, follow the given steps</p>
 <ul>
@@ -270,9 +270,9 @@ pip install dash-table==3.6.0  # Interactive DataTable component (new!)</code></
 </section>
 <section id="installing-bootstrap-component-for-dash" class="level3">
 <h3 class="anchored" data-anchor-id="installing-bootstrap-component-for-dash">Installing Bootstrap component for dash</h3>
-<p><code>dash</code> also supports <code>Bootstrap</code> (&lt;a href=““https://getbootstrap.com/docs/4.3/getting-started/introduction/”“&gt;Introduction) which is a widely used <code>css</code> library. It can be added in your dash application using <code>dash-bootstrap-component</code> package (&lt;a href=”“https://dash-bootstrap-components.opensource.faculty.ai/l/components”“&gt;complete documentation). This package allows an easy integration of Bootstrap in the dash application.</p>
+<p><code>dash</code> also supports <a href="https://getbootstrap.com/docs/4.3/getting-started/introduction/">Bootstrap</a> which is a widely used <code>css</code> library. It can be added in your dash application using <code>dash-bootstrap-component</code> package (<a href="https://dash-bootstrap-components.opensource.faculty.ai/l/components">complete documentation</a>). This package allows an easy integration of Bootstrap in the dash application.</p>
 <p>You can install it using the following command.</p>
-<pre class="shell"><code>pip install dash-bootstrap-components</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install dash-bootstrap-components</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Now, let’s use it to add a CSS to our first example. We are going to create the following layout for our application. We will utilize Bootstrap’s grid system for structuring our components.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">

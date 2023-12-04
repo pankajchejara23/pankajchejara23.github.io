@@ -23,7 +23,7 @@ I tried to install OpenFace on Mac OS but couldn't succeed. There were a lot of 
 
 To install OpenFace, I followed the steps given [here](https://github.com/TadasBaltrusaitis/OpenFace/wiki/Unix-Installation)
 
-```shell
+```bash
 sudo apt-get update
 sudo apt-get install build-essential
 sudo apt-get install g++-8
@@ -82,7 +82,7 @@ Manual download links.
 
 I ran the following command to ran the script to download the model.
 
-```shell
+```bash
 cd ..
 sh ./download_models.sh
 ```
@@ -91,29 +91,36 @@ The script will download models in the directory `OpenFace/lib/local/LandmarkDet
 
 After completing this process, I ran the demo program by running the following command.
 
-```shell
+```bash
 ./bin/FaceLandmarkVid -f ""../samples/changeLighting.wmv"" -f ""../samples/2015-10-15-15-14.avi
 ```
 
-I got an error `CEN patch expert` not found. The command was searching the models in the `OpenFace/build/bin/model/patch_experts`. So I copied the files (`cen_patches_0.25_of.dat`,`cen_patches_0.35_of.dat`,`cen_patches_0.50_of.dat`,`cen_patches_1.00_of.dat`) in ``OpenFace/build/bin/model/patch_experts` directory.
+::: {.callout-important}
+## Execution error
+I got an error `CEN patch expert` not found. The command was searching the models in the `OpenFace/build/bin/model/patch_experts`.
+:::
+
+
+:::{.callout-tip}
+## Solution
+I copied the files (`cen_patches_0.25_of.dat`,`cen_patches_0.35_of.dat`,`cen_patches_0.50_of.dat`,`cen_patches_1.00_of.dat`) in `OpenFace/build/bin/model/patch_experts` directory.
+:::
 
 ### Running Demo
 
 If you have a video with a single face, you can use `FaceLandmarkVid` or in case of multiple faces, you can use `FaceLandmarkVidMulti`
 
-Following is the demonstration of OpenFace on a video clip with single face.
 
-```
 ::: {.callout-note}
-Note that there are five types of callouts, including:
-`note`, `warning`, `important`, `tip`, and `caution`.
+## Note
+These files will be available in `OpenFace/build/bin` directory. Either you can specify the full path to facial landmark detector or cd to the bin directory and run the following command.
 :::
-```
+
 
 ```shell
 FaceLandmarkVid -f file_name
 ```
+Following is the demonstration of OpenFace on a video clip with single face.
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/osk0ezhaO8I/0.jpg)](https://www.youtube.com/watch?v=osk0ezhaO8I)
 
-
+[![](https://img.youtube.com/vi/osk0ezhaO8I/0.jpg)](https://www.youtube.com/watch?v=osk0ezhaO8I)

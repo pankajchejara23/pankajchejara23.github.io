@@ -21,7 +21,7 @@ Dashboards play a crucial role in conveying useful and actionable information fr
 
 ### Installation
 
-```shell
+```bash
 pip install dash-html-components==0.14.0  # HTML components
 pip install dash-core-components==0.44.0  # dash core components
 pip install dash-table==3.6.0  # Interactive DataTable component (new!)
@@ -29,7 +29,7 @@ pip install dash-table==3.6.0  # Interactive DataTable component (new!)
 
 ### First dash application
 
-Now, we are going to develop our first <code>dash</code> application. For this application, we are going to plot the following data (some records are taken from <a href=""https://github.com/ywchiu/riii/blob/master/data/house-prices.csv"">here</a>. This data has two attributes (House price and area).
+Now, we are going to develop our first <code>dash</code> application. For this application, we are going to plot the following data (some records are taken from [here](https://github.com/ywchiu/riii/blob/master/data/house-prices.csv). This data has two attributes (House price and area).
 
 A <code>dash</code> application can have number of components (e.g. div block, table, headings, graph). In our application, we are going to use two components - heading and a graph. Let's begin developing it. First of all, we need to import the required packages
 
@@ -103,7 +103,7 @@ Check for more components: [dash_core_components](https://dash.plot.ly/dash-core
 
 ### Adding CSS style to the app
 
-The next step towards generating a beautiful dashboard is to add a styling feature. We can use <code>css</code> (<a href=""https://www.w3schools.com/css/"">what is css?</a>) stylesheet in our application. It can be specified at the time of creating an application.
+The next step towards generating a beautiful dashboard is to add a styling feature. We can use [css](https://www.w3schools.com/css/)  stylesheet in our application. It can be specified at the time of creating an application.
 
 ```python
 app = dash.app = dash.Dash(__name__,external_stylesheets=style)
@@ -123,11 +123,11 @@ dash.Dash(__name__,external_stylesheets=[""\asset\css-file-name""])
 
 ### Installing Bootstrap component for dash
 
-<code>dash</code> also supports <code>Bootstrap</code> (<a href=""https://getbootstrap.com/docs/4.3/getting-started/introduction/"">Introduction</a>) which is a widely used <code>css</code> library. It  can be added in your dash application using  <code>dash-bootstrap-component</code> package (<a href=""https://dash-bootstrap-components.opensource.faculty.ai/l/components"">complete documentation</a>). This package allows an easy integration of Bootstrap in the dash application.
+<code>dash</code> also supports [Bootstrap](https://getbootstrap.com/docs/4.3/getting-started/introduction/) which is a widely used <code>css</code> library. It  can be added in your dash application using  <code>dash-bootstrap-component</code> package ([complete documentation](https://dash-bootstrap-components.opensource.faculty.ai/l/components)). This package allows an easy integration of Bootstrap in the dash application.
 
 You can install it using the following command.
 
-```shell
+```bash
 pip install dash-bootstrap-components
 ```
 

@@ -3,6 +3,7 @@
     "listing": "/index.html",
     "items": [
       "/posts/post-with-code/dash.html",
+      "/posts/concepts/pca.html",
       "/posts/post-with-code/facial-features.html"
     ]
   }
