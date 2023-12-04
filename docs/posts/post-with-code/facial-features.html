@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Pankaj Chejara">
+<meta name="dcterms.date" content="2020-03-28">
 
-<title>Pankaj Chejara</title>
+<title>Pankaj Chejara - Facial feature extraction using OpenFace</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +25,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -61,50 +61,19 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Pankaj Chejara</span>
     </a>
   </div>
@@ -115,13 +84,13 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./Projects.html" rel="" target="">
+    <a class="nav-link" href="../../Projects.html" rel="" target="">
  <span class="menu-text">Projects</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html" rel="" target="">
+    <a class="nav-link" href="../../about.html" rel="" target="">
  <span class="menu-text">About Me</span></a>
   </li>  
   <li class="nav-item compact">
@@ -149,125 +118,131 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">Pankaj Chejara</h1>
-                      </div>
+    <div class="quarto-title column-body">
+      <h1 class="title">Facial feature extraction using OpenFace</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">python</div>
+                <div class="quarto-category">openface</div>
+                <div class="quarto-category">facial features</div>
+              </div>
+                  </div>
   </div>
     
   
   <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Pankaj Chejara </p>
+            </div>
+    </div>
       
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">March 28, 2020</p>
+      </div>
+    </div>
     
       
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(2)</span></div><div class="category" data-category="facial features">facial features <span class="quarto-category-count">(1)</span></div><div class="category" data-category="openface">openface <span class="quarto-category-count">(1)</span></div><div class="category" data-category="python">python <span class="quarto-category-count">(2)</span></div><div class="category" data-category="visualization">visualization <span class="quarto-category-count">(1)</span></div><div class="category" data-category="web-app">web-app <span class="quarto-category-count">(1)</span></div></div></div>
+    
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
+<p>In this post, I will discuss the work I have been doing recently. I needed to extract facial features from the recorded video and for this task, I decided to use OpenFace, an open-source face recognition library. In this post, I am sharing the installation process and tutorial on detecting facial landmarks.</p>
+<p><base target="_blank"></p>
+<section id="installation" class="level3">
+<h3 class="anchored" data-anchor-id="installation">Installation</h3>
+<p>I tried to install OpenFace on Mac OS but couldn’t succeed. There were a lot of errors and compatibility issues that I couldn’t get through. Therefore, I decided to install it on Ubuntu. For that, I installed a Virtual box on Mac and installed Ubuntu 18.04.</p>
+<p>To install OpenFace, I followed the steps given <a href="https://github.com/TadasBaltrusaitis/OpenFace/wiki/Unix-Installation">here</a></p>
+<pre class="shell"><code>sudo apt-get update
+sudo apt-get install build-essential
+sudo apt-get install g++-8
+
+sudo apt-get install cmake
+
+sudo apt-get install git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
+
+sudo apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libdc1394-22-dev
+
+wget https://github.com/opencv/opencv/archive/4.1.0.zip
+
+sudo unzip 4.1.0.zip
+cd opencv-4.1.0
+mkdir build
+cd build
+
+cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D BUILD_TIFF=ON -D WITH_TBB=ON ..
+make -j2
+sudo make install
+
+wget http://dlib.net/files/dlib-19.13.tar.bz2
+tar xf dlib-19.13.tar.bz2
+cd dlib-19.13
+mkdir build
+cd build
+cmake ..
+cmake --build . --config Release
+sudo make install
+sudo ldconfig
+cd ../..
+
+sudo apt-get install libboost-all-dev
+
+git clone https://github.com/TadasBaltrusaitis/OpenFace.git
+
+cd OpenFace
+mkdir build
+cd build
+
+cmake -D CMAKE_CXX_COMPILER=g++-8 -D CMAKE_C_COMPILER=gcc-8 -D CMAKE_BUILD_TYPE=RELEASE ..
+make</code></pre>
+<p>At this point, we have installed OpenFace. Now we need to download models. You can either download it manually or use a script provided in the OpenFace library.</p>
+<p>Manual download links.</p>
+<ul>
+<li><p><a href="https://drive.google.com/uc?export=download&amp;id=1TM_L_qNgd513z5i_T4CuXOF1Vl5DDu1l">scale 0.25</a></p></li>
+<li><p><a href="https://onedrive.live.com/download?cid=2E2ADA578BFF6E6E&amp;resid=2E2ADA578BFF6E6E%2153079&amp;authkey=ANpDR1n3ckL_0gs">scale 0.35</a></p></li>
+<li><p><a href="https://onedrive.live.com/download?cid=2E2ADA578BFF6E6E&amp;resid=2E2ADA578BFF6E6E%2153074&amp;authkey=AGi-e30AfRc_zvs">scale 0.50</a></p></li>
+<li><p><a href="https://drive.google.com/uc?export=download&amp;id=1b8semX96A2yNe194PvKh_rkU1frcI4jr">scale 1.00</a></p></li>
+</ul>
+<p>I ran the following command to ran the script to download the model.</p>
+<pre class="shell"><code>cd ..
+sh ./download_models.sh</code></pre>
+<p>The script will download models in the directory <code>OpenFace/lib/local/LandmarkDetector/model/patch_experts</code>.</p>
+<p>After completing this process, I ran the demo program by running the following command.</p>
+<pre class="shell"><code>./bin/FaceLandmarkVid -f ""../samples/changeLighting.wmv"" -f ""../samples/2015-10-15-15-14.avi</code></pre>
+<p>I got an error <code>CEN patch expert</code> not found. The command was searching the models in the <code>OpenFace/build/bin/model/patch_experts</code>. So I copied the files (<code>cen_patches_0.25_of.dat</code>,<code>cen_patches_0.35_of.dat</code>,<code>cen_patches_0.50_of.dat</code>,<code>cen_patches_1.00_of.dat</code>) in `<code>OpenFace/build/bin/model/patch_experts</code> directory.</p>
+</section>
+<section id="running-demo" class="level3">
+<h3 class="anchored" data-anchor-id="running-demo">Running Demo</h3>
+<p>If you have a video with a single face, you can use <code>FaceLandmarkVid</code> or in case of multiple faces, you can use <code>FaceLandmarkVidMulti</code></p>
+<p>Following is the demonstration of OpenFace on a video clip with single face.</p>
+<pre><code>::: {.callout-note}
+Note that there are five types of callouts, including:
+`note`, `warning`, `important`, `tip`, and `caution`.
+:::</code></pre>
+<pre class="shell"><code>FaceLandmarkVid -f file_name</code></pre>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://www.youtube.com/watch?v=osk0ezhaO8I"><img src="https://img.youtube.com/vi/osk0ezhaO8I/0.jpg" class="img-fluid figure-img"></a></p>
+<figcaption class="figure-caption">IMAGE ALT TEXT HERE</figcaption>
+</figure>
+</div>
 
 
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="python,visualization,web-app" data-listing-date-sort="1685739600000" data-listing-file-modified-sort="1701682111797" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5">
-<div class="thumbnail">
-<p><a href="./posts/post-with-code/dash.html"> <img src="./posts/post-with-code/p6.3.png" class="thumbnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./posts/post-with-code/dash.html">
-<h3 class="no-anchor listing-title">
-Introduction to Python Dash Framework
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('python'); return false;">
-python
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('visualization'); return false;">
-visualization
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('web-app'); return false;">
-web-app
-</div>
-</div>
-<a href="./posts/post-with-code/dash.html">
-<div class="listing-description">
-Dashboards play a crucial role in conveying useful and actionable information from collected data regardless of context. As with economically feasible sensors, improved…
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/post-with-code/dash.html">
-<div class="listing-date">
-Jun 3, 2023
-</div>
-<div class="listing-author">
-Pankaj Chejara
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="python,openface,facial features" data-listing-date-sort="1585346400000" data-listing-file-modified-sort="1701718955445" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
-<div class="thumbnail">
-<p><a href="./posts/post-with-code/facial-features.html"> <img src="./posts/post-with-code/p1-openface.jpg" class="thumbnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./posts/post-with-code/facial-features.html">
-<h3 class="no-anchor listing-title">
-Facial feature extraction using OpenFace
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('python'); return false;">
-python
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('openface'); return false;">
-openface
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('facial features'); return false;">
-facial features
-</div>
-</div>
-<a href="./posts/post-with-code/facial-features.html">
-<div class="listing-description">
-In this post, I will discuss the work I have been doing recently. I needed to extract facial features from the recorded video and…
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/post-with-code/facial-features.html">
-<div class="listing-date">
-Mar 28, 2020
-</div>
-<div class="listing-author">
-Pankaj Chejara
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
