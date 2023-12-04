@@ -1,18 +1,18 @@
 ---
-title: "About"
+title: "About Me"
 image: profile.jpg
 about:
-  template: jolla
+  template: solana
   links:
     - icon: twitter
       text: Twitter
-      href: https://twitter.com
+      href: https://twitter.com/pankajchejara1
     - icon: linkedin
       text: LinkedIn
-      href: https://linkedin.com
+      href: https://www.linkedin.com/in/pankaj-chejara-5ab77855/
     - icon: github
       text: Github
-      href: https://github.com
+      href: https://github.com/pankajchejara23
 
 ---
 
@@ -21,19 +21,22 @@ He enjoys diving into data to extract insights and always ready to learn new thi
 When not working on data analytics projects, Pankaj enjoys spending time with his son and watching animation movies.
 
 ## Education
-
+**PhD in Learning Analytics** (Thesis Submitted) | Sept 2018 - Nov 2023
 Tallinn University, Tallinn | Tallinn, Estonia
-PhD in Learning Analytics (Thesis Submitted) | Sept 2018 - Nov 2023
 
+
+**Master in Computer Engg. (MTech)** | Aug 2010 - June 2012 <br/>
 Malviya National Institute of Technology | Jaipur, India
-Master in Computer Engg. (MTech) | Aug 2010 - June 2012
 
+
+**Master in Computer Applications (MCA)** | Aug 2007 - May 2010 <br/>
 Malviya National Institute of Technology | Jaipur, India
-Master in Computer Applications (MCA) | Aug 2007 - May 2010
 
+
+**Bachelor in Science** (Mathematics) | Aug 2004 - May 2007 <br/>
 University of Rajasthan | Jaipur, India
-B.Sc. in Mathematics | Aug 2004 - May 2007
+
 
 ## Experience
-
-Tallinn University | Web-developer | Sep 2019 - present
+**Web Developer** | Tallinn University, Estonia |  Sep 2019 - present
+**Assistant Professor** | Sharda University, India |  Sep 2012 - 2016

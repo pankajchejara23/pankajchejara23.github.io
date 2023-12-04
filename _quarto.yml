@@ -4,8 +4,12 @@ project:
 website:
   title: "Pankaj Chejara"
   navbar:
+    left:
+      - Projects.md
     right:
       - about.qmd
+      - icon: twitter
+        href: https://twitter.com/pankajchejara1
       - icon: linkedin
         href: https://www.linkedin.com/in/pankaj-chejara-5ab77855/
       - icon: github
@@ -15,6 +19,7 @@ format:
   html:
     theme: cosmo
     css: styles.css
+
 
 
 
