@@ -1,0 +1,20 @@
+project:
+  type: website
+  output-dir: docs
+website:
+  title: "Pankaj Chejara"
+  navbar:
+    right:
+      - about.qmd
+      - icon: linkedin
+        href: https://www.linkedin.com/in/pankaj-chejara-5ab77855/
+      - icon: github
+        href: https://github.com/pankajchejara23
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+
+
+
