@@ -100,7 +100,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -144,6 +144,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
 </ul>
             <div class="quarto-navbar-tools">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
 </div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
@@ -186,7 +191,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#dash-framework" id="toc-dash-framework" class="nav-link active" data-scroll-target="#dash-framework">Dash Framework</a>
+  <ul class="collapse">
+  <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation">Installation</a></li>
+  <li><a href="#first-dash-application" id="toc-first-dash-application" class="nav-link" data-scroll-target="#first-dash-application">First dash application</a></li>
+  <li><a href="#adding-css-style-to-the-app" id="toc-adding-css-style-to-the-app" class="nav-link" data-scroll-target="#adding-css-style-to-the-app">Adding CSS style to the app</a></li>
+  <li><a href="#installing-bootstrap-component-for-dash" id="toc-installing-bootstrap-component-for-dash" class="nav-link" data-scroll-target="#installing-bootstrap-component-for-dash">Installing Bootstrap component for dash</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
@@ -322,7 +341,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 </section>
 
-</main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

@@ -71,9 +71,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-image','listing-date','listing-title','listing-author','listing-reading-time','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -141,6 +141,11 @@ ul.task-list li input[type="checkbox"] {
   </li>  
 </ul>
             <div class="quarto-navbar-tools">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
 </div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
@@ -168,7 +173,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(3)</span></div><div class="category" data-category="PCA">PCA <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dimensionality reduction">dimensionality reduction <span class="quarto-category-count">(1)</span></div><div class="category" data-category="facial features">facial features <span class="quarto-category-count">(1)</span></div><div class="category" data-category="machine learning">machine learning <span class="quarto-category-count">(1)</span></div><div class="category" data-category="openface">openface <span class="quarto-category-count">(1)</span></div><div class="category" data-category="python">python <span class="quarto-category-count">(3)</span></div><div class="category" data-category="scikit-learn">scikit-learn <span class="quarto-category-count">(1)</span></div><div class="category" data-category="visualization">visualization <span class="quarto-category-count">(1)</span></div><div class="category" data-category="web-app">web-app <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(4)</span></div><div class="category" data-category="facial features">facial features <span class="quarto-category-count">(1)</span></div><div class="category" data-category="machine learning">machine learning <span class="quarto-category-count">(1)</span></div><div class="category" data-category="openface">openface <span class="quarto-category-count">(1)</span></div><div class="category" data-category="pandas">pandas <span class="quarto-category-count">(1)</span></div><div class="category" data-category="pca">pca <span class="quarto-category-count">(1)</span></div><div class="category" data-category="python">python <span class="quarto-category-count">(4)</span></div><div class="category" data-category="scikit-learn">scikit-learn <span class="quarto-category-count">(1)</span></div><div class="category" data-category="visualization">visualization <span class="quarto-category-count">(1)</span></div><div class="category" data-category="web-app">web-app <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
 
@@ -179,142 +184,125 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="python,visualization,web-app" data-listing-date-sort="1685739600000" data-listing-file-modified-sort="1701722749872" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5">
-<div class="thumbnail">
-<p><a href="./posts/post-with-code/dash.html"> <img src="./posts/post-with-code/p6.3.png" class="thumbnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./posts/post-with-code/dash.html">
-<h3 class="no-anchor listing-title">
+<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-categories="python,visualization,web-app" data-listing-date-sort="1685739600000" data-listing-file-modified-sort="1701792291813" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5">
+<a href="./posts/post-with-code/dash.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="./posts/post-with-code/p6.4.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
 Introduction to Python Dash Framework
-</h3>
-<div class="listing-subtitle">
-
+</h5>
+<div class="listing-reading-time card-text text-muted">
+5 min
 </div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('python'); return false;">
-python
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('visualization'); return false;">
-visualization
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('web-app'); return false;">
-web-app
-</div>
-</div>
-<a href="./posts/post-with-code/dash.html">
-<div class="listing-description">
+<div class="card-text listing-description">
 Dashboards play a crucial role in conveying useful and actionable information from collected data regardless of context. As with economically feasible sensors, improved…
 </div>
-</a>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Pankaj Chejara
 </div>
-<div class="metadata">
-<a href="./posts/post-with-code/dash.html">
 <div class="listing-date">
 Jun 3, 2023
 </div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="1" data-categories="python,pandas" data-listing-date-sort="1589662800000" data-listing-file-modified-sort="1701792504593" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9">
+<a href="./posts/post-with-code/pandas.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="./posts/post-with-code/images/pandas/p1.2.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Introduction to Python’s Pandas API
+</h5>
+<div class="listing-reading-time card-text text-muted">
+9 min
+</div>
+<div class="card-text listing-description">
+Pandas is a Python API for processing data in a easy and efficient way. This post offers an introduction to this amazing API , especially for beginners.
+</div>
+<div class="card-attribution card-text-small justify">
 <div class="listing-author">
 Pankaj Chejara
 </div>
+<div class="listing-date">
+May 17, 2020
+</div>
+</div>
+</div>
+</div>
 </a>
 </div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="machine learning,PCA,dimensionality reduction,python,scikit-learn" data-listing-date-sort="1587502800000" data-listing-file-modified-sort="1701726348755" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9">
-<div class="thumbnail">
-<p><a href="./posts/concepts/pca.html"> <img src="./posts/concepts/pca-1.jpg" class="thumbnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./posts/concepts/pca.html">
-<h3 class="no-anchor listing-title">
+<div class="g-col-1" data-index="2" data-categories="machine learning,pca,python,scikit-learn" data-listing-date-sort="1587502800000" data-listing-file-modified-sort="1701792361336" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9">
+<a href="./posts/concepts/pca.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="./posts/concepts/pca-2.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
 Understanding Principal Component Analysis under the hood
-</h3>
-<div class="listing-subtitle">
-
+</h5>
+<div class="listing-reading-time card-text text-muted">
+9 min
 </div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('machine learning'); return false;">
-machine learning
+<div class="card-text listing-description">
+Let’s assume that you have a dataset with a higher number of attributes and you are thinking <em>Is there any way to compress this information into a smaller number of attributes</em>.
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('PCA'); return false;">
-PCA
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Pankaj Chejara
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('dimensionality reduction'); return false;">
-dimensionality reduction
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('python'); return false;">
-python
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('scikit-learn'); return false;">
-scikit-learn
-</div>
-</div>
-<a href="./posts/concepts/pca.html">
-<div class="listing-description">
-Let’s assume that you have a dataset with a higher number of attributes and you are thinking <em>Is there any way to compress this information into a smaller number of attributes</em>. Well, dimensionality reduction methods offer that functionality. Among many dimensionality reduction methods, PCA (Principal Component Analysis) is widely used and this…
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/concepts/pca.html">
 <div class="listing-date">
 Apr 22, 2020
 </div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="3" data-categories="python,openface,facial features" data-listing-date-sort="1585346400000" data-listing-file-modified-sort="1701791368364" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<a href="./posts/post-with-code/facial-features.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="./posts/post-with-code/p1-openface.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Facial feature extraction using OpenFace
+</h5>
+<div class="listing-reading-time card-text text-muted">
+2 min
+</div>
+<div class="card-text listing-description">
+In this post, I will discuss the work I have been doing recently. I needed to extract facial features from the recorded video and…
+</div>
+<div class="card-attribution card-text-small justify">
 <div class="listing-author">
 Pankaj Chejara
 </div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="python,openface,facial features" data-listing-date-sort="1585346400000" data-listing-file-modified-sort="1701722443081" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
-<div class="thumbnail">
-<p><a href="./posts/post-with-code/facial-features.html"> <img src="./posts/post-with-code/p1-openface.jpg" class="thumbnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./posts/post-with-code/facial-features.html">
-<h3 class="no-anchor listing-title">
-Facial feature extraction using OpenFace
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('python'); return false;">
-python
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('openface'); return false;">
-openface
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('facial features'); return false;">
-facial features
-</div>
-</div>
-<a href="./posts/post-with-code/facial-features.html">
-<div class="listing-description">
-In this post, I will discuss the work I have been doing recently. I needed to extract facial features from the recorded video and…
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/post-with-code/facial-features.html">
 <div class="listing-date">
 Mar 28, 2020
 </div>
-<div class="listing-author">
-Pankaj Chejara
+</div>
+</div>
 </div>
 </a>
-</div>
 </div>
 </div>
 <div class="listing-no-matching d-none">
 No matching items
 </div>
-</div></main> <!-- /main -->
+</div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

@@ -5,15 +5,17 @@ author: "Pankaj Chejara"
 
 date: "2020-04-22"
 
-categories: [machine learning, PCA, dimensionality reduction, python, scikit-learn]
+categories: [machine learning, pca, python, scikit-learn]
 
-image: ""
+image: "./pca-2.png"
 
 code-block-background: true
-
+toc: true
 ---
 
-Let's assume that you have a dataset with a higher number of attributes and you are thinking *Is there any way to compress this information into a smaller number of attributes*. Well, dimensionality reduction methods offer that functionality. Among many dimensionality reduction methods, PCA (Principal Component Analysis) is widely used and this post introduction to PCA and its working.
+Let's assume that you have a dataset with a higher number of attributes and you are thinking *Is there any way to compress this information into a smaller number of attributes*. 
+
+Well, dimensionality reduction methods offer that functionality. Among many dimensionality reduction methods, PCA (Principal Component Analysis) is widely used and this post introduction to PCA and its working.
 
 
 Let's start with a simple dataset with two attributes, $x$, and $y$ which we need to reduce from two attributes to one.

@@ -10,7 +10,7 @@ categories: [python, openface, facial features]
 image: "./p1-openface.jpg"
 
 code-block-background: true
-
+toc: true
 ---
 
 In this post, I will discuss the work I have been doing recently. I needed to extract facial features from the recorded video and for this task, I decided to use OpenFace, an open-source face recognition library. In this post, I am sharing the installation process and tutorial on detecting facial landmarks.

@@ -7,10 +7,10 @@ date: "2023-06-03"
 
 categories: [python, visualization, web-app]
 
-image: "./p6.3.png"
+image: "./p6.4.png"
 
 code-block-background: true
-
+toc: true
 ---
 
 Dashboards play a crucial role in conveying useful and actionable information from collected data regardless of context. As with economically feasible sensors, improved computation, storage facility, and IoT framework, it has become easier to collect an enormous amount of data from a variety of contexts (e.g. military, health-care, education). However, finding insights from collected data remains a challenge. This post offers an introduction to Python Dash a framework that is a great option for dashboard development. I personally really like this framework. It allows me to process my data along with its visualization through a web-based application.

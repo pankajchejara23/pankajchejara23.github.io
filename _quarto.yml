@@ -14,7 +14,9 @@ website:
         href: https://www.linkedin.com/in/pankaj-chejara-5ab77855/
       - icon: github
         href: https://github.com/pankajchejara23
-
+  back-to-top-navigation: true
+  page-navigation: true
+  reader-mode: true
 format:
   html:
     theme: flatly

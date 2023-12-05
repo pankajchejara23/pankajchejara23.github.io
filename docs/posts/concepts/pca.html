@@ -102,7 +102,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -146,6 +146,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
 </ul>
             <div class="quarto-navbar-tools">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
 </div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
@@ -158,8 +163,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <h1 class="title">Understanding Principal Component Analysis under the hood</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">machine learning</div>
-                <div class="quarto-category">PCA</div>
-                <div class="quarto-category">dimensionality reduction</div>
+                <div class="quarto-category">pca</div>
                 <div class="quarto-category">python</div>
                 <div class="quarto-category">scikit-learn</div>
               </div>
@@ -190,14 +194,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#principal-component-analysis-pca" id="toc-principal-component-analysis-pca" class="nav-link active" data-scroll-target="#principal-component-analysis-pca">Principal Component Analysis (PCA)</a></li>
+  <li><a href="#understanding-mathematics-behind-pca" id="toc-understanding-mathematics-behind-pca" class="nav-link" data-scroll-target="#understanding-mathematics-behind-pca">Understanding Mathematics behind PCA</a></li>
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
-<p>Let’s assume that you have a dataset with a higher number of attributes and you are thinking <em>Is there any way to compress this information into a smaller number of attributes</em>. Well, dimensionality reduction methods offer that functionality. Among many dimensionality reduction methods, PCA (Principal Component Analysis) is widely used and this post introduction to PCA and its working.</p>
+<p>Let’s assume that you have a dataset with a higher number of attributes and you are thinking <em>Is there any way to compress this information into a smaller number of attributes</em>.</p>
+<p>Well, dimensionality reduction methods offer that functionality. Among many dimensionality reduction methods, PCA (Principal Component Analysis) is widely used and this post introduction to PCA and its working.</p>
 <p>Let’s start with a simple dataset with two attributes, <span class="math inline">\(x\)</span>, and <span class="math inline">\(y\)</span> which we need to reduce from two attributes to one. <!-- /wp:paragraph --></p>
 
 <!-- wp:table -->
@@ -545,7 +560,7 @@ Python’s library <a href="https://scikit-learn.org/stable/">scikit-learn</a> h
 
 </section>
 
-</main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
