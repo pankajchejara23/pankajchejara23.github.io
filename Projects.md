@@ -7,6 +7,7 @@ format:
       self-contained: true
       grid: 
         margin-width: 350px
+toc: true
 ---
 
 ## EdTech Projects
@@ -74,3 +75,43 @@ The following projects focus on utilizing the power of analytics to support teac
 * Analyzed audio, video and log data to develop machine learning models to predict collaboration quality in classroom settings during group activity
 
 * Used Random Forest algorithm to develop model and evaluated its generalizability with a different dataset collected from a different Estonian school
+
+
+## Web-Development Projects
+
+I worked on the following projects as part of my web-developer role at Tallinn University.
+
+### TruestedUx
+
+[Website](https://www.trustux.org/) 
+
+`Python` , `Django`, `jQuery`, `Bootstrap`
+
+* An application which allows assessment of trust aspect of technology usage. 
+
+* Developed the complete front-end part and the most of back-end of the website.
+ 
+
+### Tinda
+
+[Website](https://web.htk.tlu.ee/tinda/et/user/login) 
+
+`Drupal` ,  `jQuery`, `Highcharts`
+
+* An application which allows assessment of digital competencies of professionals.
+
+* Added an module to download the responses of users to questionnaires on digital competencies following the [DigiComp](https://digital-skills-jobs.europa.eu/en/actions/european-initiatives/digital-competence-framework-digcomp) Framework.
+
+* Added a dashboard visualizing users' responses and their overall score for digital competencies. 
+
+* Added a report download functionality.
+
+
+### Seeds
+
+[Website](http://app.seeds-project.org/en/) 
+
+`Python` , `Django`, `jQuery`, `Bootstrap`, `Plotly`
+* A map-based application to allows users to filter energy transition scenario based on their preferences.
+
+* Handled the entire development of the project including front-end and back-end.
