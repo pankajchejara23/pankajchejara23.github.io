@@ -1,7 +1,7 @@
 ---
 title: "Introduction to Python's Pandas API"
 author: "Pankaj Chejara"
-date: "2020-05-17"
+date: "2021-05-17"
 categories: [python, pandas]
 image: "./images/pandas/p1.2.png"
 code-block-background: true
