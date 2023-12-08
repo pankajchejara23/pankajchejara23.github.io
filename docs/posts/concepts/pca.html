@@ -260,9 +260,7 @@ So here we have two options, we can take the projection of data points to either
 So, now if we look at our options (projection along x-axis or y-axis) then we find x-axis as a better option due to the larger variance shown in below figure
 </p>
 <!-- /wp:paragraph -->
-<!-- wp:image -->
-<figure class="figure" wp-block-image""=""><img 2019="" src="" content="" images="" 08="" screenshot-2019-08-10-at-9.04.03-am.png""="" alt="" ""="" class="figure-img"></figure>
-<!-- /wp:image -->
+<p><img src="./images/pca/p4.3.png" class="img-fluid"></p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -287,8 +285,9 @@ As we discussed in the above section the infinite possibilities for our two-dime
 <h3 class="anchored" data-anchor-id="understanding-mathematics-behind-pca">Understanding Mathematics behind PCA</h3>
 <!-- wp:paragraph -->
 <p>
-First, we are going to write the problem statement (finding a direction/vector/line which offers a maximum variance of projected data) of PCA into mathematics format. First, we need to see how to represent the projection. A projection of a data point along with a line can be computed using <span class="math inline">\(dot\)</span> product. Let’s say we want to compute the projection of the first data point (10,5) on the x-axis. Let’s represent our data point as a vector <span class="math inline">\(\vec{x_1}\)</span>. A vector has two properties- direction and magnitude (<a href="https://www.mathsisfun.com/algebra/vectors.html">more info</a>). The unit vector in the direction of x-axis and y-axis is represented by <span class="math inline">\(\hat{i}\)</span> and <span class="math inline">\(\hat{j}\)</span>, respectively. Every vector then denoted by number of units in the direction of x-axis and y-axis. Our data point (10,5) can be represented as 10 units in <strong>x-axis</strong> direction and 5 units in <strong>y-axis</strong> direction. The dot product between <span class="math inline">\(\vec{x_1}\)</span> and <span class="math inline">\(\hat{i}\)</span> will give the projection over the x-axis.
-</p>
+</p><p>First, we are going to write the problem statement (finding a direction/vector/line which offers a maximum variance of projected data) of PCA into mathematics format. First, we need to see how to represent the projection. A projection of a data point along with a line can be computed using <span class="math inline">\(dot\)</span> product. Let’s say we want to compute the projection of the first data point (10,5) on the x-axis.</p>
+Let’s represent our data point as a vector <span class="math inline">\(\vec{x_1}\)</span>. A vector has two properties- direction and magnitude (<a href="https://www.mathsisfun.com/algebra/vectors.html">more info</a>). The unit vector in the direction of x-axis and y-axis is represented by <span class="math inline">\(\hat{i}\)</span> and <span class="math inline">\(\hat{j}\)</span>, respectively. Every vector then denoted by number of units in the direction of x-axis and y-axis. Our data point (10,5) can be represented as 10 units in <strong>x-axis</strong> direction and 5 units in <strong>y-axis</strong> direction. The dot product between <span class="math inline">\(\vec{x_1}\)</span> and <span class="math inline">\(\hat{i}\)</span> will give the projection over the x-axis.
+<p></p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph -->
 <p>
@@ -300,9 +299,7 @@ First, we are going to write the problem statement (finding a direction/vector/l
 <span class="math display">\[= 10\]</span>
 </p>
 <!-- /wp:paragraph -->
-<!-- wp:image -->
-<figure class="figure" wp-block-image""=""><img 2019="" src="" content="" images="" 08="" screenshot-2019-08-10-at-10.36.28-am.png""="" alt="" ""="" class="figure-img"></figure>
-<!-- /wp:image -->
+<p><img src="./images/pca/p4.4.png" class="img-fluid"></p>
 <!-- wp:paragraph -->
 <p>
 In simpler terms, if you have two vectors or list of numbers <span class="math inline">\((a_1,a_2,a_3)\)</span> and<span class="math inline">\((b_1,b_2,b_3)\)</span> then their dot product will be <span class="math inline">\(a_1*b_1+a_2*b_2+a_3*b_3\)</span>. It can be written in matrix form as following <span class="math display">\[
@@ -331,7 +328,7 @@ Tip
 </div>
 </div>
 <span class="math display">\[
-  A^2 = a_1^2+a_2^2+a_3^2 &lt;br/&gt;
+  A^2 = a_1^2+a_2^2+a_3^2 \\
   = a_1*a_1+a_2*a_2+a_3*a_3
   = A^TA
   \]</span>
@@ -427,7 +424,8 @@ Tip
       -2 \\
       -5 \\
       \end{bmatrix}
-  \]</span> As it’s shown in the below figure that point (3,2) transformed into new point (-2,-5). Now, if we multiply <span class="math inline">\(B = [1,1]\)</span> with M then we will get result in the same direction. <span class="math display">\[
+  \]</span> As it’s shown in the below figure that point (3,2) transformed into new point (-2,-5). Now, if we multiply <span class="math inline">\(B = [1,1]\)</span> with M then we will get result in the same direction.</p>
+<p><img src="./images/pca/p4.5.png" class="img-fluid"> <span class="math display">\[
   \begin{bmatrix}
       2 &amp; -4 \\
       -1 &amp;  -1 \\

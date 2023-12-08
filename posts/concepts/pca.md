@@ -27,11 +27,13 @@ Let's start with a simple dataset with two attributes, $x$, and $y$ which we nee
   </td></tr><tr><td>12</td><td>5</td></tr><tr><td>16</td><td>6</td></tr><tr><td>20</td><td>7</td></tr><tr><td>19</td><td>5</td></tr></tbody></table></figure>
 <!-- /wp:table -->
 
+
 <!-- wp:image -->
 <figure class=""wp-block-image""><img src=""/content/images/2019/08/index.png"" alt=""""/></figure>
 <!-- /wp:image -->
 
 The simplest approach is to select one of the attributes. Let's say we are selecting $x$. In other words, we are taking the projection of the data points on X-axis (Projection: simply drawing a perpendicular line from data points to the x-axis and taking that corresponding value). For example, in the following diagram, we have taken the projection of data points along the x-axis.
+
 
 
 So here we have two options, we can take the projection of data points to either x-axis or y-axis. Our aim is to select one which offers more information about the data. To measure it, we can use **variance** which computes spread of data or in other words how the values are different from their mean value. So if you have an attribute with zero variance that means all values in that attribute are same.
@@ -45,10 +47,8 @@ $N$ is the number of data points in $X$</p>
 <!-- wp:paragraph -->
 <p>So, now if we look at our options (projection along x-axis or y-axis) then we find x-axis as a better option due to the larger variance shown in below figure</p>
 <!-- /wp:paragraph -->
+![](./images/pca/p4.3.png)
 
-<!-- wp:image -->
-<figure class=""wp-block-image""><img src=""/content/images/2019/08/Screenshot-2019-08-10-at-9.04.03-AM.png"" alt=""""/></figure>
-<!-- /wp:image -->
 
 ::: {.callout-warning}
 ## Do we really have only these two options?
@@ -63,7 +63,10 @@ $N$ is the number of data points in $X$</p>
 ### Understanding Mathematics behind PCA
 
 <!-- wp:paragraph -->
-<p>First, we are going to write the problem statement (finding a direction/vector/line which offers a maximum variance of projected data) of PCA into mathematics format. First, we need to see how to represent the projection. A projection of a data point along with a line can be computed using $dot$ product. Let's say we want to compute the projection of the first data point (10,5) on the x-axis. Let's represent our data point as a vector $\vec{x_1}$. A vector has two properties- direction and magnitude ([more info](https://www.mathsisfun.com/algebra/vectors.html)). The unit vector in the direction of x-axis and y-axis is represented by $\hat{i}$ and $\hat{j}$, respectively. Every vector then denoted by number of units in the direction of x-axis and y-axis. Our data point (10,5) can be represented as 10 units in <strong>x-axis</strong> direction and 5 units in <strong>y-axis</strong> direction. The dot product between $\vec{x_1}$ and $\hat{i}$ will give the projection over the x-axis.</p>
+<p>First, we are going to write the problem statement (finding a direction/vector/line which offers a maximum variance of projected data) of PCA into mathematics format. 
+First, we need to see how to represent the projection. A projection of a data point along with a line can be computed using $dot$ product. Let's say we want to compute the projection of the first data point (10,5) on the x-axis. 
+
+Let's represent our data point as a vector $\vec{x_1}$. A vector has two properties- direction and magnitude ([more info](https://www.mathsisfun.com/algebra/vectors.html)). The unit vector in the direction of x-axis and y-axis is represented by $\hat{i}$ and $\hat{j}$, respectively. Every vector then denoted by number of units in the direction of x-axis and y-axis. Our data point (10,5) can be represented as 10 units in <strong>x-axis</strong> direction and 5 units in <strong>y-axis</strong> direction. The dot product between $\vec{x_1}$ and $\hat{i}$ will give the projection over the x-axis.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
@@ -74,9 +77,9 @@ $N$ is the number of data points in $X$</p>
 <p>$$= 10$$</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:image -->
-<figure class=""wp-block-image""><img src=""/content/images/2019/08/Screenshot-2019-08-10-at-10.36.28-AM.png"" alt=""""/></figure>
-<!-- /wp:image -->
+
+![](./images/pca/p4.4.png)
+
 
 <!-- wp:paragraph -->
 <p>In simpler terms, if you have two vectors or list of numbers $(a_1,a_2,a_3)$ and$(b_1,b_2,b_3)$ then their dot product will be $a_1*b_1+a_2*b_2+a_3*b_3$. It can be written in matrix form as following
@@ -99,7 +102,7 @@ A dot product of $\vec{A}$ with its own gives you $A^2$.
 
 
 $$
-  A^2 = a_1^2+a_2^2+a_3^2 <br/>
+  A^2 = a_1^2+a_2^2+a_3^2 \\
   = a_1*a_1+a_2*a_2+a_3*a_3 
   = A^TA
   $$</p>
@@ -183,6 +186,8 @@ The above equation is actually stating that $L$ must be **eigenvector** of covar
       \end{bmatrix}
   $$
   As it's shown in the below figure that point (3,2) transformed into new point (-2,-5). Now, if we multiply $B = [1,1]$ with M then we will get result in the same direction.
+
+  ![](./images/pca/p4.5.png)
   $$
   \begin{bmatrix}
       2 & -4 \\
