@@ -119,6 +119,13 @@
     "text": "Now we will plot the data of start station of bike trip on the map of Boston.\n\nimport matplotlib.pyplot as plt\nfig, ax = plt.subplots(figsize=(10,8))\nboston.plot(ax=ax)\ngdf.plot(ax=ax,color='red',marker='+',alpha=.5)\n\n&lt;AxesSubplot:&gt;"
   },
   {
+    "objectID": "Awards.html",
+    "href": "Awards.html",
+    "title": "Awards",
+    "section": "",
+    "text": "Special Research Award for Combining Teaching Methodology and Technology\nEstonian Youth Board | Estonia  Link Research, Education\n\nThe award was given under the ITL Ustus Agur Scholarship for my research activities.\n\n\n\nBest Educational Technology Demonstration Award\nInternational Society of Learning Analytics Research | USA Link Research, Technology, Education\n\nThe award was given at the International Conference of Learning Analytics and Knowledge, Texas, Usa (2023) (paper acceptance rate: ~30%).\nThe award signifies the importance of the research project (i.e., CoTrack) for the education technology community.\n\n\n\nBest Paper Nominee\nInternational Society of Learning Analytics Research | USA  Paper-link  Research\n\nRecognized in Top 5 research papers in short paper category at the International Conference of Learning Analytics and Knowledge, Texas, Usa (2023).\n\n\n\nEC-TEL Scholarship\nEuropean Association of Technology-Enhanced Learning | EU  Research\n\nAwarded by European Association of Technology-Enhanced Learning for attending EC-TEL summer school in Greece in 2022.\n\n\n\nDora Plus Scholarship for Foreign Doctoral Students\nEuropean Regional Development Fund | Estonia  Research\n\nAwarded to Ph.D. students based on their academic performance.\n\n\n\n\n Back to top"
+  },
+  {
     "objectID": "posts/post-with-code/gramian.html",
     "href": "posts/post-with-code/gramian.html",
     "title": "Understanding Gramian Angular Field",
