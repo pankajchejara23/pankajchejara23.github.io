@@ -1,7 +1,7 @@
 ---
 title: "Computing inter-rater aggrement scores using Python"
 author: "Pankaj Chejara"
-date: "2023-09-21"
+date: "2023-05-21"
 categories: [python]
 image: "./images/agreement/hands.jpg"
 code-block-background: true

@@ -6,6 +6,7 @@ website:
   navbar:
     left:
       - Projects.md
+      - Awards.md
     right:
       - about.qmd
       - icon: twitter
