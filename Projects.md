@@ -112,6 +112,7 @@ I worked on the following projects as part of my web-developer role at Tallinn U
 [Website](http://app.seeds-project.org/en/) 
 
 `Python` , `Django`, `jQuery`, `Bootstrap`, `Plotly`
+
 * A map-based application to allows users to filter energy transition scenario based on their preferences.
 
 * Handled the entire development of the project including front-end and back-end.
