@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Pankaj Chejara">
-<meta name="dcterms.date" content="2023-01-23">
+<meta name="dcterms.date" content="2023-10-23">
 
 <title>Pankaj Chejara - Basics of Natural Language Processing in Python</title>
 <style>
@@ -184,7 +184,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">January 23, 2023</p>
+        <p class="date">October 23, 2023</p>
       </div>
     </div>
     
@@ -200,8 +200,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#installation" id="toc-installation" class="nav-link active" data-scroll-target="#installation">Installation</a></li>
-  <li><a href="#basic-concepts" id="toc-basic-concepts" class="nav-link" data-scroll-target="#basic-concepts">Basic concepts</a>
+  <li><a href="#basic-concepts" id="toc-basic-concepts" class="nav-link active" data-scroll-target="#basic-concepts">Basic concepts</a>
   <ul class="collapse">
   <li><a href="#tokenization" id="toc-tokenization" class="nav-link" data-scroll-target="#tokenization">Tokenization</a></li>
   <li><a href="#pos-tagging" id="toc-pos-tagging" class="nav-link" data-scroll-target="#pos-tagging">POS tagging</a></li>
@@ -219,16 +218,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<p>Natural language processing (NLP) is an interdisciplinary field combining computer science, artificial intelligence, and linguistics. Natural language processing focuses on the processing of <a href="https://www.thoughtco.com/what-is-a-natural-language-1691422">natural languages</a> (i.e., human languages such as English, and Hindi). This processing aims at comprehending natural languages and generating text in those languages.</p>
+<p>Natural language processing is an interdisciplinary field combining computer science, artificial intelligence, and linguistics. Natural language processing focuses on the processing of <a href="https://www.thoughtco.com/what-is-a-natural-language-1691422">natural languages</a> (i.e., human languages such as English, and Hindi). This processing aims at comprehending natural languages and generating text in those languages.</p>
 <p>Natural language processing, thus, enables computers to understand and process human languages and presents the enormous potential of building intelligent machines capable of understanding human input in their own languages.</p>
 <p>In this post, we will become familiar with the basics of natural language processing with Python. We will use the NLTK library for the tutorial. The post is targeted at beginners who are just starting to gain first-hand experience with natural language processing. # Basics of Natural Language Processing in Python Natural langauge processing enables computer to human languages. It combines linguistic with statistical modeling. In this post, we will become familiar with basics of nlp with Python. We will use NLTK library for the tutorial.</p>
-<section id="installation" class="level2">
-<h2 class="anchored" data-anchor-id="installation">Installation</h2>
-<p>First we need to install nltk library. The following command can be used to do that.</p>
+<p>Front image by <a href="https://unsplash.com/@santesson89?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Andrea De Santis</a> on Unsplash. ## Installation First we need to install nltk library. The following command can be used to do that.</p>
 <div class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pip install nltk</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
 <section id="basic-concepts" class="level2">
 <h2 class="anchored" data-anchor-id="basic-concepts">Basic concepts</h2>
 <p>Now, we will get familiar with the basic concepts of natural language processing. This processing takes place through multiple steps. With each step, a higher level of abstraction is achieved. Let’s understand some basic steps first.</p>
@@ -690,20 +686,89 @@ Word:.          Lemma:.</code></pre>
 </section>
 <section id="vectorization" class="level3">
 <h3 class="anchored" data-anchor-id="vectorization">Vectorization</h3>
-<p>Now, we will move to the final step in the aforementioned list of steps in natural language processing. This step translates the text into numbers so that computers can use them for further anlaysis. This is known as vectorization.</p>
-<p>There are multiple techinques of vectorization. In this post, however, we are going to discuss three main of those techniques: count vectorization, tf-idf, and word embeddings.</p>
-<p>Let’s say we have a piece of text which we like to classify into some categories. These categories are positive and negative. Our first question would be how we are going to transform the text into numbers so that it can be used with machine learning algorithms.</p>
-<p>One way could be counting of words’ frequency and using it as a feature to the algorithm. Another way, which we are going to discuss now, is to use one-hot encoding. This encoding transform each word into a vector. For example,</p>
+<p>Now, we will move to the final step in the aforementioned list of preprocessing steps in natural language processing. This final step is vectorization step. This step translates the text into numbers so that computers can use them for further anlaysis.</p>
+<p>There are multiple techinques of vectorization. In this post, we are going to discuss two basics techniques techniques: count vectorization, and tf-idf vectorization.</p>
+<section id="count-vectorization" class="level4">
+<h4 class="anchored" data-anchor-id="count-vectorization">Count Vectorization</h4>
+<p>In this technique, the input text is first broken down into a set of unique words, and next, each word is assigned a number which represents the frequency of that word.</p>
+<p>Let’s see a working example. For the example, we will use <a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html"><code>CountVectorizer</code></a> from <code>scikit-learn</code>.</p>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.feature_extraction.text <span class="im">import</span> CountVectorizer</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co"># input data</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>input_text <span class="op">=</span> [<span class="st">"In this post, we will become familiar with the basics of natural language processing with Python. We will use the NLTK library for the tutorial."</span>] </span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="co"># initialization</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>vect <span class="op">=</span> CountVectorizer()</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="co"># applying count vectorization on the text</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> vect.fit_transform(input_text)</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="co"># printing vocubulary with frequency</span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Shape:'</span>,result.shape, <span class="st">'</span><span class="ch">\n</span><span class="st"> Vector:'</span>,result.toarray())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Shape: (1, 20) 
+ Vector: [[1 1 1 1 1 1 1 1 1 1 1 1 1 3 1 1 1 2 2 2]]</code></pre>
+</div>
+</div>
+<div class="{callout-tip}">
+<p>The result is a single vector of length 20. In out input, we only had a single sentence, therefore, one got a single vector. In case of multiple sentences, we get one vector for each sentence.</p>
+</div>
+</section>
+<section id="tf-idf" class="level4">
+<h4 class="anchored" data-anchor-id="tf-idf">TF-IDF</h4>
+<p>The next vectorization technique is TF-IDF (Term Frequency- Inverse Document Frequency). Let’s understand their meaning. <br></p>
+<p><strong>Term Frequency (TF)</strong> This frequency counts the number of times a word occurs in the document.</p>
+<p><strong>Inverse Document Frequency</strong> This is the inverse of how many documents contains the specified term.</p>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.feature_extraction.text <span class="im">import</span> TfidfVectorizer</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co"># input data</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>input_text <span class="op">=</span> [<span class="st">"This is an amazing field with huge potential of building intelligent machine."</span>,</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>              <span class="st">"Those machine would be able to transform people's life."</span>,</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>              <span class="st">"This transformation would significantly improve the quality of life."</span>]</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="co"># TF-IDF intialization</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>tf <span class="op">=</span> TfidfVectorizer()</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="co"># applying vectorizer</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> tf.fit_transform(input_text)</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="co"># print results</span></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Shape:'</span>,result.shape, <span class="st">'</span><span class="ch">\n</span><span class="st"> Vector:'</span>,result.toarray())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Shape: (3, 25) 
+ Vector: [[0.         0.30520733 0.30520733 0.         0.30520733 0.30520733
+  0.30520733 0.         0.30520733 0.30520733 0.         0.23211804
+  0.23211804 0.         0.30520733 0.         0.         0.
+  0.23211804 0.         0.         0.         0.         0.30520733
+  0.        ]
+ [0.35955412 0.         0.         0.35955412 0.         0.
+  0.         0.         0.         0.         0.27345018 0.27345018
+  0.         0.35955412 0.         0.         0.         0.
+  0.         0.35955412 0.35955412 0.35955412 0.         0.
+  0.27345018]
+ [0.         0.         0.         0.         0.         0.
+  0.         0.36977238 0.         0.         0.28122142 0.
+  0.28122142 0.         0.         0.36977238 0.36977238 0.36977238
+  0.28122142 0.         0.         0.         0.36977238 0.
+  0.28122142]]</code></pre>
+</div>
+</div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>References</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fl">1.</span> https:<span class="op">//</span>www.learntek.org<span class="op">/</span>blog<span class="op">/</span>categorizing<span class="op">-</span>pos<span class="op">-</span>tagging<span class="op">-</span>nltk<span class="op">-</span>python<span class="op">/</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fl">2.</span> Stemming <span class="kw">and</span> Lemmatization: https:<span class="op">//</span>nlp.stanford.edu<span class="op">/</span>IR<span class="op">-</span>book<span class="op">/</span>html<span class="op">/</span>htmledition<span class="op">/</span>stemming<span class="op">-</span><span class="kw">and</span><span class="op">-</span>lemmatization<span class="op">-</span><span class="fl">1.</span><span class="er">html</span></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fl">3.</span> https:<span class="op">//</span>www.nltk.org<span class="op">/</span>book<span class="op">/</span></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="fl">4.</span> Morphological analysis: https:<span class="op">//</span>www.education.vic.gov.au<span class="op">/</span>school<span class="op">/</span>teachers<span class="op">/</span>teachingresources<span class="op">/</span>discipline<span class="op">/</span>english<span class="op">/</span>literacy<span class="op">/</span>readingviewing<span class="op">/</span>Pages<span class="op">/</span>litfocuswordmorph.aspx</span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="fl">5.</span> https:<span class="op">//</span>www.datacamp.com<span class="op">/</span>tutorial<span class="op">/</span>stemming<span class="op">-</span>lemmatization<span class="op">-</span>python</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>You can check [this blog post](https:<span class="op">//</span>www.turing.com<span class="op">/</span>kb<span class="op">/</span>guide<span class="op">-</span>on<span class="op">-</span>word<span class="op">-</span>embeddings<span class="op">-</span><span class="kw">in</span><span class="op">-</span>nlp) on further information on vectorization.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>References</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fl">1.</span> https:<span class="op">//</span>www.learntek.org<span class="op">/</span>blog<span class="op">/</span>categorizing<span class="op">-</span>pos<span class="op">-</span>tagging<span class="op">-</span>nltk<span class="op">-</span>python<span class="op">/</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fl">2.</span> Stemming <span class="kw">and</span> Lemmatization: https:<span class="op">//</span>nlp.stanford.edu<span class="op">/</span>IR<span class="op">-</span>book<span class="op">/</span>html<span class="op">/</span>htmledition<span class="op">/</span>stemming<span class="op">-</span><span class="kw">and</span><span class="op">-</span>lemmatization<span class="op">-</span><span class="fl">1.</span><span class="er">html</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="fl">3.</span> https:<span class="op">//</span>www.nltk.org<span class="op">/</span>book<span class="op">/</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="fl">4.</span> Morphological analysis: https:<span class="op">//</span>www.education.vic.gov.au<span class="op">/</span>school<span class="op">/</span>teachers<span class="op">/</span>teachingresources<span class="op">/</span>discipline<span class="op">/</span>english<span class="op">/</span>literacy<span class="op">/</span>readingviewing<span class="op">/</span>Pages<span class="op">/</span>litfocuswordmorph.aspx</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="fl">5.</span> https:<span class="op">//</span>www.datacamp.com<span class="op">/</span>tutorial<span class="op">/</span>stemming<span class="op">-</span>lemmatization<span class="op">-</span>python</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="fl">6.</span> https:<span class="op">//</span>pianalytix.com<span class="op">/</span>countvectorizer<span class="op">-</span><span class="kw">in</span><span class="op">-</span>nlp<span class="op">/</span><span class="co">#:~:text=CountVectorizer%20means%20breaking%20down%20a,data%20needs%20to%20be%20vectorized.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
+</section>
 </section>
 </section>
 
