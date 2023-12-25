@@ -5,10 +5,11 @@ website:
   title: "Pankaj Chejara"
   navbar:
     left:
+      - Blog.md
       - Projects.md
       - Awards.md
+      - cv.qmd
     right:
-      - about.qmd
       - icon: twitter
         href: https://twitter.com/pankajchejara1
       - icon: linkedin
