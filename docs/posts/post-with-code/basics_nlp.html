@@ -118,6 +118,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
+    <a class="nav-link" href="../../Blog.html" rel="" target="">
+ <span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="../../Projects.html" rel="" target="">
  <span class="menu-text">Projects</span></a>
   </li>  
@@ -125,12 +129,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="../../Awards.html" rel="" target="">
  <span class="menu-text">Awards</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../cv.html" rel="" target="">
+ <span class="menu-text">Curriculum vitæ</span></a>
+  </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">About Me</span></a>
-  </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://twitter.com/pankajchejara1" rel="" target=""><i class="bi bi-twitter" role="img">
 </i> 
@@ -200,7 +204,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#basic-concepts" id="toc-basic-concepts" class="nav-link active" data-scroll-target="#basic-concepts">Basic concepts</a>
+  <li><a href="#installation" id="toc-installation" class="nav-link active" data-scroll-target="#installation">Installation</a></li>
+  <li><a href="#basic-concepts" id="toc-basic-concepts" class="nav-link" data-scroll-target="#basic-concepts">Basic concepts</a>
   <ul class="collapse">
   <li><a href="#tokenization" id="toc-tokenization" class="nav-link" data-scroll-target="#tokenization">Tokenization</a></li>
   <li><a href="#pos-tagging" id="toc-pos-tagging" class="nav-link" data-scroll-target="#pos-tagging">POS tagging</a></li>
@@ -221,10 +226,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Natural language processing is an interdisciplinary field combining computer science, artificial intelligence, and linguistics. Natural language processing focuses on the processing of <a href="https://www.thoughtco.com/what-is-a-natural-language-1691422">natural languages</a> (i.e., human languages such as English, and Hindi). This processing aims at comprehending natural languages and generating text in those languages.</p>
 <p>Natural language processing, thus, enables computers to understand and process human languages and presents the enormous potential of building intelligent machines capable of understanding human input in their own languages.</p>
 <p>In this post, we will become familiar with the basics of natural language processing with Python. We will use the NLTK library for the tutorial. The post is targeted at beginners who are just starting to gain first-hand experience with natural language processing. # Basics of Natural Language Processing in Python Natural langauge processing enables computer to human languages. It combines linguistic with statistical modeling. In this post, we will become familiar with basics of nlp with Python. We will use NLTK library for the tutorial.</p>
-<p>Front image by <a href="https://unsplash.com/@santesson89?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Andrea De Santis</a> on Unsplash. ## Installation First we need to install nltk library. The following command can be used to do that.</p>
+<p>Front image by <a href="https://unsplash.com/@santesson89?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Andrea De Santis</a> on Unsplash.</p>
+<section id="installation" class="level2">
+<h2 class="anchored" data-anchor-id="installation">Installation</h2>
+<p>First we need to install nltk library. The following command can be used to do that.</p>
 <div class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pip install nltk</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
 <section id="basic-concepts" class="level2">
 <h2 class="anchored" data-anchor-id="basic-concepts">Basic concepts</h2>
 <p>Now, we will get familiar with the basic concepts of natural language processing. This processing takes place through multiple steps. With each step, a higher level of abstraction is achieved. Let’s understand some basic steps first.</p>
@@ -562,7 +571,7 @@ Word:.          Stem:.</code></pre>
 </section>
 <section id="lemmatization" class="level3">
 <h3 class="anchored" data-anchor-id="lemmatization">Lemmatization</h3>
-<p>Lemmatization is an another technique which also perform a similar task as Stemming i.e., transoforming words into its base forms. However, it is differs in its approach. Lemmatization uses <a href="https://www.education.vic.gov.au/school/teachers/teachingresources/discipline/english/literacy/readingviewing/Pages/litfocuswordmorph.aspx">morphological analysis</a> to achieve the goal. The morphological analysis means understanding of words and their parts.</p>
+<p>Lemmatization is an another technique which also perform a similar task as Stemming i.e., transforming words into its base forms. However, it differs in its approach. Lemmatization uses <a href="https://www.education.vic.gov.au/school/teachers/teachingresources/discipline/english/literacy/readingviewing/Pages/litfocuswordmorph.aspx">morphological analysis</a> to achieve the goal. The morphological analysis means understanding of words and their parts.</p>
 <p>You can refer to this post to gain more information on different <a href="https://www.machinelearningplus.com/nlp/lemmatization-examples-python/?utm_content=cmp-true">lemmatization approaches</a> in python.</p>
 <div class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> nltk.stem <span class="im">import</span> WordNetLemmatizer</span>
@@ -624,7 +633,7 @@ No change after lemmatization
 <span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    tagged_tuple_list <span class="op">=</span> pos_tag([word])</span>
 <span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># fetching the item in the list and then the tag in tuple</span></span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    tagged_tuple <span class="op">=</span> tagged_tuple_list[<span class="dv">0</span>]  <span class="co"># the first index will fetch the fist itme in the list</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    tagged_tuple <span class="op">=</span> tagged_tuple_list[<span class="dv">0</span>]  <span class="co"># the first index will fetch the fist item in the list</span></span>
 <span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># fetching the tag from the tagged tuple</span></span>
 <span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>    tag <span class="op">=</span> tagged_tuple[<span class="dv">1</span>]   <span class="co"># the index will fetch the tag (e.g., 'VBD')</span></span>
@@ -711,8 +720,18 @@ Word:.          Lemma:.</code></pre>
  Vector: [[1 1 1 1 1 1 1 1 1 1 1 1 1 3 1 1 1 2 2 2]]</code></pre>
 </div>
 </div>
-<div class="{callout-tip}">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>The result is a single vector of length 20. In out input, we only had a single sentence, therefore, one got a single vector. In case of multiple sentences, we get one vector for each sentence.</p>
+</div>
 </div>
 </section>
 <section id="tf-idf" class="level4">
