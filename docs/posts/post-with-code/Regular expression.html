@@ -9,7 +9,7 @@
 <meta name="author" content="Pankaj Chejara">
 <meta name="dcterms.date" content="2023-10-10">
 
-<title>Pankaj Chejara - Introduction to Regular Expression</title>
+<title>Pankaj Chejara - Introduction to Regular Expressions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -166,7 +166,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Introduction to Regular Expression</h1>
+      <h1 class="title">Introduction to Regular Expressions</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">python</div>
                 <div class="quarto-category">regex</div>
@@ -204,7 +204,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction-to-regular-expression" id="toc-introduction-to-regular-expression" class="nav-link active" data-scroll-target="#introduction-to-regular-expression">Introduction to regular expression</a></li>
+  <li><a href="#introduction-to-regular-expressions" id="toc-introduction-to-regular-expressions" class="nav-link active" data-scroll-target="#introduction-to-regular-expressions">Introduction to Regular Expressions</a>
+  <ul class="collapse">
+  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -214,28 +217,197 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="introduction-to-regular-expression" class="level1">
-<h1>Introduction to regular expression</h1>
-<p>This post will explain the basics of regular expression. Regular expression (regexp in short) is a powerful technique of text searching and text manipulation. Every time you search in your word document using <code>Ctrl+f</code>, regular expression works in the background. For text processing, it is of a high importance to know this powerful techinque.</p>
-<p>Let’s take an example to understand it further. We have a set of string given below</p>
+<section id="introduction-to-regular-expressions" class="level1">
+<h1>Introduction to Regular Expressions</h1>
+<p>This post will explain the basics of regular expression. Regular expression (regexp in short) is a powerful technique of text searching and text manipulation. If you are planning to make your career in the field of natural language processing then regexp is a must have skill in your skill set.</p>
+<p><strong>Example:</strong> Every time you search in your word document using <code>Ctrl+f</code>, regular expression works in the background.</p>
+<p>Let’s take an example, given below, to understand it further.</p>
 <div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>text <span class="op">=</span> <span class="st">"abc abcd abcde"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Now, we want to see if there is a string <code>abc</code>. In terms of regular expression, we simply search for ‘abc’. This is the most basic form of regular expression where we simply specify the actual word or text itself.</p>
+<p>We want to see if there is a string <code>abc</code> present in our text data. To do that we will use the most basic form of regular expressions which specifies the search query using the actual word or text. For example, we want to search for <code>abc</code> in our text data, thus, we simply specify the term <code>abc</code> as our regular expression.</p>
+<p>The following code illustrates how to search for <code>abc</code> in our text data. We will use <code>re</code> package.</p>
 <div class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># searching for pattern 'abc' in text</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> re.findall(<span class="st">'abc'</span>,text)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># searching for pattern 'abc' in text. use r in the start of the pattern</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> re.findall(<span class="vs">r'abc'</span>,text)</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>['abc', 'abc', 'abc']</code></pre>
 </div>
 </div>
-<p>We can see in the resul above that there were three occurences of patter ‘abc’. We have now seen the most basic form of using regular expression (i.e., simply using the text).</p>
+<p>We can see in the result above that there were <strong>three occurrences</strong> of pattern `abc``. We have now seen the most basic form of using regular expression (i.e., simply using the text).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Now, we will move towards a more advanced form of regular expressions. Let<span class="st">'s change our text data the following</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="er">text = "abc abcd abcde bcd apple ddeffe eef ggh"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let’s now search all the words of three characters [no numbers]. We can only use our first approach of specifying the word itself for searching if we know all the three characters long words in the text data. However, we may not necessarily know about all of them.</p>
+<p><strong>How to search for three-characters-long words in the text?</strong></p>
+<p>To answer this we will use a special purpose character <code>.</code> which matches a single occurence of any word character. For our searching, we can simply specify <code>.</code> three times to search every three characters word.</p>
+<p>Let’s apply it first to see it’s working.</p>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>text <span class="op">=</span> <span class="st">"abc abcd abcde bcd apple ddeffe eef ggh"</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> re.findall(<span class="vs">r'...'</span>,text)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>['abc', ' ab', 'cd ', 'abc', 'de ', 'bcd', ' ap', 'ple', ' dd', 'eff', 'e e', 'ef ', 'ggh']</code></pre>
+</div>
+</div>
+<p><strong>What went wrong?</strong> The results are not what we expected (i.e., all three-characters-long word). The reason is that the text is treated as sequence of characters and here characters are not limited to alphabets and numbers. Blanks are also considered as characters. So when we specify <code>.</code> it matches any single character including blank space.</p>
+<p><strong>To correct this</strong> we will use another special character <code>\b</code> which matches word boundry (in our case it is blank spaces between words).</p>
+<p>Now, we will change our regular expression to <code>\b...\b</code> which will match three-characters-long words which exists independently. Let’s see now the results.</p>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>text <span class="op">=</span> <span class="st">"abc abcd abcde bcd apple ddeffe eef ggh"</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> re.findall(<span class="vs">r'\b...\b'</span>,text)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>['abc', 'bcd', 'eef', 'ggh']</code></pre>
+</div>
+</div>
+<p><strong>It worked now as expected.</strong></p>
+<p>Similar to the special characters we have seen so far, there are other characters as well with special meaning. These characters makes it easier to create patterns for searching. The list of most commonly used special characters is given below.</p>
+<table class="table">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 90%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Pattern</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>[abc]</td>
+<td>Matches a single character among a,b,c</td>
+</tr>
+<tr class="even">
+<td>[^abc]</td>
+<td>Matches a single character except a or b or c</td>
+</tr>
+<tr class="odd">
+<td>[a-z]</td>
+<td>Matches a single character in a-z</td>
+</tr>
+<tr class="even">
+<td>[^a-z]</td>
+<td>Matches a single character except a-z</td>
+</tr>
+<tr class="odd">
+<td>.</td>
+<td>Matches any single character</td>
+</tr>
+<tr class="even">
+<td><code>\d</code></td>
+<td>Matches any single digit</td>
+</tr>
+<tr class="odd">
+<td><code>\w</code></td>
+<td>Matches any single word character (i.e., a character between a-z or A-Z or _ or 0-9)</td>
+</tr>
+<tr class="even">
+<td><code>\s</code></td>
+<td>Matches any white space character (i.e., space, tab, new line)</td>
+</tr>
+<tr class="odd">
+<td><code>\b</code></td>
+<td>Matches word boundary</td>
+</tr>
+<tr class="even">
+<td>^</td>
+<td>Matches start of string</td>
+</tr>
+<tr class="odd">
+<td>$</td>
+<td>Matches end of string</td>
+</tr>
+<tr class="even">
+<td>a?</td>
+<td>Matches zero or one occurrence of character a</td>
+</tr>
+<tr class="odd">
+<td>a+</td>
+<td>Matches one or more occurrences of character a</td>
+</tr>
+<tr class="even">
+<td>a*</td>
+<td>Matches zero or more occurrences of character a</td>
+</tr>
+<tr class="odd">
+<td>a{4}</td>
+<td>Matches four occurrences of character a</td>
+</tr>
+<tr class="even">
+<td>a{2,4}</td>
+<td>Matches occurrences of a between 2 to 4</td>
+</tr>
+<tr class="odd">
+<td>a{2,}</td>
+<td>Matches either two or more occurrences of a</td>
+</tr>
+</tbody>
+</table>
+<section id="examples" class="level2">
+<h2 class="anchored" data-anchor-id="examples">Examples</h2>
+<p>Let’s now see some examples of using regular expressions.</p>
+<p><strong>Example-1: Search all numbers present in the below text.</strong></p>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>text <span class="op">=</span> <span class="st">'Apple Bus 123 Air 34 Data 33 45Egg'</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co"># \d matches any digit while + matches one or more occurrence of preceeding pattern (i.e., digit)</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> re.findall(<span class="vs">r'\d+'</span>,text)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co"># print results</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(results)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>['123', '34', '33', '45']</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Match independent word only
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Remember to use <code>\b</code> in the expression if you want to extract the standalone numbers not which are parts of a string (e.g., 45 in 45Egg).</p>
+</div>
+</div>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>text <span class="op">=</span> <span class="st">'Apple Bus 123 Air 34 Data 33 45Egg'</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co"># \d matches any digit while + matches one or more occurrence of preceeding pattern (i.e., digit)</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> re.findall(<span class="vs">r'\b\d+\b'</span>,text)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co"># print results</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(results)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>['123', '34', '33']</code></pre>
+</div>
+</div>
+<p>References 1. https://regex101.com/ 2. https://www.regexone.com/ 3. https://docs.python.org/3/library/re.html</p>
 
 
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
