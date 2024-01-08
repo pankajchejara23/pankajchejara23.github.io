@@ -1,0 +1,19 @@
+{
+  "listing": "/Blog.html",
+  "items": [
+    "/posts/post-with-code/llama.html",
+    "/posts/post-with-code/Sentiment prediction.html",
+    "/posts/post-with-code/basics_nlp.html",
+    "/posts/post-with-code/Regular expression.html",
+    "/posts/post-with-code/Bike sharing map visualization.html",
+    "/posts/post-with-code/dash.html",
+    "/posts/post-with-code/agreement.html",
+    "/posts/post-with-code/gramian.html",
+    "/posts/post-with-code/data_r.html",
+    "/posts/post-with-code/mqtt.html",
+    "/posts/post-with-code/statistical_test.html",
+    "/posts/post-with-code/pandas.html",
+    "/posts/concepts/pca.html",
+    "/posts/post-with-code/facial-features.html"
+  ]
+}
