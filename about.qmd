@@ -16,7 +16,7 @@ about:
 
 ---
 
-Pankaj Chejara is a junior researcher cum web developer at the Center of Education Technology at Tallinn University, Estonia. His work is primarily focused on building AI tools to support teachers in the classroom with group work monitoring.
+Pankaj Chejara is a applied data science researcher/developer at the Center of Education Technology at Tallinn University, Estonia. His work is primarily focused on building AI tools to support teachers in the classroom with group work monitoring.
 He enjoys diving into data to extract insights and is always ready to learn new things to solve the problem at hand.
 When not working on data analytics projects, Pankaj enjoys spending time with his son and watching animated movies.
 
