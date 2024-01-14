@@ -213,7 +213,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#geometric-distribution" id="toc-geometric-distribution" class="nav-link" data-scroll-target="#geometric-distribution">Geometric distribution</a></li>
   <li><a href="#negative-binomial-distribution" id="toc-negative-binomial-distribution" class="nav-link" data-scroll-target="#negative-binomial-distribution">Negative Binomial distribution</a></li>
   <li><a href="#hypergeometric-distribution" id="toc-hypergeometric-distribution" class="nav-link" data-scroll-target="#hypergeometric-distribution">Hypergeometric distribution</a></li>
-  <li><a href="#piosson-distribution" id="toc-piosson-distribution" class="nav-link" data-scroll-target="#piosson-distribution">Piosson distribution</a></li>
+  <li><a href="#poisson-distribution" id="toc-poisson-distribution" class="nav-link" data-scroll-target="#poisson-distribution">Poisson distribution</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 </nav>
@@ -789,13 +789,13 @@ Tip
 </div>
 </div>
 </section>
-<section id="piosson-distribution" class="level1">
-<h1>Piosson distribution</h1>
-<p>Let’s now change our stance from employee to employer. An employer has a open job position and started receiving job applications. Every day the employer is getting a particular number of applications and to process those applications the employer need to make some arrangement.</p>
-<p>To make arrangement for an upcoming week, the employer is interested in knowning the number of expected job applications in the next week. This is where <strong>Poisson distribution</strong> comes into the picture.</p>
-<p>The poisson distribution is used to <strong>model number of occurences in a particular time period or in a space unit</strong>. This distribution is characterised by <span class="math inline">\(\lambda\)</span> which is average number of events. The probability of k occurences of events for given <span class="math inline">\(\lambda\)</span> is the following</p>
+<section id="poisson-distribution" class="level1">
+<h1>Poisson distribution</h1>
+<p>Let’s now change our stance from employee to employer. An employer has an open job position and started receiving job applications. Every day the employer gets a particular number of applications and to process those applications the employer needs to make some arrangements.</p>
+<p>To arrange for an upcoming week, the employer is interested in knowing the number of expected job applications in the next week. This is where <strong>Poisson distribution</strong> comes into the picture.</p>
+<p>The Poisson distribution is used to <strong>model the number of occurrences in a particular period or a space unit</strong>. This distribution is characterized by <span class="math inline">\(\lambda\)</span> which is an average number of events. The probability of k occurrences of events for given <span class="math inline">\(\lambda\)</span> is the following</p>
 <p><span class="math display">\[ P(k) =  \frac{\lambda^k * e^{-\lambda}}{k!}\]</span></p>
-<p>Using the above formula, we can compute the probability of getting k=10 job applications in the next week if the company is recieving an average of 7 job applications every week.</p>
+<p>Using the above formula, we can compute the probability of getting k=10 job applications in the next week if the company is receiving an average of 7 job applications every week.</p>
 <p><span class="math display">\[ P(X=10) =  \frac{7^10 * e^{-7}}{10!}\]</span></p>
 <p><span class="math display">\[ P(X=10)= .07 \]</span></p>
 <div class="callout callout-style-default callout-tip callout-titled">
