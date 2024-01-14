@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.537">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -24,7 +24,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -59,7 +59,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -81,13 +81,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
+  "limit": 20,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -96,45 +90,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -142,10 +108,10 @@ window.Quarto = {
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
+      <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Pankaj Chejara</span>
     </a>
@@ -157,47 +123,47 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../Blog.html"> 
-<span class="menu-text">Blog</span></a>
+    <a class="nav-link" href="../../Blog.html" rel="" target="">
+ <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../Projects.html"> 
-<span class="menu-text">Projects</span></a>
+    <a class="nav-link" href="../../Projects.html" rel="" target="">
+ <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../Awards.html"> 
-<span class="menu-text">Awards</span></a>
+    <a class="nav-link" href="../../Awards.html" rel="" target="">
+ <span class="menu-text">Awards</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../cv.html"> 
-<span class="menu-text">Curriculum vitæ</span></a>
+    <a class="nav-link" href="../../cv.html" rel="" target="">
+ <span class="menu-text">Curriculum vitæ</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com/pankajchejara1"> <i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://twitter.com/pankajchejara1" rel="" target=""><i class="bi bi-twitter" role="img">
 </i> 
-<span class="menu-text"></span></a>
+ <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/pankaj-chejara-5ab77855/"> <i class="bi bi-linkedin" role="img">
+    <a class="nav-link" href="https://www.linkedin.com/in/pankaj-chejara-5ab77855/" rel="" target=""><i class="bi bi-linkedin" role="img">
 </i> 
-<span class="menu-text"></span></a>
+ <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/pankajchejara23"> <i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/pankajchejara23" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
-<span class="menu-text"></span></a>
+ <span class="menu-text"></span></a>
   </li>  
 </ul>
-          </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
   </div>
 </a>
 </div>
+          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -270,7 +236,6 @@ window.Quarto = {
 
 
 
-
 <section id="yelpclassifier-sentiment-prediction-using-pytorch" class="level1">
 <h1>YelpClassifier: Sentiment prediction using PyTorch</h1>
 <p>This year, I started exploring NLP (natural language processing) given its huge potential for building intelligent systems capable of understanding and generating text in human languages. In this exploration, I have developed an understanding of how nlp applications works. I am now engaging myself with building real-life applications.</p>
@@ -281,7 +246,7 @@ window.Quarto = {
 <p>In this post, I have used a smaller version of <a href="https://github.com/pankajchejara23/nlp_projects/blob/main/yelp_classifier/yelp/reviews_with_splits_lite.csv">Yelp dataset</a> which is a dataset of customer’s reviews and ratings. The dataset is a processed version of the original dataset.</p>
 <p>For example, in original dataset the ratings are given from 1 to 5, while in this dataset ratings are divied into two categories, i.e., negative and positive. Addtionally, the dataset is already partitioned into train, val and test sets.</p>
 <p>Let’s see how the records in the yelp dataset look like</p>
-<div id="2a7880b5" class="cell" data-execution_count="19">
+<div class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># reading yelp dataset file</span></span>
@@ -350,7 +315,7 @@ window.Quarto = {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="Sentiment prediction_files/figure-html/edb675c2-1-sentiment_yelp_1_vec.png" class="img-fluid figure-img"></p>
-<figcaption>vectorization</figcaption>
+<figcaption class="figure-caption">vectorization</figcaption>
 </figure>
 </div>
 <p>We have a text review that we like to vectorize or convert into a sequence of numbers. There are multiple ways to do that, and we will use the most basic technique for understanding purpose, i.e., using a vocabulary. Vocabulary is a storage that stores words as represented in the above figure. In other terms, vocabulary offers a mapping service between words and their stored location (or index). For example, the one shown in the above figure stores 500 words and each word has an associated index.</p>
@@ -365,7 +330,7 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="building-vocabulary-for-the-review-text">Building vocabulary for the review text</h3>
 <p>The core process of building a vocabulary includes scanning all the text, breaking it into words, and storing unique words. In addition to storing, vocabulary also provides the functionality of mapping between words (or tokens) and their respective indices (i.e., where those words are stored).</p>
 <p>The following class offers those functionalities. There is a possibility that during the vectorization process, we are likely to have words that are not available in the vocabulary. To handle those cases, we can store some special words representing all unavailable words, e.g., ‘&lt;UNK&gt;’.</p>
-<div id="4a2c3463" class="cell" data-execution_count="20">
+<div class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Vocabulary(<span class="bu">object</span>):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, token_to_idx <span class="op">=</span> <span class="va">None</span>, add_unk<span class="op">=</span><span class="va">True</span>, unk_token<span class="op">=</span><span class="st">'&lt;UNK&gt;'</span>):</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""</span></span>
@@ -466,7 +431,7 @@ window.Quarto = {
 <h4 class="anchored" data-anchor-id="examples-of-vocabulary-class">Examples of Vocabulary class</h4>
 <p>Let’s see one example of using Vocabulary class for the following text.</p>
 <pre><code>text = """This is a good example of illustrating the use of pytorch for natural language processing. The example shows how to build a vocabulary which is a collection of words and their mapping to their corresponding indices. """</code></pre>
-<div id="092a3702" class="cell" data-execution_count="21">
+<div class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># raw text</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>text <span class="op">=</span> <span class="st">"""This is a good example of illustrating the use of pytorch for natural language processing. The example shows how to build a vocabulary which is a collection of words and their mapping to their corresponding indices. """</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -484,7 +449,7 @@ window.Quarto = {
 </div>
 </div>
 <p>As we can see that each word mapped to an index. We also have one special token ‘&lt;UNK&gt;’. To see its usage, we will perform a lookup for a word which is not in the vocabulary.</p>
-<div id="b953351e" class="cell" data-execution_count="11">
+<div class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># lookup for the word 'estonia'</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(voc.lookup_token(<span class="st">'estonia'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -500,7 +465,7 @@ window.Quarto = {
 <p>Now, let’s move to the vectorization process. This is the process where we will transform review text into vectors. These vectors will contain indices of each word in the review text.</p>
 <p>For example, let’s say we have a text “how to build” which we want to vectorize. For that, we need a mapping (token to index) or vocabulary where we have information about indices of tokens.</p>
 <p>If we use our demo vocabulary from the above example then “how to build” will be transformed into a vector.</p>
-<div id="28a01d3f" class="cell" data-execution_count="22">
+<div class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># creating a list of vocabulary size</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>vector <span class="op">=</span> [<span class="dv">0</span>]<span class="op">*</span> <span class="bu">len</span>(voc)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -518,7 +483,7 @@ window.Quarto = {
 </div>
 </div>
 <p>Now, that we have an idea of what vectorizer does, we will move to create a vectorizer class offering text-to vector transformation functionality.</p>
-<div id="c363a777" class="cell" data-execution_count="23">
+<div class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> ReviewVectorizer(<span class="bu">object</span>):</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Vectorizer class to transform review text into vectors</span></span>
@@ -625,7 +590,7 @@ window.Quarto = {
 <p>Before training a machine learning model, usually there are some preprocessing tasks, e.g., vectorizing the text, converting images to tensors, etc. These tasks are generally performed separately from the model training. PyTorch offers a systematic way to abstract those tasks. Here, we will see the use of two classes ‘Dataset’ and ‘DataLoader’.</p>
 <p>The first class is related to reading data files, performing some preprocessing tasks, and fetching training instances. While the second class offers a wrapper around the dataset class to fetch data in batches for training.</p>
 <p>Let’s dive into the code.</p>
-<div id="a718280d" class="cell" data-execution_count="31">
+<div class="cell" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> YelpDataset(Dataset):</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
@@ -706,11 +671,11 @@ window.Quarto = {
 </div>
 <p>To create a custom ‘Dataset’ class, two functions must be defined, i.e., <strong>len</strong>, <strong>getitem</strong>. The first function returns the length of the dataset and the second function fetches the training instance at a given index.</p>
 <p>In our YelpDataset class, we have added some more functions as well to simplify the loading of training, validation, and test sets.</p>
-<div id="66b4b68c" class="cell" data-execution_count="32">
+<div class="cell" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># checking the dataset</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>yelpDB <span class="op">=</span> YelpDataset.load_dataset_and_make_vectorizer(<span class="st">'./yelp/reviews_with_splits_lite.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="e2a82824" class="cell" data-execution_count="33">
+<div class="cell" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> split <span class="kw">in</span> [<span class="st">'train'</span>,<span class="st">'test'</span>,<span class="st">'val'</span>]:</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    yelpDB.set_split(split)</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Split:</span><span class="sc">{</span>split<span class="sc">}</span><span class="ss">     Size:</span><span class="sc">{</span><span class="bu">len</span>(yelpDB)<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -725,7 +690,7 @@ Split:val     Size:8400</code></pre>
 <section id="dataloader" class="level3">
 <h3 class="anchored" data-anchor-id="dataloader">DataLoader</h3>
 <p>The following function creates a dataloader for our Yelp dataset. This dataloader return data in batches.</p>
-<div id="0e185f91" class="cell" data-execution_count="35">
+<div class="cell" data-execution_count="35">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> string</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> torch.utils.data <span class="im">import</span> Dataset</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> torch.utils.data <span class="im">import</span> DataLoader</span>
@@ -754,7 +719,7 @@ Split:val     Size:8400</code></pre>
 <span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">yield</span> out_data_dict</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Let’s see now how one batch look like.</p>
-<div id="23c0be6a" class="cell" data-execution_count="39">
+<div class="cell" data-execution_count="39">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>batch <span class="op">=</span> <span class="bu">next</span>(<span class="bu">iter</span>(generate_batches(yelpDB,batch_size<span class="op">=</span><span class="dv">100</span>)))</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Size:'</span>,batch[<span class="st">'x_data'</span>].size())</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Batch example:'</span>,batch)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -779,7 +744,7 @@ Batch example: {'x_data': tensor([[1., 1., 1.,  ..., 0., 0., 0.],
 <p>Now, we will move to build our neural network to classify review text into positive or negative categories of rating. To build a custom neural network, the ‘Module’ class needs to be inherited. The following class does that.</p>
 <p>Next, during the initialization (i.e., inside the <strong>init</strong> function) neural network architecture is specified. In our case, we have having a single Linear layer.</p>
 <p>Finally, in the forward function the computation is performed. In the following class, we are simply performing linear computation of the form <span class="math inline">\(W*X\)</span> where <span class="math inline">\(W\)</span> represent weights and <span class="math inline">\(X\)</span> represent input data. On the computed result, the sigmoid function is applied.</p>
-<div id="ca1bac2e" class="cell" data-execution_count="46">
+<div class="cell" data-execution_count="46">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> torch <span class="im">import</span> nn</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> torch.nn <span class="im">import</span> functional <span class="im">as</span> F</span>
@@ -818,7 +783,7 @@ Batch example: {'x_data': tensor([[1., 1., 1.,  ..., 0., 0., 0.],
 <section id="training-the-neural-network" class="level3">
 <h3 class="anchored" data-anchor-id="training-the-neural-network">Training the neural network</h3>
 <p>We will load our database which will create a vocabulary and vectorizer. We then get the vectorizer and initialize our classifier.</p>
-<div id="45908338" class="cell" data-execution_count="47">
+<div class="cell" data-execution_count="47">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># loading the dataset</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>yelpDB <span class="op">=</span> YelpDataset.load_dataset_and_make_vectorizer(<span class="st">'./yelp/reviews_with_splits_lite.csv'</span>)</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -828,7 +793,7 @@ Batch example: {'x_data': tensor([[1., 1., 1.,  ..., 0., 0., 0.],
 <span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="co"># initializing the classifier</span></span>
 <span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>classifier <span class="op">=</span> ReviewClassifier(<span class="bu">len</span>(vectorizer.review_vocab))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="1e7a22b7" class="cell" data-execution_count="48">
+<div class="cell" data-execution_count="48">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> compute_accuracy(y_pred,y_target):</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co">    function to compute accuracy metrics using logits</span></span>
@@ -846,7 +811,7 @@ Batch example: {'x_data': tensor([[1., 1., 1.,  ..., 0., 0., 0.],
 <div class="important">
 <pre><code>During validation and testing, we only perform the forward pass.</code></pre>
 </div>
-<div id="d90863e3" class="cell" data-execution_count="51">
+<div class="cell" data-execution_count="51">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> torch <span class="im">import</span> optim</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co"># for reproducibility</span></span>
@@ -1016,7 +981,7 @@ Epoch :19
 <section id="evaluation-on-test-data" class="level2">
 <h2 class="anchored" data-anchor-id="evaluation-on-test-data">Evaluation on test data</h2>
 <p>Now, we will see how well our classfier performs on test set.</p>
-<div id="c23925a6" class="cell" data-execution_count="52">
+<div class="cell" data-execution_count="52">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>yelpDB.set_split(<span class="st">'test'</span>)</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>batch_generator <span class="op">=</span> generate_batches(yelpDB,batch_size<span class="op">=</span>batch_size)</span>
@@ -1134,9 +1099,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+  function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
+      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1146,17 +1112,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start',
+      placement: 'bottom-start'
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1169,120 +1126,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
-          }
-        }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
-        }
-        return container.innerHTML
-      } else {
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(note);
-        }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      return note.innerHTML;
-    }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
-          }
-        } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
-          .then(res => res.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
-            if (note !== null) {
-              const html = processXRef(id, note);
-              instance.setContent(html);
-            } 
-          }).finally(() => {
-            instance.enable();
-            instance.show();
-          });
-        }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1326,7 +1169,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
-            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1352,32 +1194,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1438,7 +1254,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-
 
 
 
