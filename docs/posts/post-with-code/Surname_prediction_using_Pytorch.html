@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.537">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -24,7 +24,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -59,7 +59,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -81,13 +81,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
+  "limit": 20,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -96,14 +90,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
@@ -113,10 +106,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
+      <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Pankaj Chejara</span>
     </a>
@@ -128,47 +121,47 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../Blog.html"> 
-<span class="menu-text">Blog</span></a>
+    <a class="nav-link" href="../../Blog.html" rel="" target="">
+ <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../Projects.html"> 
-<span class="menu-text">Projects</span></a>
+    <a class="nav-link" href="../../Projects.html" rel="" target="">
+ <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../Awards.html"> 
-<span class="menu-text">Awards</span></a>
+    <a class="nav-link" href="../../Awards.html" rel="" target="">
+ <span class="menu-text">Awards</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../cv.html"> 
-<span class="menu-text">Curriculum vitæ</span></a>
+    <a class="nav-link" href="../../cv.html" rel="" target="">
+ <span class="menu-text">Curriculum vitæ</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com/pankajchejara1"> <i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://twitter.com/pankajchejara1" rel="" target=""><i class="bi bi-twitter" role="img">
 </i> 
-<span class="menu-text"></span></a>
+ <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/pankaj-chejara-5ab77855/"> <i class="bi bi-linkedin" role="img">
+    <a class="nav-link" href="https://www.linkedin.com/in/pankaj-chejara-5ab77855/" rel="" target=""><i class="bi bi-linkedin" role="img">
 </i> 
-<span class="menu-text"></span></a>
+ <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/pankajchejara23"> <i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/pankajchejara23" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
-<span class="menu-text"></span></a>
+ <span class="menu-text"></span></a>
   </li>  
 </ul>
-          </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
   </div>
 </a>
 </div>
+          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -247,7 +240,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-
 <section id="building-a-surname-classifier-with-pytorch" class="level1">
 <h1>Building a Surname Classifier with PyTorch</h1>
 <p>This post presents an NLP (Natural language processing) example based on the book <a href="https://www.amazon.com/Natural-Language-Processing-PyTorch-Applications/dp/1491978236">NLP with PyTorch:Building intelligent language applications using deep learning</a>. In the presented example, we will build a <strong>neural network to predict nationality based on surnames</strong>.</p>
@@ -271,7 +263,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>We will see here some data samples from the dataset to gain a better understanding of the dataset.</p>
 <p>The dataset used in this example can be downloaded from this <a href="https://github.com/nguyenvulebinh/surname-classify-pytorch/tree/master/data">link</a>.</p>
-<div id="d7dc0d83" class="cell" data-execution_count="231">
+<div class="cell" data-execution_count="231">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'surnames_with_splits.csv'</span>)</span>
@@ -343,7 +335,7 @@ Nationality:
 </div>
 </div>
 </div>
-<div id="61a28431" class="cell">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>We have surnames <span class="im">from</span> <span class="dv">18</span> different nationalities <span class="kw">in</span> the dataset.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -386,7 +378,7 @@ Tip
 <li><p><strong>Looking up for an index</strong>: This is where we return the token stored on the specified index.</p></li>
 <li><p><strong>Looking up for a token</strong>: This is similar to the previous function except this time we return the index for the specified token.</p></li>
 </ul>
-<div id="56b21273" class="cell" data-execution_count="269">
+<div class="cell" data-execution_count="269">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> SurnameVocabulary(<span class="bu">object</span>):</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>,index_to_token<span class="op">=</span><span class="va">None</span>,add_unk <span class="op">=</span> <span class="va">True</span>, unk_token<span class="op">=</span><span class="st">'@'</span>):</span>
@@ -463,7 +455,7 @@ Tip
 <h3 class="anchored" data-anchor-id="dictionary-example">Dictionary example</h3>
 <p>As we have now our class prepared, we will now initialize the dictionary using our surname dataset.</p>
 <p>We can see below the mapping of dictionary where each index has a corresponding token. We also have <code>@</code> as a unknown token (for handling new characters).</p>
-<div id="3715446a" class="cell" data-execution_count="270">
+<div class="cell" data-execution_count="270">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> SurnameVocabulary.build_from_dataframe(df,cutoff<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(s._index_to_token)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -485,7 +477,7 @@ Tip
 </ul>
 <p>We have implemented the vectorization process in the form of a class given below.</p>
 <p>The vectorizer class maintains two dictionaries, one for surnames and another for labels (nationality). We also included one class function to initializes the vectorizer. This is just for the sake of putting all the vectorizer-related code at one place. The <code>build_vectorizer</code> could be written an external code as well.</p>
-<div id="26cac7c4" class="cell" data-execution_count="280">
+<div class="cell" data-execution_count="280">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> SurnameVectorizer(<span class="bu">object</span>):</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>,surname_vocab,label_vocab):</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>(SurnameVectorizer,<span class="va">self</span>)</span>
@@ -517,7 +509,7 @@ Tip
 <section id="vectorizer-example" class="level3">
 <h3 class="anchored" data-anchor-id="vectorizer-example">Vectorizer example</h3>
 <p>We will now see how the vectorizer transforms a surname into a vector. For the demonstration, we will use the surname <code>Totah</code>. The vectorizer started by breaking down the surname into characters and then fetching the index of each character from the SurnameDictionary. It then sets a <strong>1</strong> at the corresponding position in the vector of size 24 (same size as SurnameDictionary)</p>
-<div id="fc648d17" class="cell" data-execution_count="277">
+<div class="cell" data-execution_count="277">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Surname:Totah</span><span class="ch">\n\n</span><span class="st">'</span>)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>vec <span class="op">=</span> SurnameVectorizer.build_vectorizer(df,cutoff<span class="op">=</span><span class="dv">0</span>)</span>
@@ -573,7 +565,7 @@ Important
 <p>The <code>__getitem__</code> function returns a vector for the specified surname. But for the nationality, it simply returns the index. This is because PyTroch allows the use of index values for computing loss (we will see it later).</p>
 </div>
 </div>
-<div id="5a41df8d" class="cell" data-execution_count="309">
+<div class="cell" data-execution_count="309">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> torch.utils.data <span class="im">import</span> Dataset, DataLoader</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> SurnameDataset(Dataset):</span>
@@ -621,7 +613,7 @@ Important
 <section id="dataset-example" class="level3">
 <h3 class="anchored" data-anchor-id="dataset-example">Dataset Example</h3>
 <p>We will now see an example of using our SurnameDataset class. We will create an object of the class and then will fetch a particular data instance with its label.</p>
-<div id="fb729f17" class="cell" data-execution_count="323">
+<div class="cell" data-execution_count="323">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> SurnameDataset(df)</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">#dictionary size</span></span>
@@ -640,7 +632,7 @@ Important
 </div>
 <p>During training, we need to feed data in batches for efficiency reasons. We can either handle grouping data instances in batches ourselves or we can use the <code>DataLoader</code> class.</p>
 <p>The following code creates a batch iterator using the DataLoader class. The iterator returns a batch consisting of a specified number of data instances (e.g., 100). We can specify the size in the <code>batch_size</code> argument. The <code>drop_last</code> argument drops the last batch if it is smaller than the batch size.</p>
-<div id="aaa09a05" class="cell" data-execution_count="321">
+<div class="cell" data-execution_count="321">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>data_loader <span class="op">=</span> DataLoader(data,batch_size<span class="op">=</span><span class="dv">100</span>,drop_last<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># fetching the first batch </span></span>
@@ -659,7 +651,7 @@ Important
 <p>To build a neural network, we need to inherit the <code>Module</code> class and have to specify a function <code>forward</code>. In the following class, we create two layers during the initialization. In the forward function, we perform the computation by passing the input data in the first layer. Then, we apply the <code>Relu</code> activation function on it and pass it to the second layer.</p>
 <p>Finally, we apply softmax which transforms the output of the second layer into probabilities across 18 nationalities.</p>
 <p>One thing to note here is that we are only applying the softmax function when the flag <code>apply_softmax</code> is True. The reason is that we don’t need to do that during training because we can compute the loss on the second layer’s output directly. However, during the prediction we need the probabilities.</p>
-<div id="a6a4daef" class="cell" data-execution_count="294">
+<div class="cell" data-execution_count="294">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> torch <span class="im">import</span> nn</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.nn.functional <span class="im">as</span> F</span>
@@ -681,7 +673,7 @@ Important
 <span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> final</span>
 <span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>      </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="559ec9c7" class="cell" data-execution_count="215">
+<div class="cell" data-execution_count="215">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> SurnameClassifierV1(nn.Module):</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>,input_dim,hidden_dim,output_dim):</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>()</span>
@@ -697,7 +689,7 @@ Important
 <span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> final</span>
 <span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>        </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="180aa5f9" class="cell" data-execution_count="150">
+<div class="cell" data-execution_count="150">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> compute_accuracy(y_pred,y_true):</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    _, y_pred_indices <span class="op">=</span> y_pred.<span class="bu">max</span>(dim<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    </span>
@@ -716,7 +708,7 @@ Important
 <li>In each epoch, set the classifier in training mode and iterate over the entire dataset by fetching data in the form of batches</li>
 <li>For each batch, first zeros the optimizer’s gradients (from the previous run), perform a forward pass by computing the output using the input, compute the loss, make a backward pass, and update the weight parameters.</li>
 </ul>
-<div id="655827e1" class="cell" data-execution_count="324">
+<div class="cell" data-execution_count="324">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>input_layer_size <span class="op">=</span> <span class="dv">46</span> <span class="co"># equals to the size of surname dictionary</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>hidden_layer_size <span class="op">=</span> <span class="dv">300</span> </span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>output_layer_size <span class="op">=</span> <span class="dv">18</span> <span class="co"># equals to the number of nationality in the dataset</span></span>
@@ -788,7 +780,7 @@ Important
 <pre><code>Final: 0.9167288458595673    68.61979166666667</code></pre>
 </div>
 </div>
-<div id="4dd5574c" class="cell" data-execution_count="325">
+<div class="cell" data-execution_count="325">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>plt.plot(<span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">100</span><span class="op">+</span><span class="dv">1</span>)),acc_data,label<span class="op">=</span><span class="st">'Training Accuracy'</span>)</span>
@@ -800,17 +792,13 @@ Important
 <pre><code>Text(0, 0.5, 'Accuracy')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="Surname_prediction_using_Pytorch_files/figure-html/cell-15-output-2.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
+<p><img src="Surname_prediction_using_Pytorch_files/figure-html/cell-15-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <section id="testing-the-classifier-using-validation-set" class="level2">
 <h2 class="anchored" data-anchor-id="testing-the-classifier-using-validation-set">Testing the classifier using validation set</h2>
 <p>Here, we will use the validation set for prediction. The code is similar to the training code except that we set the mode of classifier to testing and we don’t make the backward pass and update the parameters.</p>
-<div id="548ff551" class="cell" data-execution_count="328">
+<div class="cell" data-execution_count="328">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># setting split for validation data</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>data.set_split(<span class="st">'val'</span>)</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>dataloader_val <span class="op">=</span> DataLoader(data,batch_size<span class="op">=</span><span class="dv">64</span>)</span>
@@ -845,7 +833,7 @@ Validation Accuracy:60.07</code></pre>
 <section id="testing-the-classifier-using-test-set" class="level2">
 <h2 class="anchored" data-anchor-id="testing-the-classifier-using-test-set">Testing the classifier using test set</h2>
 <p>Here, we will apply our classifier to the test set. We will follow the same procedure as we followed with the validation set.</p>
-<div id="a215765d" class="cell" data-execution_count="329">
+<div class="cell" data-execution_count="329">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># setting split for test data</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>data.set_split(<span class="st">'test'</span>)</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Test data size:'</span>,<span class="bu">len</span>(data))</span>
@@ -882,7 +870,7 @@ Accuracy:59.88</code></pre>
 <p>Now, we will illustrate the use of our classifier for predicting the nationality of a given surname.</p>
 <p>The following function first applies the vectorization on the given surname and then converts the vector into a tensor of size 1 (using view()). Next, the classifier uses the tensor and performs computation. This time we want probabilities that’s why we specified <code>apply_softmax</code> as True.</p>
 <p>From the obtained probabilities, we extract the one with the highest probability and its corresponding index. We use that index to get the nationality associated with that index.</p>
-<div id="4fbdd12c" class="cell" data-execution_count="333">
+<div class="cell" data-execution_count="333">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> predict_nationality(surname,vectorizer,classifier):</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># apply vectorization</span></span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    surname_vector <span class="op">=</span> vectorizer.vectorize(surname)</span>
@@ -899,13 +887,13 @@ Accuracy:59.88</code></pre>
 <span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Prediction:'</span>,vectorizer._label_vocab.lookup_index(ind.item()),<span class="st">'(</span><span class="sc">{:.2f}</span><span class="st">%)'</span>.<span class="bu">format</span>(<span class="dv">100</span><span class="op">*</span>val.item()))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="35d76e37" class="cell" data-execution_count="336">
+<div class="cell" data-execution_count="336">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>predict_nationality(<span class="st">'María'</span>,data._vectorizer,classifier)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Prediction: Spanish (99.88%)</code></pre>
 </div>
 </div>
-<div id="c6d81b13" class="cell" data-execution_count="341">
+<div class="cell" data-execution_count="341">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>names_to_predict <span class="op">=</span> [<span class="st">'García'</span>,<span class="st">'Linda'</span>]</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> name <span class="kw">in</span> names_to_predict:</span>
@@ -1007,9 +995,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+  function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
+      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1019,17 +1008,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start',
+      placement: 'bottom-start'
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1042,120 +1022,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
-          }
-        }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
-        }
-        return container.innerHTML
-      } else {
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(note);
-        }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      return note.innerHTML;
-    }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
-          }
-        } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
-          .then(res => res.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
-            if (note !== null) {
-              const html = processXRef(id, note);
-              instance.setContent(html);
-            } 
-          }).finally(() => {
-            instance.enable();
-            instance.show();
-          });
-        }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1199,7 +1065,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
-            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1225,32 +1090,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1311,7 +1150,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-
 
 
 
