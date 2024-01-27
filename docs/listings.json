@@ -2,7 +2,6 @@
   {
     "listing": "/Blog.html",
     "items": [
-      "/posts/post-with-code/Tokenization.html",
       "/posts/post-with-code/word_embeddings.html",
       "/posts/post-with-code/Surname_prediction_using_Pytorch.html",
       "/posts/post-with-code/llama.html",
