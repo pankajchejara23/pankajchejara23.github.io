@@ -361,7 +361,7 @@
     "href": "about.html",
     "title": "About Me",
     "section": "",
-    "text": "Pankaj Chejara is a applied data science researcher/developer at the Center of Education Technology at Tallinn University, Estonia. His work is primarily focused on building AI tools to support teachers in the classroom with group work monitoring. He enjoys diving into data to extract insights and is always ready to learn new things to solve the problem at hand. When not working on data analytics projects, Pankaj enjoys spending time with his son and watching animated movies.\nResume"
+    "text": "My name is Pankaj Chejara and I am currently working as a developer/researcher at the Center of Education Technology at Tallinn University, Estonia.\nMy work is primarily focused on working on Educational Technology tools with a focus on AI. I heavily use Python in my work for almost everything (some examples below).\nThe libraries I use on day-to-day basis include numpy, pandas, scikit-learn, matplotlib, plotly scipy, seaborn, and Pytorch. I also utilize Python’s Django framework along with SQL, jQuery and Bootstrap’s CSS to build web applications.\nI have taught courses on programming and statistics in R in my current role at Tallinn University."
   },
   {
     "objectID": "about.html#education",
@@ -369,12 +369,5 @@
     "title": "About Me",
     "section": "Education",
     "text": "Education\nMaster in Computer Engg. (MTech) | Aug 2010 - June 2012  Malviya National Institute of Technology | Jaipur, India\nMaster in Computer Applications (MCA) | Aug 2007 - May 2010  Malviya National Institute of Technology | Jaipur, India\nBachelor in Science (Mathematics) | Aug 2004 - May 2007  University of Rajasthan | Jaipur, India"
-  },
-  {
-    "objectID": "about.html#experience",
-    "href": "about.html#experience",
-    "title": "About Me",
-    "section": "Experience",
-    "text": "Experience\nData Researcher | Tallinn University, Estonia | Sep 2019 - present\n\nData cleaning, Data Pre-processing\nBuilding interactive data visualization Applications\nBuilding machine learning models for detecting collaboration levels"
   }
 ]
