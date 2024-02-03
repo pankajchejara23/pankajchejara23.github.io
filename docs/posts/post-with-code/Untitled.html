@@ -343,7 +343,7 @@ Nationality:
 </div>
 </div>
 </div>
-<div id="ab78609e" class="cell">
+<div id="be28b89c" class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>We have surnames <span class="im">from</span> <span class="dv">18</span> different nationalities <span class="kw">in</span> the dataset.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -681,7 +681,7 @@ Important
 <span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> final</span>
 <span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>      </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="c4a17565" class="cell" data-execution_count="215">
+<div id="d267a584" class="cell" data-execution_count="215">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> SurnameClassifierV1(nn.Module):</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>,input_dim,hidden_dim,output_dim):</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>()</span>
@@ -697,7 +697,7 @@ Important
 <span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> final</span>
 <span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>        </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="3a51038e" class="cell" data-execution_count="150">
+<div id="aaae1857" class="cell" data-execution_count="150">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> compute_accuracy(y_pred,y_true):</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    _, y_pred_indices <span class="op">=</span> y_pred.<span class="bu">max</span>(dim<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    </span>
@@ -788,7 +788,7 @@ Important
 <pre><code>Final: 0.9167288458595673    68.61979166666667</code></pre>
 </div>
 </div>
-<div id="b267b40e" class="cell" data-execution_count="325">
+<div id="8c8328e0" class="cell" data-execution_count="325">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>plt.plot(<span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">100</span><span class="op">+</span><span class="dv">1</span>)),acc_data,label<span class="op">=</span><span class="st">'Training Accuracy'</span>)</span>
@@ -845,7 +845,7 @@ Validation Accuracy:60.07</code></pre>
 <section id="testing-the-classifier-using-test-set" class="level2">
 <h2 class="anchored" data-anchor-id="testing-the-classifier-using-test-set">Testing the classifier using test set</h2>
 <p>Here, we will apply our classifier to the test set. We will follow the same procedure as we followed with the validation set.</p>
-<div id="77f8d8a2" class="cell" data-execution_count="329">
+<div id="62541c58" class="cell" data-execution_count="329">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># setting split for test data</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>data.set_split(<span class="st">'test'</span>)</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Test data size:'</span>,<span class="bu">len</span>(data))</span>
@@ -882,7 +882,7 @@ Accuracy:59.88</code></pre>
 <p>Now, we will illustrate the use of our classifier for predicting the nationality of a given surname.</p>
 <p>The following function first applies the vectorization on the given surname and then converts the vector into a tensor of size 1 (using view()). Next, the classifier uses the tensor and performs computation. This time we want probabilities that’s why we specified <code>apply_softmax</code> as True.</p>
 <p>From the obtained probabilities, we extract the one with the highest probability and its corresponding index. We use that index to get the nationality associated with that index.</p>
-<div id="c3b7907a" class="cell" data-execution_count="333">
+<div id="e91e4e84" class="cell" data-execution_count="333">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> predict_nationality(surname,vectorizer,classifier):</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># apply vectorization</span></span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    surname_vector <span class="op">=</span> vectorizer.vectorize(surname)</span>
@@ -899,13 +899,13 @@ Accuracy:59.88</code></pre>
 <span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Prediction:'</span>,vectorizer._label_vocab.lookup_index(ind.item()),<span class="st">'(</span><span class="sc">{:.2f}</span><span class="st">%)'</span>.<span class="bu">format</span>(<span class="dv">100</span><span class="op">*</span>val.item()))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="284d6809" class="cell" data-execution_count="336">
+<div id="e09eaad2" class="cell" data-execution_count="336">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>predict_nationality(<span class="st">'María'</span>,data._vectorizer,classifier)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Prediction: Spanish (99.88%)</code></pre>
 </div>
 </div>
-<div id="b04ac910" class="cell" data-execution_count="341">
+<div id="fb46bd83" class="cell" data-execution_count="341">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>names_to_predict <span class="op">=</span> [<span class="st">'García'</span>,<span class="st">'Linda'</span>]</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> name <span class="kw">in</span> names_to_predict:</span>

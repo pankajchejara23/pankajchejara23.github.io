@@ -2,8 +2,10 @@
   {
     "listing": "/Blog.html",
     "items": [
+      "/posts/post-with-code/Train your word embeddings from scratch.html",
       "/posts/post-with-code/word_embeddings.html",
       "/posts/post-with-code/Surname_prediction_using_Pytorch.html",
+      "/posts/post-with-code/Untitled.html",
       "/posts/post-with-code/llama.html",
       "/posts/post-with-code/Sentiment prediction.html",
       "/posts/post-with-code/basics_nlp.html",
