@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.537">
+<meta name="generator" content="quarto-1.4.550">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -393,6 +393,7 @@ Disconnect
 <p>The second step <strong>connects to the broker</strong>. In our case, we are running the broker on the same machine, therefore, we specify the broker’s IP as <code>127.0.0.1</code> and port as <code>1883</code> (default port for Mosquitto broker).</p>
 <p>In third step, you can <strong>publish or subcribe</strong> using publish() and subscribe() function.</p>
 <p>Next, we need to write callback functions. It needs a bit of explanation. <strong>Callback</strong> functions are functions which are executed on the occurrence of particular events. Followings are the table showing the event and their corresponding callback function</p>
+<div>
 <!-- wp:table -->
 <figure class="figure" wp-block-table""="">
 <table data-quarto-postprocess="true" data-""="" class="table">
@@ -429,6 +430,7 @@ Disconnect
 </table>
 </figure>
 <!-- /wp:table -->
+</div>
 <p>Let’s take one example to understand it. When a client connects to the broker, the broker sends an ACK (acknowledgment) to the client. This event triggers the execution of a callback function <code>on_connect</code> .</p>
 </section>
 <section id="running-a-loop-why-we-need-to-start-a-loop" class="level4">
@@ -707,7 +709,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      return note.innerHTML;
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
     }
   }
   for (var i=0; i<xrefs.length; i++) {

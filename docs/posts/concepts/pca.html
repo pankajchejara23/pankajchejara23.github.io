@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.537">
+<meta name="generator" content="quarto-1.4.550">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -257,6 +257,7 @@ window.Quarto = {
 <p>Let’s assume that you have a dataset with a higher number of attributes and you are thinking <em>Is there any way to compress this information into a smaller number of attributes</em>.</p>
 <p>Well, dimensionality reduction methods offer that functionality. Among many dimensionality reduction methods, PCA (Principal Component Analysis) is widely used and this post introduction to PCA and its working.</p>
 <p>Let’s start with a simple dataset with two attributes, <span class="math inline">\(x\)</span>, and <span class="math inline">\(y\)</span> which we need to reduce from two attributes to one. <!-- /wp:paragraph --></p>
+<div>
 <!-- wp:table -->
 <figure class="figure" wp-block-table""="">
 <table data-quarto-postprocess="true" data-""="" class="table">
@@ -289,6 +290,7 @@ window.Quarto = {
 </table>
 </figure>
 <!-- /wp:table -->
+</div>
 <!-- wp:image -->
 <figure class="figure" wp-block-image""=""><img 2019="" src="" content="" images="" 08="" index.png""="" alt="" ""="" class="figure-img"></figure>
 <!-- /wp:image -->
@@ -761,7 +763,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      return note.innerHTML;
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
     }
   }
   for (var i=0; i<xrefs.length; i++) {
