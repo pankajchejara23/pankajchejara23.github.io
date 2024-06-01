@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Pankaj Chejara">
+<meta name="dcterms.date" content="2024-04-07">
 
-<title>Pankaj Chejara - About Me</title>
+<title>Pankaj Chejara - A Complete Primer on Linear Regression</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,24 +22,45 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -66,18 +89,47 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="styles.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Pankaj Chejara</span>
     </a>
   </div>
@@ -88,19 +140,19 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./Blog.html"> 
+    <a class="nav-link" href="../../Blog.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./Projects.html"> 
+    <a class="nav-link" href="../../Projects.html"> 
 <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./Awards.html"> 
+    <a class="nav-link" href="../../Awards.html"> 
 <span class="menu-text">Awards</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./cv.html"> 
+    <a class="nav-link" href="../../cv.html"> 
 <span class="menu-text">Curriculum vitæ</span></a>
   </li>  
 </ul>
@@ -133,62 +185,150 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">A Complete Primer on Linear Regression</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">python</div>
+                <div class="quarto-category">statistics</div>
+                <div class="quarto-category">maths</div>
+                <div class="quarto-category">machine learning</div>
+                <div class="quarto-category">linear regression</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Pankaj Chejara </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">April 7, 2024</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
-<!-- main -->
-<div class="quarto-about-solana column-body content">
-  <div class="about-entity">
-    <div class="entity-contents">
-      <header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">About Me</h1>
-</div>
-<div class="quarto-title-meta">
-  </div>
-</header> <div class="about-links">
-  <a href="https://twitter.com/pankajchejara1" class="about-link" rel="" target="">
-    <i class="bi bi-twitter"></i>
-     <span class="about-link-text">Twitter</span>
-  </a>
-  <a href="https://www.linkedin.com/in/pankaj-chejara-5ab77855/" class="about-link" rel="" target="">
-    <i class="bi bi-linkedin"></i>
-     <span class="about-link-text">LinkedIn</span>
-  </a>
-  <a href="https://github.com/pankajchejara23" class="about-link" rel="" target="">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">Github</span>
-  </a>
-</div>
-      <div class="about-contents"><main class="content" id="quarto-document-content">
-<p>Pankaj Chejara is a applied data science researcher/developer at the Center of Education Technology at Tallinn University, Estonia. His work is primarily focused on building AI tools to support teachers in the classroom with group work monitoring. He enjoys diving into data to extract insights and is always ready to learn new things to solve the problem at hand. When not working on data analytics projects, Pankaj enjoys spending time with his son and watching animated movies.</p>
-<p><a href="./Pankaj__cv.pdf">Resume</a></p>
-<section id="education" class="level2">
-<h2 data-anchor-id="education">Education</h2>
-<p><strong>Ph.D.&nbsp;in Learning Analytics (<em>Thesis submitted</em>)</strong> | Aug 2018 - May 2024 <br> Tallinn University | Tallinn, Estonia</p>
-<p><strong>Master in Computer Engg. (MTech)</strong> | Aug 2010 - June 2012 <br> Malviya National Institute of Technology | Jaipur, India</p>
-<p><strong>Master in Computer Applications (MCA)</strong> | Aug 2007 - May 2010 <br> Malviya National Institute of Technology | Jaipur, India</p>
-<p><strong>Bachelor in Science</strong> (Mathematics) | Aug 2004 - May 2007 <br> University of Rajasthan | Jaipur, India</p>
-</section>
-<section id="experience" class="level2">
-<h2 data-anchor-id="experience">Experience</h2>
-<p><strong>Data Researcher</strong> | Tallinn University, Estonia | Sep 2019 - present</p>
-<ul>
-<li>Data cleaning, Data Pre-processing</li>
-<li>Building interactive data visualization Applications</li>
-<li>Building machine learning models for detecting collaboration levels</li>
-</ul>
-
-
-</section>
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main></div>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#what-is-regression-analysis" id="toc-what-is-regression-analysis" class="nav-link active" data-scroll-target="#what-is-regression-analysis">What is Regression Analysis?</a></li>
+  <li><a href="#linear-regression" id="toc-linear-regression" class="nav-link" data-scroll-target="#linear-regression">Linear Regression</a>
+  <ul class="collapse">
+  <li><a href="#assumptions-of-linear-regression" id="toc-assumptions-of-linear-regression" class="nav-link" data-scroll-target="#assumptions-of-linear-regression">Assumptions of Linear Regression</a></li>
+  <li><a href="#ordinary-least-square-method" id="toc-ordinary-least-square-method" class="nav-link" data-scroll-target="#ordinary-least-square-method">Ordinary Least Square Method</a></li>
+  <li><a href="#perforamnce-measures" id="toc-perforamnce-measures" class="nav-link" data-scroll-target="#perforamnce-measures">Perforamnce Measures</a></li>
+  <li><a href="#error-analysis" id="toc-error-analysis" class="nav-link" data-scroll-target="#error-analysis">Error Analysis</a></li>
+  </ul></li>
+  <li><a href="#regularization" id="toc-regularization" class="nav-link" data-scroll-target="#regularization">Regularization</a>
+  <ul class="collapse">
+  <li><a href="#lasso-regression" id="toc-lasso-regression" class="nav-link" data-scroll-target="#lasso-regression">LASSO Regression</a></li>
+  <li><a href="#ridge-regression" id="toc-ridge-regression" class="nav-link" data-scroll-target="#ridge-regression">Ridge Regression</a></li>
+  </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+</nav>
     </div>
-    <img src="profile.jpg" class="about-image
-  rounded " style="width: 15em;">
-  </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<p>This post will walk you through the linear regression algorithm covering <strong>basics as well as advanced concepts</strong>. The post is targetted for beginners as well as profession who are looking for a quick guide to freshen up their concepts of linear regression. The later one is the reason why I am writing this post, i.e., to have a quick to read-to-go guide to fresh up my understanding of linear regression before a job interview.</p>
+<section id="what-is-regression-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-regression-analysis">What is Regression Analysis?</h2>
+<p>Let’s first understand what does it mean by regression analysis. This analysis is used <strong>when we are interested in understanding relationships between dependent and independent variables</strong>. For example, the relationship between an employee’s experience level and his salary.</p>
+<p>This analysis is often emplyed for one of three reasons (<span class="citation" data-cites="book">Yan and Su (<a href="#ref-book" role="doc-biblioref">2009</a>)</span>)</p>
+<ol type="1">
+<li>When we want to <strong>understand causal relationships</strong> between independent (e.g., experience level) and dependent (e.g., salary) variables.</li>
+<li>When we want to build a model <strong>to predict dependent variable</strong> using independent varibales.</li>
+<li>When we want <strong>to identify important independent variables</strong> to exaplain the dependent variable.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
- <!-- /main -->
+<div class="callout-title-container flex-fill">
+Regression method
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><em>Regression method is a statistical method for investigating relationship between two or more variables</em> (<span class="citation" data-cites="book">Yan and Su (<a href="#ref-book" role="doc-biblioref">2009</a>)</span>)</p>
+</div>
+</div>
+</section>
+<section id="linear-regression" class="level2">
+<h2 class="anchored" data-anchor-id="linear-regression">Linear Regression</h2>
+<p>It is a statistical method which models linear relationship between a dependent (<span class="math inline">\(y\)</span>) and a independent variable (<span class="math inline">\(x\)</span>) (<strong>NOTE</strong>: I am taking here an example of simple linear regression). You can think it as a special case of regression methods when the relationship is modeled using a linear function. <span id="eq-lin1"><span class="math display">\[
+y = f(x)
+\tag{1}\]</span></span> Here, <span class="math inline">\(f(x)\)</span> is a linear function of <span class="math inline">\(x\)</span> which is <span class="math inline">\(f(x) = \alpha + \beta x\)</span></p>
+<p>Here, we need to understand that the data we have for modeling is just a <strong>sample</strong> coming from a larger set of data also known as <strong>population</strong>. So when we model a linear relationship, the goal to model that for the population.</p>
+<p>However, if we build a linear model using a different sample from the population then the estimate of <span class="math inline">\(y\)</span> will fluctuate from the one we get by building a model using the entire population (if we can :-)).</p>
+<p>To model this error component, the linear model is represented as below</p>
+<p><span id="eq-lin2"><span class="math display">\[
+y = f(x) + \epsilon
+\tag{2}\]</span></span></p>
+<p><span id="eq-lin2"><span class="math display">\[
+y = \alpha + \beta x + \epsilon
+\tag{3}\]</span></span></p>
+<section id="assumptions-of-linear-regression" class="level3">
+<h3 class="anchored" data-anchor-id="assumptions-of-linear-regression">Assumptions of Linear Regression</h3>
+</section>
+<section id="ordinary-least-square-method" class="level3">
+<h3 class="anchored" data-anchor-id="ordinary-least-square-method">Ordinary Least Square Method</h3>
+<p>In our <a href="#eq-lin2" class="quarto-xref">Equation&nbsp;3</a>, we have two parameters (i.e., <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>) which we need to find out using our dataset. There can be multiple possible values for these two parameters and how we are going the decide which ones to use. To solve this, Ordinary Least Square (OLS) method can be used. The OLS method find out the values which minimises the error between predicted and actual value of <span class="math inline">\(y\)</span>.</p>
+<p><span id="eq-errors"><span class="math display">\[
+E  = \sum (y - \hat{y})^2
+\tag{4}\]</span></span></p>
+<p>Here, <span class="math inline">\(y\)</span> is actual value and <span class="math inline">\(\hat{y}\)</span> is predicted value</p>
+</section>
+<section id="perforamnce-measures" class="level3">
+<h3 class="anchored" data-anchor-id="perforamnce-measures">Perforamnce Measures</h3>
+</section>
+<section id="error-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="error-analysis">Error Analysis</h3>
+</section>
+</section>
+<section id="regularization" class="level2">
+<h2 class="anchored" data-anchor-id="regularization">Regularization</h2>
+<section id="lasso-regression" class="level3">
+<h3 class="anchored" data-anchor-id="lasso-regression">LASSO Regression</h3>
+</section>
+<section id="ridge-regression" class="level3">
+<h3 class="anchored" data-anchor-id="ridge-regression">Ridge Regression</h3>
+</section>
+</section>
+<section id="references" class="level1">
+<h1>References</h1>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-book" class="csl-entry" role="listitem">
+Yan, Xin, and Xiao Gang Su. 2009. <em>Linear Regression Analysis: Theory and Computing</em>. USA: World Scientific Publishing Co., Inc.
+</div>
+</div>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -209,6 +349,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     

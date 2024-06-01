@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Pankaj Chejara">
+<meta name="dcterms.date" content="2024-06-01">
 
-<title>Pankaj Chejara - About Me</title>
+<title>Pankaj Chejara - How to Successfully host your Dash application on Render</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,24 +22,59 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -67,17 +104,17 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Pankaj Chejara</span>
     </a>
   </div>
@@ -88,19 +125,19 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./Blog.html"> 
+    <a class="nav-link" href="../../Blog.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./Projects.html"> 
+    <a class="nav-link" href="../../Projects.html"> 
 <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./Awards.html"> 
+    <a class="nav-link" href="../../Awards.html"> 
 <span class="menu-text">Awards</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./cv.html"> 
+    <a class="nav-link" href="../../cv.html"> 
 <span class="menu-text">Curriculum vitæ</span></a>
   </li>  
 </ul>
@@ -133,62 +170,166 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">How to Successfully host your Dash application on Render</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">python</div>
+                <div class="quarto-category">cloud</div>
+                <div class="quarto-category">dash</div>
+                <div class="quarto-category">hosting</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Pankaj Chejara </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">June 1, 2024</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
-<!-- main -->
-<div class="quarto-about-solana column-body content">
-  <div class="about-entity">
-    <div class="entity-contents">
-      <header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">About Me</h1>
-</div>
-<div class="quarto-title-meta">
-  </div>
-</header> <div class="about-links">
-  <a href="https://twitter.com/pankajchejara1" class="about-link" rel="" target="">
-    <i class="bi bi-twitter"></i>
-     <span class="about-link-text">Twitter</span>
-  </a>
-  <a href="https://www.linkedin.com/in/pankaj-chejara-5ab77855/" class="about-link" rel="" target="">
-    <i class="bi bi-linkedin"></i>
-     <span class="about-link-text">LinkedIn</span>
-  </a>
-  <a href="https://github.com/pankajchejara23" class="about-link" rel="" target="">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">Github</span>
-  </a>
-</div>
-      <div class="about-contents"><main class="content" id="quarto-document-content">
-<p>Pankaj Chejara is a applied data science researcher/developer at the Center of Education Technology at Tallinn University, Estonia. His work is primarily focused on building AI tools to support teachers in the classroom with group work monitoring. He enjoys diving into data to extract insights and is always ready to learn new things to solve the problem at hand. When not working on data analytics projects, Pankaj enjoys spending time with his son and watching animated movies.</p>
-<p><a href="./Pankaj__cv.pdf">Resume</a></p>
-<section id="education" class="level2">
-<h2 data-anchor-id="education">Education</h2>
-<p><strong>Ph.D.&nbsp;in Learning Analytics (<em>Thesis submitted</em>)</strong> | Aug 2018 - May 2024 <br> Tallinn University | Tallinn, Estonia</p>
-<p><strong>Master in Computer Engg. (MTech)</strong> | Aug 2010 - June 2012 <br> Malviya National Institute of Technology | Jaipur, India</p>
-<p><strong>Master in Computer Applications (MCA)</strong> | Aug 2007 - May 2010 <br> Malviya National Institute of Technology | Jaipur, India</p>
-<p><strong>Bachelor in Science</strong> (Mathematics) | Aug 2004 - May 2007 <br> University of Rajasthan | Jaipur, India</p>
-</section>
-<section id="experience" class="level2">
-<h2 data-anchor-id="experience">Experience</h2>
-<p><strong>Data Researcher</strong> | Tallinn University, Estonia | Sep 2019 - present</p>
-<ul>
-<li>Data cleaning, Data Pre-processing</li>
-<li>Building interactive data visualization Applications</li>
-<li>Building machine learning models for detecting collaboration levels</li>
-</ul>
-
-
-</section>
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main></div>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#prepare-your-dash-application" id="toc-prepare-your-dash-application" class="nav-link active" data-scroll-target="#prepare-your-dash-application">1. Prepare your dash application</a></li>
+  <li><a href="#put-the-application-on-github" id="toc-put-the-application-on-github" class="nav-link" data-scroll-target="#put-the-application-on-github">2. Put the application on GitHub</a></li>
+  <li><a href="#sign-in-to-render-and-create-a-web-service" id="toc-sign-in-to-render-and-create-a-web-service" class="nav-link" data-scroll-target="#sign-in-to-render-and-create-a-web-service">3. Sign-in to Render and create a web-service</a></li>
+  <li><a href="#configure-your-application" id="toc-configure-your-application" class="nav-link" data-scroll-target="#configure-your-application">4. Configure your application</a></li>
+  </ul>
+</nav>
     </div>
-    <img src="profile.jpg" class="about-image
-  rounded " style="width: 15em;">
-  </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<p>This post will provide detailed instructions on the hosting process of a <a href="https://dash.plotly.com/"><strong>dash</strong></a> application on <a href="https://render.com/">Render</a>. Render is a hosting service provider. It offers a free tier that can be used to host Python application projects. It could be a great option for students or developers for their school projects or hobby projects.</p>
+<p>In this post, we will see the step-by-step process of <strong>successfully deploying dash application</strong> on Render.</p>
+<p>The steps are given following.</p>
+<ol type="1">
+<li>Prepare your dash application</li>
+<li>Put it on GitHub</li>
+<li>Sign up on Render and create a web service</li>
+<li>Configure your application</li>
+<li>Volla, your application is running online <span class="emoji" data-emoji="fire">🔥</span></li>
+</ol>
+<section id="prepare-your-dash-application" class="level1">
+<h1>1. Prepare your dash application</h1>
+<p>The first step is to get your dash application ready. For illustration purposes, I am using a minimal dash application available <a href="https://dash.plotly.com/minimal-app">here</a>.</p>
+<p>The source code is given below.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>app.py</strong></pre>
 </div>
- <!-- /main -->
+<div class="sourceCode" id="cb1" data-filename="app.py"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">from</span> dash <span class="im">import</span> Dash, html, dcc, callback, Output, Input</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> plotly.express <span class="im">as</span> px</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-4"><a href="#cb1-4"></a></span>
+<span id="cb1-5"><a href="#cb1-5"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'https://raw.githubusercontent.com/plotly/datasets/master/gapminder_unfiltered.csv'</span>)</span>
+<span id="cb1-6"><a href="#cb1-6"></a></span>
+<span id="cb1-7"><a href="#cb1-7"></a>app <span class="op">=</span> Dash()</span>
+<span id="cb1-8"><a href="#cb1-8"></a></span>
+<span id="cb1-9"><a href="#cb1-9"></a>app.layout <span class="op">=</span> [</span>
+<span id="cb1-10"><a href="#cb1-10"></a>    html.H1(children<span class="op">=</span><span class="st">'Title of Dash App'</span>, style<span class="op">=</span>{<span class="st">'textAlign'</span>:<span class="st">'center'</span>}),</span>
+<span id="cb1-11"><a href="#cb1-11"></a>    dcc.Dropdown(df.country.unique(), <span class="st">'Canada'</span>, <span class="bu">id</span><span class="op">=</span><span class="st">'dropdown-selection'</span>),</span>
+<span id="cb1-12"><a href="#cb1-12"></a>    dcc.Graph(<span class="bu">id</span><span class="op">=</span><span class="st">'graph-content'</span>)</span>
+<span id="cb1-13"><a href="#cb1-13"></a>]</span>
+<span id="cb1-14"><a href="#cb1-14"></a></span>
+<span id="cb1-15"><a href="#cb1-15"></a><span class="at">@callback</span>(</span>
+<span id="cb1-16"><a href="#cb1-16"></a>    Output(<span class="st">'graph-content'</span>, <span class="st">'figure'</span>),</span>
+<span id="cb1-17"><a href="#cb1-17"></a>    Input(<span class="st">'dropdown-selection'</span>, <span class="st">'value'</span>)</span>
+<span id="cb1-18"><a href="#cb1-18"></a>)</span>
+<span id="cb1-19"><a href="#cb1-19"></a><span class="kw">def</span> update_graph(value):</span>
+<span id="cb1-20"><a href="#cb1-20"></a>    dff <span class="op">=</span> df[df.country<span class="op">==</span>value]</span>
+<span id="cb1-21"><a href="#cb1-21"></a>    <span class="cf">return</span> px.line(dff, x<span class="op">=</span><span class="st">'year'</span>, y<span class="op">=</span><span class="st">'pop'</span>)</span>
+<span id="cb1-22"><a href="#cb1-22"></a></span>
+<span id="cb1-23"><a href="#cb1-23"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
+<span id="cb1-24"><a href="#cb1-24"></a>    app.run(debug<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="61a47aa7" class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>We will add the following line after line number <span class="dv">7</span> (where we create app <span class="bu">object</span>).</span>
+<span id="cb2-2"><a href="#cb2-2"></a></span>
+<span id="cb2-3"><a href="#cb2-3"></a>```python</span>
+<span id="cb2-4"><a href="#cb2-4"></a>server <span class="op">=</span> app.server</span>
+<span id="cb2-5"><a href="#cb2-5"></a>```</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You can check the updated file <a href="https://github.com/pankajchejara23/render_hosting/blob/main/app.py">here</a>.</p>
+<p>The next thing you need to do is to <strong>make a requirements.txt</strong> file. This is the file that contains the dependencies of the application or in other words which Python packages your application is using.</p>
+<p>You can use the following command to save the list of Python packages used in your system (I would suggest using virtual environments, e.g., <a href="https://docs.python.org/3/library/venv.html">venv</a>).</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>pip3 freeze <span class="op">&gt;</span> requirements.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The above command will create a new file <code>requirements.txt</code> which lists out all the python packages in your current local dev environment.</p>
+<p>You <strong>need to edit this file and at the end add <code>gunicorn</code></strong>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We mainly did two things</p>
+<ul>
+<li>First, we added <code>server = app.server</code> line in the application.</li>
+<li>Second, we generated <code>requirements.txt</code> file and updated it by adding <code>gunicorn</code> at the end.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="put-the-application-on-github" class="level1">
+<h1>2. Put the application on GitHub</h1>
+<p>Once your application is ready, push it to GitHub.</p>
+<p>This is what it looks like after putting your files on GitHub.</p>
+<p><img src="./images/render/github.png" class="img-fluid"></p>
+</section>
+<section id="sign-in-to-render-and-create-a-web-service" class="level1">
+<h1>3. Sign-in to Render and create a web-service</h1>
+<p>Now, we will move to the Render platform and sign in (You can use Google login). Once you are logged in, you will see a button <code>New+</code>. Click on that button and create a web service.</p>
+<p><img src="./images/render/render-1.png" class="img-fluid"></p>
+<p>Next, choose ‘Build and deploy from a Git repository’ on the screen (also given below).</p>
+<p><img src="./images/render/render-2.png" class="img-fluid"></p>
+<p>On the next screen, you need to provide url of your Github directory containing code for the dash application. <img src="./images/render/render-1-2.png" class="img-fluid"></p>
+<p>Once you provide your GitHub repository URL, click on the <code>Continue</code> button which will take you to the final step of configuration.</p>
+</section>
+<section id="configure-your-application" class="level1">
+<h1>4. Configure your application</h1>
+<p>In the configuration phase, we will make a small change in the settings. You will see different settings configurations. What you need to do is <strong>changing the start command from its default <code>gunicorn app:app</code> to <code>gunicorn app:server</code></strong>. After editing, <strong>don’t forget to save it</strong>.</p>
+<p><img src="./images/render/config.png" class="img-fluid"></p>
+<p>That’s it!!</p>
+<p>It will take a few seconds. You will see the below screen.</p>
+<p><img src="./images/render/final.png" class="img-fluid"></p>
+<p>Once you see the message <strong>==&gt; Your service is live <span class="emoji" data-emoji="tada">🎉</span></strong>, that means your application is <strong>successfully deployed</strong>.</p>
+<p>You can access the deployed application here: https://render-hosting-fxqr.onrender.com/</p>
+<p>Github repo:https://github.com/pankajchejara23/render_hosting/tree/main</p>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -209,6 +350,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     
