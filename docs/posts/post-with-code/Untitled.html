@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Pankaj Chejara">
-<meta name="dcterms.date" content="2024-01-22">
+<meta name="dcterms.date" content="2024-10-10">
 
-<title>Pankaj Chejara - Introduction to word embeddings with hands-on exercises</title>
+<title>Pankaj Chejara - Basics of Data Manipulation and Visualization in R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -181,11 +181,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Introduction to word embeddings with hands-on exercises</h1>
+      <h1 class="title">Basics of Data Manipulation and Visualization in R</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">python</div>
-                <div class="quarto-category">nlp</div>
-                <div class="quarto-category">pytorch</div>
+                <div class="quarto-category">statistics</div>
+                <div class="quarto-category">maths</div>
+                <div class="quarto-category">distribution</div>
               </div>
                   </div>
   </div>
@@ -203,7 +204,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">January 22, 2024</p>
+        <p class="date">October 10, 2024</p>
       </div>
     </div>
     
@@ -219,9 +220,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#pre-trained-word-embeddings" id="toc-pre-trained-word-embeddings" class="nav-link active" data-scroll-target="#pre-trained-word-embeddings">Pre-trained word embeddings</a></li>
-  <li><a href="#building-an-automatic-word-analogy-task-solver-using-word-embeddings" id="toc-building-an-automatic-word-analogy-task-solver-using-word-embeddings" class="nav-link" data-scroll-target="#building-an-automatic-word-analogy-task-solver-using-word-embeddings">Building an automatic word analogy task solver using word embeddings</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  <li><a href="#topics-covered" id="toc-topics-covered" class="nav-link active" data-scroll-target="#topics-covered">Topics Covered</a></li>
+  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a></li>
+  <li><a href="#installing-required-packages" id="toc-installing-required-packages" class="nav-link" data-scroll-target="#installing-required-packages">Installing Required Packages</a>
+  <ul class="collapse">
+  <li><a href="#loading-a-dataset-into-rstudio" id="toc-loading-a-dataset-into-rstudio" class="nav-link" data-scroll-target="#loading-a-dataset-into-rstudio">Loading a Dataset into RStudio</a></li>
+  <li><a href="#accessing-specific-columns-or-rows" id="toc-accessing-specific-columns-or-rows" class="nav-link" data-scroll-target="#accessing-specific-columns-or-rows">Accessing Specific Columns or Rows</a></li>
+  <li><a href="#how-to-create-new-attributes-using-attributes-from-the-dataset" id="toc-how-to-create-new-attributes-using-attributes-from-the-dataset" class="nav-link" data-scroll-target="#how-to-create-new-attributes-using-attributes-from-the-dataset">How to create new attributes using attributes from the dataset?</a></li>
+  <li><a href="#how-to-generate-group-wise-statistics" id="toc-how-to-generate-group-wise-statistics" class="nav-link" data-scroll-target="#how-to-generate-group-wise-statistics">How to generate group-wise statistics?</a></li>
+  </ul></li>
+  <li><a href="#plotting-the-data" id="toc-plotting-the-data" class="nav-link" data-scroll-target="#plotting-the-data">Plotting the data</a></li>
   </ul>
 </nav>
     </div>
@@ -232,187 +240,219 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<p>A word embedding is a numeric representation of text in natural language processing. The representation is in the form of a vector where each number represents a dimension (or a specific attribute). Let’s take an example to understand it further.</p>
-<p>Consider the following two sentences</p>
-<p><code>A likes to drink coffee in the morning</code></p>
-<p><code>B likes to drink tea in the morning</code></p>
-<p>These two sentences are syntactically and semantically similar. To transform these sentences into vector forms, we can consider attributes like <code>like to drink</code>, <code>morning</code>, etc.</p>
-<p>We can see that A and B both like to drink some beverages in the morning. Therefore, in our vector representations of these two imaginary persons (i.e., A, B), the values for the attribute <code>like to drink</code> should be close to each other. Similarly, there could be another attribute of <code>time of the day</code> when they like to drink. Such attributes can be decided based on the text data.</p>
-<p>However, the manual crafting of such attributes is a <strong>very resource-exhaustive process</strong> and may take forever to cover a massive amount of text corpora.</p>
-<p>To solve this problem, machine learning is used to learn these <strong>multi-dimensional vector representations also widely known as word embeddings</strong>. Word embeddings aim to <strong>capture semantic meaning in addition to syntactic information</strong> of the text data, and it has been found to a highly successful in solving a variety of NLP tasks, e.g., language modeling, text generation, etc.</p>
-<p>The word embeddings can be developed from scratch in the context of the task at hand. Additionally, there are some pre-trained word embeddings that are available publicly. These word embeddings include <strong>Google</strong> <a href="https://code.google.com/archive/p/word2vec/"><code>Word2Vec</code></a>, <strong>Stanford</strong> <a href="https://nlp.stanford.edu/projects/glove/"><code>Glove</code></a>, <strong>Facebook</strong> <a href="https://fasttext.cc/"><code>FastText</code></a>.</p>
-<p>In this post, we will see how to use these pre-trained word embeddings in Python. We will also build a small application based on the word embeddings to illustrate its use cases.</p>
-<section id="pre-trained-word-embeddings" class="level1">
-<h1>Pre-trained word embeddings</h1>
-<p>To use the pre-trained word embeddings, we will <code>Gensim</code>, a Python library that simplifies working with the aforementioned word embeddings. The library also offers downloading functionality for a number of word embeddings. These word embeddings are the following</p>
-<div id="02bbcc27" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> gensim.downloader</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">"</span>.join(<span class="bu">list</span>(gensim.downloader.info()[<span class="st">'models'</span>].keys())))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>fasttext-wiki-news-subwords-300
-conceptnet-numberbatch-17-06-300
-word2vec-ruscorpora-300
-word2vec-google-news-300
-glove-wiki-gigaword-50
-glove-wiki-gigaword-100
-glove-wiki-gigaword-200
-glove-wiki-gigaword-300
-glove-twitter-25
-glove-twitter-50
-glove-twitter-100
-glove-twitter-200
-__testing_word2vec-matrix-synopsis</code></pre>
-</div>
-</div>
-<p>We can download any of the aforementioned word embeddings using <code>gensim.downloader</code>. For example, the following code downloads word2vec word embeddings.</p>
-<div id="b212dfa7" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># let's download word2vec</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>embeds <span class="op">=</span> gensim.downloader.load(<span class="st">'word2vec-google-news-300'</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#print embeddings for word king</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>king_embeddings <span class="op">=</span> embeds[<span class="st">'king'</span>]</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Word embedding size:'</span>,<span class="bu">len</span>(king_embeddings))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Word embedding size: 300</code></pre>
-</div>
-</div>
-<p>The above vector contains 300 integers (or 300 dimensions) representations for the word <code>king</code>.</p>
-<p>Let’s now see how close this word is to another word <code>queen</code>. We can use here <code>similarity</code> function which computes <code>Cosine</code> similarity.</p>
-<div id="3b51e11e" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Similarity:'</span>,embeds.similarity(<span class="st">'king'</span>,<span class="st">'queen'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Similarity: 0.6510957</code></pre>
-</div>
-</div>
-</section>
-<section id="building-an-automatic-word-analogy-task-solver-using-word-embeddings" class="level1">
-<h1>Building an automatic word analogy task solver using word embeddings</h1>
-<p>The analogy task aims to test the relationship between words. The task includes the prediction of a word that has a similar analogy as a given pair of words.</p>
-<p>It is given in the form of <code>a:b::c:?</code>.</p>
-<pre><code> Here, a and b have some kind of relationship.
- The task is to find a word that has a similar relationship with `c`.</code></pre>
-<p>To do this task, we will use pre-trained embeddings, i.e., Glove. We can download the Glove embeddings using <code>load</code> function (which we employed in our above example).</p>
-<div id="4342ec05" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>embeds <span class="op">=</span> gensim.downloader.load(<span class="st">'glove-wiki-gigaword-100'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[==================================================] 100.0% 128.1/128.1MB downloaded</code></pre>
-</div>
-</div>
-<p>We have our word embeddings downloaded and loaded for use. Next, we will take the user’s input for <code>a</code>,<code>b</code>,<code>c</code> and predict <code>d</code>. We will follow the following steps</p>
-<ul>
-<li>We will first <strong>capture the relationship between <code>a</code> and <code>b</code></strong>. We will do that by performing a <strong>subtraction operation</strong> on the vectors of words <code>a</code> and <code>b</code>.</li>
-<li>We will use the <strong>difference vector as relationship</strong>, and <strong>add</strong> it to the word embedding of <code>c</code>.</li>
-<li>The resultant word embedding will then be used to find <strong>most similar word embeddings</strong>.</li>
-<li>We will print the <strong>first word</strong> with the highest similarity measure.</li>
-</ul>
-<div id="7382081b" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Taking input from the user</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="bu">input</span>(<span class="st">'Enter a: '</span>)</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="bu">input</span>(<span class="st">'Enter b: '</span>)</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> <span class="bu">input</span>(<span class="st">'Enter c: '</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Enter a: King
-Enter b: Man
-Enter c: Queen</code></pre>
-</div>
-</div>
-<div id="98f02249" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Capturing the relationship between `a` and `b`</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>embed_a <span class="op">=</span> embeds[a.lower()]</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>embed_b <span class="op">=</span> embeds[b.lower()]</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>embed_c <span class="op">=</span> embeds[c.lower()]</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>rel_a_b <span class="op">=</span> embed_b <span class="op">-</span> embed_a</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>embed_d <span class="op">=</span> embed_c <span class="op">+</span> rel_a_b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>In the above code, we first extracted the word embeddings for the words entered by the user. Then, we computed subtraction between word embeddings of <code>b</code> and <code>a</code>. Here, we see the relationship captured through subtraction (i.e., b - a) similar to the relationship between c and d (i.e., d - c).</p>
-<p>We used the relationship vector and added it to the word embedding of <code>c</code>. This gave us the word embedding for our resultant word.</p>
-<p>Finally, we search through all word embeddings and extract the one with the highest similarity measure. For that, we will use <code>most_similar</code> function from <code>Gensim</code> library.</p>
-<div id="8cd884f6" class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># finding similar words </span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>pred_d <span class="op">=</span> embeds.similar_by_vector(embed_d, topn<span class="op">=</span><span class="dv">5</span>)</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(pred_d)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[('woman', 0.8039792776107788), ('man', 0.7791377305984497), ('girl', 0.7349346280097961), ('she', 0.6817952394485474), ('her', 0.6592202186584473)]</code></pre>
-</div>
-</div>
-<p>We extracted the top 6 words with the highest similarity measure. We will next iterate over this list of words and print the first word which is not in the words entered by the user (i.e., a,b,c).</p>
-<div id="9175118f" class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> word <span class="kw">in</span> pred_d:</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> word[<span class="dv">0</span>] <span class="kw">not</span> <span class="kw">in</span> [a,b,c]:</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(word[<span class="dv">0</span>])</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">break</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>woman</code></pre>
-</div>
-</div>
-<p>Let’s put together our code and run it again.</p>
-<div id="249fc1aa" class="cell" data-execution_count="29">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Taking input from the user</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="bu">input</span>(<span class="st">'Enter a: '</span>)</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="bu">input</span>(<span class="st">'Enter b: '</span>)</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> <span class="bu">input</span>(<span class="st">'Enter c: '</span>)</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'</span><span class="ch">\n\n</span><span class="st">Given task:'</span>)</span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'-'</span><span class="op">*</span><span class="dv">40</span>)</span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'</span><span class="sc">{}</span><span class="st">:</span><span class="sc">{}</span><span class="st">::</span><span class="sc">{}</span><span class="st">:?'</span>.<span class="bu">format</span>(a,b,c))</span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'-'</span><span class="op">*</span><span class="dv">40</span>)</span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="co"># getting word embeddings for a,b,c</span></span>
-<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>embed_a <span class="op">=</span> embeds[a.lower()]</span>
-<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>embed_b <span class="op">=</span> embeds[b.lower()]</span>
-<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>embed_c <span class="op">=</span> embeds[c.lower()]</span>
-<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a><span class="co"># compute relationship between b and a</span></span>
-<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>rel_a_b <span class="op">=</span> embed_b <span class="op">-</span> embed_a</span>
-<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a><span class="co"># approximate word embedding using the capture relationship</span></span>
-<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>embed_d <span class="op">=</span> embed_c <span class="op">+</span> rel_a_b</span>
-<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a><span class="co"># extract most similar words</span></span>
-<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>pred_d <span class="op">=</span> embeds.similar_by_vector(embed_d, topn<span class="op">=</span><span class="dv">5</span>)</span>
-<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> <span class="st">''</span></span>
-<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a><span class="co"># find the most similar words to the computed word embeddings for d</span></span>
-<span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> word <span class="kw">in</span> pred_d:</span>
-<span id="cb17-29"><a href="#cb17-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> word[<span class="dv">0</span>] <span class="kw">not</span> <span class="kw">in</span> [a,b,c]:</span>
-<span id="cb17-30"><a href="#cb17-30" aria-hidden="true" tabindex="-1"></a>        d<span class="op">=</span> word[<span class="dv">0</span>]</span>
-<span id="cb17-31"><a href="#cb17-31" aria-hidden="true" tabindex="-1"></a>        <span class="cf">break</span></span>
-<span id="cb17-32"><a href="#cb17-32" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb17-33"><a href="#cb17-33" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'</span><span class="ch">\n\n</span><span class="st">Solution:'</span>)</span>
-<span id="cb17-34"><a href="#cb17-34" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'='</span><span class="op">*</span><span class="dv">20</span>)</span>
-<span id="cb17-35"><a href="#cb17-35" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'</span><span class="sc">{}</span><span class="st">:</span><span class="sc">{}</span><span class="st">::</span><span class="sc">{}</span><span class="st">:</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(a,b,c,d))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Enter a: father
-Enter b: grandfather
-Enter c: mother
-
-
-Given task:
-----------------------------------------
-father:grandfather::mother:?
-----------------------------------------
-
-
-Solution:
-====================
-father:grandfather::mother:grandmother</code></pre>
-</div>
-</div>
-</section>
-<section id="references" class="level1">
-<h1>References</h1>
+<p>This tutorial provides a practical introduction to manipulating and visualizing data in R, covering essential topics such as accessing specific columns or rows, applying filters, aggregating data, and creating plots. By the end of this guide, you’ll be able to perform common data manipulation tasks and generate insightful visualizations using R.</p>
+<section id="topics-covered" class="level2">
+<h2 class="anchored" data-anchor-id="topics-covered">Topics Covered</h2>
 <ol type="1">
-<li>https://pytorch.org/tutorials/beginner/nlp/word_embeddings_tutorial.html</li>
-<li>https://www.merriam-webster.com/dictionary/orthography</li>
-<li>https://machinelearningmastery.com/develop-word-embeddings-python-gensim/ [training your own embedding using gensim]</li>
+<li>Accessing specific columns or rows in a DataFrame.</li>
+<li>Filtering rows based on conditions.</li>
+<li>Generating group-wise statistics (e.g., salary statistics for different groups).</li>
+<li>Adding new columns to a DataFrame.</li>
+<li>Plotting data distributions.</li>
+<li>Visualizing group-based statistics.</li>
 </ol>
+</section>
+<section id="prerequisites" class="level2">
+<h2 class="anchored" data-anchor-id="prerequisites">Prerequisites</h2>
+<p>This guide assumes you have RStudio installed. If not, you can install it or access it online via <a href="https://rstudio.cloud">RStudio Cloud</a>.</p>
+</section>
+<section id="installing-required-packages" class="level2">
+<h2 class="anchored" data-anchor-id="installing-required-packages">Installing Required Packages</h2>
+<p>Open RStudio, and run the following commands to install the necessary packages:</p>
+<pre class="{r}"><code>install.packages('rio')
+install.packages('dplyr')
+install.packages('lattice')</code></pre>
+<p>The above commands will install three packages <a href="https://cran.r-project.org/web/packages/rio/vignettes/rio.html">rio</a>, <a href="https://www.rdocumentation.org/packages/dplyr/versions/0.7.8">dplyr</a>, and <a href="https://ggplot2.tidyverse.org/">ggplot2</a>. We will use these packages in our tutorials.</p>
+<section id="loading-a-dataset-into-rstudio" class="level3">
+<h3 class="anchored" data-anchor-id="loading-a-dataset-into-rstudio">Loading a Dataset into RStudio</h3>
+<p>To get started, load a sample dataset containing simple attributes: name, age, salary, and expenses. Download the dataset <a href="https://github.com/pankajchejara23/Stats-in-R/blob/master/Session-3/sample_data.csv">here</a>.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>name</th>
+<th>age</th>
+<th>salary</th>
+<th>expenses</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>mac</td>
+<td>21</td>
+<td>15000</td>
+<td>600</td>
+</tr>
+<tr class="even">
+<td>ravi</td>
+<td>25</td>
+<td>18000</td>
+<td>800</td>
+</tr>
+<tr class="odd">
+<td>david</td>
+<td>27</td>
+<td>17000</td>
+<td>600</td>
+</tr>
+<tr class="even">
+<td>moorey</td>
+<td>43</td>
+<td>33000</td>
+<td>1200</td>
+</tr>
+<tr class="odd">
+<td>nolan</td>
+<td>33</td>
+<td>24000</td>
+<td>900</td>
+</tr>
+</tbody>
+</table>
+<p>We can either use R-studio GUI or we can write code to load the dataset. So let’s say you have downloaded the dataset and saved it. You can write the following codes to load the dataset into R.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load the package</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># open dataset file</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify your dataset filename with complete path</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>data <span class="sc">&lt;</span>– <span class="fu">import</span>(<span class="st">'filename'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Alternatively, you can use RStudio’s GUI to import the data.</p>
+<p>Following is the demonstration of both ways of loading the dataset.</p>
+<iframe width="660" height="450" src="https://www.youtube.com/embed/_V1CtYJ0NWI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+</iframe>
+</section>
+<section id="accessing-specific-columns-or-rows" class="level3">
+<h3 class="anchored" data-anchor-id="accessing-specific-columns-or-rows">Accessing Specific Columns or Rows</h3>
+<p>So we have loaded the dataset into R and now we want to access two attributes <code>name</code> and <code>salary</code> using the dplyr package.</p>
+<p>We will use the following syntax</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(data_object,attr_name,attr_name,..)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>OR</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>data_object <span class="sc">%&gt;%</span> <span class="fu">select</span>(attr_name,attr_name,..)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Here, <code>data_object</code> is the object name you have used to load your dataset. You then specify the <code>attribute name</code> which you want to access.</p>
+<p>In our case, we want to access <code>name</code> and <code>salary</code>. Therefore, we will specify these attributes in select().</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># load dataset</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">'sample_data.csv'</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># access name and salary attributes</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>dataset <span class="sc">%&gt;%</span> <span class="fu">select</span>(name,salary)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Following is our code from R-Studio.</p>
+<p><img src="./images/r_tutorial_basic/Screenshot 2021-02-26 at 11.23.52.png" class="img-fluid"></p>
+<p>Similarly, you can specify other attribute names which you want to access from your data. You can refer <a href="https://dplyr.tidyverse.org/reference/select.html">this</a> link to get more information on the usage of <code>select()</code>.</p>
+<p>Now, we will look at row selection. Let’s say we want to fetch data of people whose salary is higher than 20000.</p>
+<p>We will use the following syntax</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(data_object,condition)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>OR</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>data_object <span class="sc">%&gt;%</span> <span class="fu">filter</span>(condition)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>To fetch our data, we will use the condition <code>salary &gt; 20000</code>. The snapshot below shows the result.</p>
+<p><img src="./images/r_tutorial_basic/Screenshot 2021-02-26 at 11.36.23.png" class="img-fluid"></p>
+<p>You can refer <a href="https://dplyr.tidyverse.org/reference/filter.html">here</a> for more information on <code>filter()</code> function. Following are some other examples.</p>
+<ul>
+<li><p>Accessing the last row</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">slice_tail</span>(data_object)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Accessing the first row</p>
+<pre><code>slice_head(data_object)</code></pre></li>
+<li><p>Accessing row with minimum value of an attribute (e.g., who has the minimum salary)</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">slice_min</span>(data_object, attr_name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Accessing row with maximum value of an attribute (e.g., who has the maximum salary)</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">slice_max</span>(data_object, attr_name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul>
+</section>
+<section id="how-to-create-new-attributes-using-attributes-from-the-dataset" class="level3">
+<h3 class="anchored" data-anchor-id="how-to-create-new-attributes-using-attributes-from-the-dataset">How to create new attributes using attributes from the dataset?</h3>
+<p>We will take an example to understand this scenario. Let’s say we want to calculate the savings for each employee (from our salary dataset). So we want to have another attribute (saving) which will simply contain the amount of salary left after subtracting the expenses.</p>
+<p>We will use <code>mutate()</code> function for this task. Following is the syntax</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>data_object <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(expr)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>OR</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(data_object,expr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Here expr means the expression that will be used to generate a new attribute. In our case, the savings can be computed by subtracting expenses from salary. Therefore, expr is <code>saving = salary - expenses</code>.</p>
+<p><img src="./images/r_tutorial_basic/Screenshot 2021-02-26 at 11.51.01.png" class="img-fluid"></p>
+<p>Refer <a href="https://dplyr.tidyverse.org/reference/mutate.html">here</a> for more detailed information on <code>mutate()</code> function.</p>
+</section>
+<section id="how-to-generate-group-wise-statistics" class="level3">
+<h3 class="anchored" data-anchor-id="how-to-generate-group-wise-statistics">How to generate group-wise statistics?</h3>
+<p>While analyzing the dataset, we are often interested in group-wise statistics. For example, what is the average salary for younger and older people or what is the difference in sleeping hours between males and females?</p>
+<p>To answer these questions, we need to first group the dataset and then compute the required statistics.</p>
+<p>For our dataset, we can have this question: what is the average salary of people who are younger and older than 30 years? So we will use <code>group_by()</code> and <code>summarise()</code> functions from dplyr package.</p>
+<p>Following is the representation of how the processing needs to be done.</p>
+<p>In R, the following is the syntax.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>data_object <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(attribute_name_used_for_grouping or condition) <span class="sc">%&gt;%</span> <span class="fu">summarize</span>(statistics_you_need)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Here first we need to specify the attribute that will be used for grouping and then we will specify what summary stats we need. Following are the options for summary stats</p>
+<ul>
+<li>mean(), median()</li>
+<li>sd(), IQR()</li>
+<li>min(), max()</li>
+<li>n()</li>
+</ul>
+<p>For more details refer <a href="https://dplyr.tidyverse.org/reference/summarise.html">this</a></p>
+<p>Now, let’s find out the average salary of people who are younger and older than 30 years. So, here we need a condition for grouping. For example, if age &lt; 30 then the employee belongs to group-1 otherwise he/she belongs to group-2. Then we need to specify the attribute name for computing the average.</p>
+<p>Following is the illustration of finding the group-wise average.</p>
+<p><img src="./images/r_tutorial_basic/Screenshot 2021-02-26 at 12.25.21.png" class="img-fluid"></p>
+<p>Now, we will do the same using R. For grouping we will use <code>group_by()</code> function. Here we need to specify the condition. Then we will summarise using <code>summarise()</code> function. Here we need to specify the statistics (e.g., mean, standard deviation, count) and the attribute/s name that will be used to compute statistics.</p>
+<p><img src="./images/r_tutorial_basic/Screenshot 2021-02-26 at 12.29.02.png" class="img-fluid"></p>
+</section>
+</section>
+<section id="plotting-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="plotting-the-data">Plotting the data</h2>
+<p>In this section, we will use <code>lattice</code> package from R to produce graphs. We will cover creating following graphs</p>
+<ul>
+<li>Bar chart</li>
+<li>Box plot</li>
+<li>Density plot</li>
+<li>Histogram</li>
+<li>Scatter plot</li>
+</ul>
+<p>You can use the following syntax to create graphs using <code>lattice</code> package.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">graph_type</span>(formula,<span class="at">data=</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Here, graph_type is the name of the graph which you want to plot. In the formula, you need to specify what you want to plot. For example, if you want to plot a salary attribute from our dataset, you can write it as <code>~salary</code>. If you want to plot two attributes (e.g., age and salary) then you can either write <code>age~salary</code> or <code>salary~age</code>.</p>
+<p>The following table shows the graph_type for each of the aforementioned graph</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>graph_type</th>
+<th>What it plots</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>barchart</td>
+<td>bar chart</td>
+</tr>
+<tr class="even">
+<td>bwplot</td>
+<td>boxplot</td>
+</tr>
+<tr class="odd">
+<td>Densityplot</td>
+<td>kernel density plot</td>
+</tr>
+<tr class="even">
+<td>histogram</td>
+<td>histogram</td>
+</tr>
+<tr class="odd">
+<td>xyplot</td>
+<td>scatterplot matrix</td>
+</tr>
+</tbody>
+</table>
+<p>We will learn more about how to write these forms in our examples.</p>
+<ul>
+<li><p>Let’s plot a histogram for the salary attribute from our dataset. For this, we will use <code>histogram</code> graph type. We will specify the name of the attribute <code>~salary</code>.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> <span class="fu">import</span>(your_file_name_path)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">histogram</span>(<span class="sc">~</span>salary,<span class="at">data=</span>dataset)   </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul>
+<p><img src="./images/r_tutorial_basic/Screenshot 2021-02-26 at 17.57.38.png" class="img-fluid"></p>
+<p><img src="./images/r_tutorial_basic/image-20210226175840188.png" class="img-fluid"></p>
+<ul>
+<li><p>Now, we will plot the scatterplot for age and salary. We will use xyplot.</p>
+<pre><code># You already have your dataset loaded in the object dataset
+xyplot(age~salary,data=dataset)</code></pre>
+<p><img src="./images/r_tutorial_basic/image-20210226180034354.png" class="img-fluid"></p></li>
+<li><p>Let’s plot a boxplot for the salary attribute.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bwplot</span>(<span class="sc">~</span>salary,<span class="at">data=</span>dataset   )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul>
+<p><img src="./images/r_tutorial_basic/image-20210226180350357.png" class="img-fluid"></p>
 
 
 </section>

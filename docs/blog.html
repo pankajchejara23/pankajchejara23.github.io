@@ -79,9 +79,8 @@ ul.task-list li input[type="checkbox"] {
 
     const options = {
       valueNames: ['listing-image','listing-date','listing-title','listing-author','listing-reading-time','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      page: 18,
-    pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
+      
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -224,7 +223,7 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(19)</span></div><div class="category" data-category="cbow">cbow <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cloud">cloud <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dash">dash <span class="quarto-category-count">(1)</span></div><div class="category" data-category="distribution">distribution <span class="quarto-category-count">(1)</span></div><div class="category" data-category="facial features">facial features <span class="quarto-category-count">(1)</span></div><div class="category" data-category="gen-ai">gen-ai <span class="quarto-category-count">(1)</span></div><div class="category" data-category="geopandas">geopandas <span class="quarto-category-count">(1)</span></div><div class="category" data-category="hosting">hosting <span class="quarto-category-count">(1)</span></div><div class="category" data-category="llama2">llama2 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="llm">llm <span class="quarto-category-count">(1)</span></div><div class="category" data-category="machine learning">machine learning <span class="quarto-category-count">(1)</span></div><div class="category" data-category="map">map <span class="quarto-category-count">(1)</span></div><div class="category" data-category="maths">maths <span class="quarto-category-count">(1)</span></div><div class="category" data-category="mqtt">mqtt <span class="quarto-category-count">(1)</span></div><div class="category" data-category="nlp">nlp <span class="quarto-category-count">(6)</span></div><div class="category" data-category="nltk">nltk <span class="quarto-category-count">(1)</span></div><div class="category" data-category="openface">openface <span class="quarto-category-count">(1)</span></div><div class="category" data-category="pandas">pandas <span class="quarto-category-count">(1)</span></div><div class="category" data-category="pca">pca <span class="quarto-category-count">(1)</span></div><div class="category" data-category="python">python <span class="quarto-category-count">(17)</span></div><div class="category" data-category="pytorch">pytorch <span class="quarto-category-count">(4)</span></div><div class="category" data-category="r">r <span class="quarto-category-count">(2)</span></div><div class="category" data-category="regex">regex <span class="quarto-category-count">(1)</span></div><div class="category" data-category="regular expression">regular expression <span class="quarto-category-count">(1)</span></div><div class="category" data-category="scikit-learn">scikit-learn <span class="quarto-category-count">(1)</span></div><div class="category" data-category="statistics">statistics <span class="quarto-category-count">(2)</span></div><div class="category" data-category="time-series">time-series <span class="quarto-category-count">(1)</span></div><div class="category" data-category="visualization">visualization <span class="quarto-category-count">(1)</span></div><div class="category" data-category="web-app">web-app <span class="quarto-category-count">(1)</span></div><div class="category" data-category="yelp">yelp <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(20)</span></div><div class="category" data-category="cbow">cbow <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cloud">cloud <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dash">dash <span class="quarto-category-count">(1)</span></div><div class="category" data-category="distribution">distribution <span class="quarto-category-count">(2)</span></div><div class="category" data-category="facial features">facial features <span class="quarto-category-count">(1)</span></div><div class="category" data-category="gen-ai">gen-ai <span class="quarto-category-count">(1)</span></div><div class="category" data-category="geopandas">geopandas <span class="quarto-category-count">(1)</span></div><div class="category" data-category="hosting">hosting <span class="quarto-category-count">(1)</span></div><div class="category" data-category="llama2">llama2 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="llm">llm <span class="quarto-category-count">(1)</span></div><div class="category" data-category="machine learning">machine learning <span class="quarto-category-count">(1)</span></div><div class="category" data-category="map">map <span class="quarto-category-count">(1)</span></div><div class="category" data-category="maths">maths <span class="quarto-category-count">(2)</span></div><div class="category" data-category="mqtt">mqtt <span class="quarto-category-count">(1)</span></div><div class="category" data-category="nlp">nlp <span class="quarto-category-count">(6)</span></div><div class="category" data-category="nltk">nltk <span class="quarto-category-count">(1)</span></div><div class="category" data-category="openface">openface <span class="quarto-category-count">(1)</span></div><div class="category" data-category="pandas">pandas <span class="quarto-category-count">(1)</span></div><div class="category" data-category="pca">pca <span class="quarto-category-count">(1)</span></div><div class="category" data-category="python">python <span class="quarto-category-count">(18)</span></div><div class="category" data-category="pytorch">pytorch <span class="quarto-category-count">(4)</span></div><div class="category" data-category="r">r <span class="quarto-category-count">(2)</span></div><div class="category" data-category="regex">regex <span class="quarto-category-count">(1)</span></div><div class="category" data-category="regular expression">regular expression <span class="quarto-category-count">(1)</span></div><div class="category" data-category="scikit-learn">scikit-learn <span class="quarto-category-count">(1)</span></div><div class="category" data-category="statistics">statistics <span class="quarto-category-count">(3)</span></div><div class="category" data-category="time-series">time-series <span class="quarto-category-count">(1)</span></div><div class="category" data-category="visualization">visualization <span class="quarto-category-count">(1)</span></div><div class="category" data-category="web-app">web-app <span class="quarto-category-count">(1)</span></div><div class="category" data-category="yelp">yelp <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
 
@@ -236,548 +235,633 @@ window.Quarto = {
 
 
 
-<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="python,cloud,dash,hosting" data-listing-date-sort="1717189200000" data-listing-file-modified-sort="1717239870561" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="533">
-<a href="./posts/post-with-code/Hosting on Render.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./posts/post-with-code/images/render/thumbnail.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-How to Successfully host your Dash application on Render
-</h5>
-<div class="listing-reading-time card-text text-muted">
-3 min
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="python,statistics,maths,distribution" data-listing-date-sort="1728507600000" data-listing-file-modified-sort="1731012890302" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1287">
+<div class="thumbnail">
+<p><a href="./posts/post-with-code/Untitled.html" class="no-external"></a></p><a href="./posts/post-with-code/Untitled.html" class="no-external">
+<p><img src="./posts/post-with-code/images/r_tutorial_basic/front.png" class="thumbnail-image"></p>
+</a><p><a href="./posts/post-with-code/Untitled.html" class="no-external"></a></p>
 </div>
-<div class="card-text listing-description">
-This post will provide detailed instructions on the hosting process of a <strong>dash</strong> application on Render. Render is a hosting service provider. It offers a free tier that can be…
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/post-with-code/Untitled.html" class="no-external">Basics of Data Manipulation and Visualization in R</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/post-with-code/Untitled.html" class="no-external"></a>
 </div>
-<div class="card-attribution card-text-small justify">
+<div class="listing-description">
+<a href="./posts/post-with-code/Untitled.html" class="no-external">This tutorial provides a practical introduction to manipulating and visualizing data in R, covering essential topics such as accessing specific columns or rows, applying…</a>
+</div>
+</div>
+<div class="metadata">
+<a href="./posts/post-with-code/Untitled.html" class="no-external">
+<div class="listing-date">
+Oct 10, 2024
+</div>
 <div class="listing-author">
 Pankaj Chejara
 </div>
+<div class="listing-reading-time">
+7 min
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="python,cloud,dash,hosting" data-listing-date-sort="1717189200000" data-listing-file-modified-sort="1717239870561" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="533">
+<div class="thumbnail">
+<p><a href="./posts/post-with-code/Hosting on Render.html" class="no-external"></a></p><a href="./posts/post-with-code/Hosting on Render.html" class="no-external">
+<p><img src="./posts/post-with-code/images/render/thumbnail.png" class="thumbnail-image"></p>
+</a><p><a href="./posts/post-with-code/Hosting on Render.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/post-with-code/Hosting on Render.html" class="no-external">How to Successfully host your Dash application on Render</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/post-with-code/Hosting on Render.html" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./posts/post-with-code/Hosting on Render.html" class="no-external">This post will provide detailed instructions on the hosting process of a <strong>dash</strong> application on Render. Render is a hosting service provider. It offers a free tier that can be…</a>
+</div>
+</div>
+<div class="metadata">
+<a href="./posts/post-with-code/Hosting on Render.html" class="no-external">
 <div class="listing-date">
 Jun 1, 2024
 </div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="1" data-categories="python,pytorch,nlp,cbow" data-listing-date-sort="1706392800000" data-listing-file-modified-sort="1709739674577" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1015">
-<a href="./posts/post-with-code/Train your word embeddings from scratch.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./posts/post-with-code/images/nlp_projects/cbow.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Guide to train word embeddings from scratch
-</h5>
-<div class="listing-reading-time card-text text-muted">
-6 min
-</div>
-<div class="card-text listing-description">
-This blog post explains the procedure to train word embeddings from scratch. Word embeddings are dense vector representation of text data (Check this blog pos for the basics).
-</div>
-<div class="card-attribution card-text-small justify">
 <div class="listing-author">
 Pankaj Chejara
 </div>
+<div class="listing-reading-time">
+3 min
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-categories="python,pytorch,nlp,cbow" data-listing-date-sort="1706392800000" data-listing-file-modified-sort="1709739674577" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1015">
+<div class="thumbnail">
+<p><a href="./posts/post-with-code/Train your word embeddings from scratch.html" class="no-external"></a></p><a href="./posts/post-with-code/Train your word embeddings from scratch.html" class="no-external">
+<p><img src="./posts/post-with-code/images/nlp_projects/cbow.png" class="thumbnail-image"></p>
+</a><p><a href="./posts/post-with-code/Train your word embeddings from scratch.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/post-with-code/Train your word embeddings from scratch.html" class="no-external">Guide to train word embeddings from scratch</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/post-with-code/Train your word embeddings from scratch.html" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./posts/post-with-code/Train your word embeddings from scratch.html" class="no-external">This blog post explains the procedure to train word embeddings from scratch. Word embeddings are dense vector representation of text data (Check this blog pos for the basics).</a>
+</div>
+</div>
+<div class="metadata">
+<a href="./posts/post-with-code/Train your word embeddings from scratch.html" class="no-external">
 <div class="listing-date">
 Jan 28, 2024
 </div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="2" data-categories="python,nlp,pytorch" data-listing-date-sort="1705874400000" data-listing-file-modified-sort="1706351757000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="744">
-<a href="./posts/post-with-code/word_embeddings.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./posts/post-with-code/images/nlp_projects/word_embeddings.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Introduction to word embeddings with hands-on exercises
-</h5>
-<div class="listing-reading-time card-text text-muted">
-4 min
-</div>
-<div class="card-text listing-description">
-A word embedding is a numeric representation of text in natural language processing. The representation is in the form of a vector where each number represents a dimension…
-</div>
-<div class="card-attribution card-text-small justify">
 <div class="listing-author">
 Pankaj Chejara
 </div>
+<div class="listing-reading-time">
+6 min
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="3" data-categories="python,nlp,pytorch" data-listing-date-sort="1705874400000" data-listing-file-modified-sort="1706351757000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="744">
+<div class="thumbnail">
+<p><a href="./posts/post-with-code/word_embeddings.html" class="no-external"></a></p><a href="./posts/post-with-code/word_embeddings.html" class="no-external">
+<p><img src="./posts/post-with-code/images/nlp_projects/word_embeddings.png" class="thumbnail-image"></p>
+</a><p><a href="./posts/post-with-code/word_embeddings.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/post-with-code/word_embeddings.html" class="no-external">Introduction to word embeddings with hands-on exercises</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/post-with-code/word_embeddings.html" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./posts/post-with-code/word_embeddings.html" class="no-external">A word embedding is a numeric representation of text in natural language processing. The representation is in the form of a vector where each number represents a dimension…</a>
+</div>
+</div>
+<div class="metadata">
+<a href="./posts/post-with-code/word_embeddings.html" class="no-external">
 <div class="listing-date">
 Jan 22, 2024
 </div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="3" data-categories="python,nlp,pytorch" data-listing-date-sort="1705701600000" data-listing-file-modified-sort="1709739674577" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1835">
-<a href="./posts/post-with-code/Surname_prediction_using_Pytorch.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./posts/post-with-code/images/nlp_projects/surname_prediction.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Building a surname classifier using PyTorch
-</h5>
-<div class="listing-reading-time card-text text-muted">
-10 min
-</div>
-<div class="card-text listing-description">
-This post presents an NLP (Natural language processing) example based on the book NLP with PyTorch:Building intelligent language applications using deep learning. In the…<strong></strong>
-</div>
-<div class="card-attribution card-text-small justify">
 <div class="listing-author">
 Pankaj Chejara
 </div>
+<div class="listing-reading-time">
+4 min
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="4" data-categories="python,nlp,pytorch" data-listing-date-sort="1705701600000" data-listing-file-modified-sort="1709739674577" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1835">
+<div class="thumbnail">
+<p><a href="./posts/post-with-code/Surname_prediction_using_Pytorch.html" class="no-external"></a></p><a href="./posts/post-with-code/Surname_prediction_using_Pytorch.html" class="no-external">
+<p><img src="./posts/post-with-code/images/nlp_projects/surname_prediction.png" class="thumbnail-image"></p>
+</a><p><a href="./posts/post-with-code/Surname_prediction_using_Pytorch.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/post-with-code/Surname_prediction_using_Pytorch.html" class="no-external">Building a surname classifier using PyTorch</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/post-with-code/Surname_prediction_using_Pytorch.html" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./posts/post-with-code/Surname_prediction_using_Pytorch.html" class="no-external">This post presents an NLP (Natural language processing) example based on the book NLP with PyTorch:Building intelligent language applications using deep learning. In the…<strong></strong></a>
+</div>
+</div>
+<div class="metadata">
+<a href="./posts/post-with-code/Surname_prediction_using_Pytorch.html" class="no-external">
 <div class="listing-date">
 Jan 20, 2024
 </div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="4" data-categories="python,statistics,maths,distribution" data-listing-date-sort="1704578400000" data-listing-file-modified-sort="1730713583112" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="17" data-listing-word-count-sort="3251">
-<a href="./posts/post-with-code/A primer on data distribution fundamentals .html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./posts/post-with-code/images/distributions/discrete.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-A primer on discrete data distribution fundamentals
-</h5>
-<div class="listing-reading-time card-text text-muted">
-17 min
-</div>
-<div class="card-text listing-description">
-This post offers an introduction to discrete data distributions which are essential to know for every data scientist. The post starts by explaining what does it mean by <strong>data…</strong>
-</div>
-<div class="card-attribution card-text-small justify">
 <div class="listing-author">
 Pankaj Chejara
 </div>
+<div class="listing-reading-time">
+10 min
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="5" data-categories="python,statistics,maths,distribution" data-listing-date-sort="1704578400000" data-listing-file-modified-sort="1731011695436" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="17" data-listing-word-count-sort="3251">
+<div class="thumbnail">
+<p><a href="./posts/post-with-code/A primer on data distribution fundamentals .html" class="no-external"></a></p><a href="./posts/post-with-code/A primer on data distribution fundamentals .html" class="no-external">
+<p><img src="./posts/post-with-code/images/distributions/discrete.png" class="thumbnail-image"></p>
+</a><p><a href="./posts/post-with-code/A primer on data distribution fundamentals .html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/post-with-code/A primer on data distribution fundamentals .html" class="no-external">A primer on discrete data distribution fundamentals</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/post-with-code/A primer on data distribution fundamentals .html" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./posts/post-with-code/A primer on data distribution fundamentals .html" class="no-external">This post offers an introduction to discrete data distributions which are essential to know for every data scientist. The post starts by explaining what does it mean by <strong>data…</strong></a>
+</div>
+</div>
+<div class="metadata">
+<a href="./posts/post-with-code/A primer on data distribution fundamentals .html" class="no-external">
 <div class="listing-date">
 Jan 7, 2024
 </div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="5" data-categories="python,llm,llama2,nlp,gen-ai" data-listing-date-sort="1702332000000" data-listing-file-modified-sort="1709739674693" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="380">
-<a href="./posts/post-with-code/llama.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./posts/post-with-code/images/llama2/llama2.jpg" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Hands-on experience with <code>llama2</code> with Python: Building a simple Q&amp;A app
-</h5>
-<div class="listing-reading-time card-text text-muted">
-2 min
-</div>
-<div class="card-text listing-description">
-This post shares the step-by-step process of running the LLAMA2 model locally on MAC. The post is a reflection of my learning of Large Language Models and their practical…
-</div>
-<div class="card-attribution card-text-small justify">
 <div class="listing-author">
 Pankaj Chejara
 </div>
+<div class="listing-reading-time">
+17 min
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="6" data-categories="python,llm,llama2,nlp,gen-ai" data-listing-date-sort="1702332000000" data-listing-file-modified-sort="1709739674693" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="380">
+<div class="thumbnail">
+<p><a href="./posts/post-with-code/llama.html" class="no-external"></a></p><a href="./posts/post-with-code/llama.html" class="no-external">
+<p><img src="./posts/post-with-code/images/llama2/llama2.jpg" class="thumbnail-image"></p>
+</a><p><a href="./posts/post-with-code/llama.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/post-with-code/llama.html" class="no-external">Hands-on experience with <code>llama2</code> with Python: Building a simple Q&amp;A app</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/post-with-code/llama.html" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./posts/post-with-code/llama.html" class="no-external">This post shares the step-by-step process of running the LLAMA2 model locally on MAC. The post is a reflection of my learning of Large Language Models and their practical…</a>
+</div>
+</div>
+<div class="metadata">
+<a href="./posts/post-with-code/llama.html" class="no-external">
 <div class="listing-date">
 Dec 12, 2023
 </div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="6" data-categories="python,nlp,pytorch,yelp" data-listing-date-sort="1698876000000" data-listing-file-modified-sort="1709739674576" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1366">
-<a href="./posts/post-with-code/Sentiment prediction.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./posts/post-with-code/images/nlp_projects/sentiment_yelp_1.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Sentiment prediction using Pytorch
-</h5>
-<div class="listing-reading-time card-text text-muted">
-7 min
-</div>
-<div class="card-text listing-description">
-This year, I started exploring NLP (natural language processing) given its huge potential for building intelligent systems capable of understanding and generating text in…
-</div>
-<div class="card-attribution card-text-small justify">
 <div class="listing-author">
 Pankaj Chejara
 </div>
+<div class="listing-reading-time">
+2 min
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="7" data-categories="python,nlp,pytorch,yelp" data-listing-date-sort="1698876000000" data-listing-file-modified-sort="1709739674576" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1366">
+<div class="thumbnail">
+<p><a href="./posts/post-with-code/Sentiment prediction.html" class="no-external"></a></p><a href="./posts/post-with-code/Sentiment prediction.html" class="no-external">
+<p><img src="./posts/post-with-code/images/nlp_projects/sentiment_yelp_1.png" class="thumbnail-image"></p>
+</a><p><a href="./posts/post-with-code/Sentiment prediction.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/post-with-code/Sentiment prediction.html" class="no-external">Sentiment prediction using Pytorch</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/post-with-code/Sentiment prediction.html" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./posts/post-with-code/Sentiment prediction.html" class="no-external">This year, I started exploring NLP (natural language processing) given its huge potential for building intelligent systems capable of understanding and generating text in…</a>
+</div>
+</div>
+<div class="metadata">
+<a href="./posts/post-with-code/Sentiment prediction.html" class="no-external">
 <div class="listing-date">
 Nov 2, 2023
 </div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="7" data-categories="python,nlp,nltk" data-listing-date-sort="1698008400000" data-listing-file-modified-sort="1709739674578" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1992">
-<a href="./posts/post-with-code/basics_nlp.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./posts/post-with-code/images/nlp_basics/wall.jpg" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Basics of Natural Language Processing in Python
-</h5>
-<div class="listing-reading-time card-text text-muted">
-10 min
-</div>
-<div class="card-text listing-description">
-Natural language processing is an interdisciplinary field combining computer science, artificial intelligence, and linguistics. Natural language processing focuses on the…
-</div>
-<div class="card-attribution card-text-small justify">
 <div class="listing-author">
 Pankaj Chejara
 </div>
+<div class="listing-reading-time">
+7 min
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="8" data-categories="python,nlp,nltk" data-listing-date-sort="1698008400000" data-listing-file-modified-sort="1709739674578" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1992">
+<div class="thumbnail">
+<p><a href="./posts/post-with-code/basics_nlp.html" class="no-external"></a></p><a href="./posts/post-with-code/basics_nlp.html" class="no-external">
+<p><img src="./posts/post-with-code/images/nlp_basics/wall.jpg" class="thumbnail-image"></p>
+</a><p><a href="./posts/post-with-code/basics_nlp.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/post-with-code/basics_nlp.html" class="no-external">Basics of Natural Language Processing in Python</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/post-with-code/basics_nlp.html" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./posts/post-with-code/basics_nlp.html" class="no-external">Natural language processing is an interdisciplinary field combining computer science, artificial intelligence, and linguistics. Natural language processing focuses on the…</a>
+</div>
+</div>
+<div class="metadata">
+<a href="./posts/post-with-code/basics_nlp.html" class="no-external">
 <div class="listing-date">
 Oct 23, 2023
 </div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="8" data-categories="python,regex,regular expression" data-listing-date-sort="1696885200000" data-listing-file-modified-sort="1709739674576" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1561">
-<a href="./posts/post-with-code/Regular expression.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./posts/post-with-code/images/regexps/basic.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Introduction to Regular Expressions
-</h5>
-<div class="listing-reading-time card-text text-muted">
-8 min
-</div>
-<div class="card-text listing-description">
-This post will explain the basics of regular expression. Regular expression (regexp in short) is a powerful technique of text searching and text manipulation. If you are…
-</div>
-<div class="card-attribution card-text-small justify">
 <div class="listing-author">
 Pankaj Chejara
 </div>
+<div class="listing-reading-time">
+10 min
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="9" data-categories="python,regex,regular expression" data-listing-date-sort="1696885200000" data-listing-file-modified-sort="1709739674576" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1561">
+<div class="thumbnail">
+<p><a href="./posts/post-with-code/Regular expression.html" class="no-external"></a></p><a href="./posts/post-with-code/Regular expression.html" class="no-external">
+<p><img src="./posts/post-with-code/images/regexps/basic.png" class="thumbnail-image"></p>
+</a><p><a href="./posts/post-with-code/Regular expression.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/post-with-code/Regular expression.html" class="no-external">Introduction to Regular Expressions</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/post-with-code/Regular expression.html" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./posts/post-with-code/Regular expression.html" class="no-external">This post will explain the basics of regular expression. Regular expression (regexp in short) is a powerful technique of text searching and text manipulation. If you are…</a>
+</div>
+</div>
+<div class="metadata">
+<a href="./posts/post-with-code/Regular expression.html" class="no-external">
 <div class="listing-date">
 Oct 10, 2023
 </div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="9" data-categories="python,geopandas,map" data-listing-date-sort="1695416400000" data-listing-file-modified-sort="1709739674575" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="345">
-<a href="./posts/post-with-code/Bike sharing map visualization.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./posts/post-with-code/images/map_vis/map.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Location data visualization on Map using Python
-</h5>
-<div class="listing-reading-time card-text text-muted">
-2 min
-</div>
-<div class="card-text listing-description">
-This tutorial will show you how to work with geospatial data using Python with library geoPandas. For this exercise, I have used Boston Bike Sharing dataset which is…
-</div>
-<div class="card-attribution card-text-small justify">
 <div class="listing-author">
 Pankaj Chejara
 </div>
+<div class="listing-reading-time">
+8 min
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="10" data-categories="python,geopandas,map" data-listing-date-sort="1695416400000" data-listing-file-modified-sort="1709739674575" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="345">
+<div class="thumbnail">
+<p><a href="./posts/post-with-code/Bike sharing map visualization.html" class="no-external"></a></p><a href="./posts/post-with-code/Bike sharing map visualization.html" class="no-external">
+<p><img src="./posts/post-with-code/images/map_vis/map.png" class="thumbnail-image"></p>
+</a><p><a href="./posts/post-with-code/Bike sharing map visualization.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/post-with-code/Bike sharing map visualization.html" class="no-external">Location data visualization on Map using Python</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/post-with-code/Bike sharing map visualization.html" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./posts/post-with-code/Bike sharing map visualization.html" class="no-external">This tutorial will show you how to work with geospatial data using Python with library geoPandas. For this exercise, I have used Boston Bike Sharing dataset which is…</a>
+</div>
+</div>
+<div class="metadata">
+<a href="./posts/post-with-code/Bike sharing map visualization.html" class="no-external">
 <div class="listing-date">
 Sep 23, 2023
 </div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="10" data-categories="python,visualization,web-app" data-listing-date-sort="1685739600000" data-listing-file-modified-sort="1709739674579" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="928">
-<a href="./posts/post-with-code/dash.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./posts/post-with-code/p6.4.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Introduction to Python Dash Framework
-</h5>
-<div class="listing-reading-time card-text text-muted">
-5 min
-</div>
-<div class="card-text listing-description">
-Dashboards play a crucial role in conveying useful and actionable information from collected data regardless of context. As with economically feasible sensors, improved…
-</div>
-<div class="card-attribution card-text-small justify">
 <div class="listing-author">
 Pankaj Chejara
 </div>
+<div class="listing-reading-time">
+2 min
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="11" data-categories="python,visualization,web-app" data-listing-date-sort="1685739600000" data-listing-file-modified-sort="1709739674579" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="928">
+<div class="thumbnail">
+<p><a href="./posts/post-with-code/dash.html" class="no-external"></a></p><a href="./posts/post-with-code/dash.html" class="no-external">
+<p><img src="./posts/post-with-code/p6.4.png" class="thumbnail-image"></p>
+</a><p><a href="./posts/post-with-code/dash.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/post-with-code/dash.html" class="no-external">Introduction to Python Dash Framework</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/post-with-code/dash.html" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./posts/post-with-code/dash.html" class="no-external">Dashboards play a crucial role in conveying useful and actionable information from collected data regardless of context. As with economically feasible sensors, improved…</a>
+</div>
+</div>
+<div class="metadata">
+<a href="./posts/post-with-code/dash.html" class="no-external">
 <div class="listing-date">
 Jun 3, 2023
 </div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="11" data-categories="python" data-listing-date-sort="1684616400000" data-listing-file-modified-sort="1709739674578" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1893">
-<a href="./posts/post-with-code/agreement.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./posts/post-with-code/images/agreement/hands.jpg" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Computing inter-rater aggrement scores using Python
-</h5>
-<div class="listing-reading-time card-text text-muted">
-10 min
-</div>
-<div class="card-text listing-description">
-
-Recently, I was involved in some annotation processes involving two coders and I needed to compute inter-rater reliability scores. There are multiple measures for…
-</div>
-<div class="card-attribution card-text-small justify">
 <div class="listing-author">
 Pankaj Chejara
 </div>
+<div class="listing-reading-time">
+5 min
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="12" data-categories="python" data-listing-date-sort="1684616400000" data-listing-file-modified-sort="1709739674578" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1893">
+<div class="thumbnail">
+<p><a href="./posts/post-with-code/agreement.html" class="no-external"></a></p><a href="./posts/post-with-code/agreement.html" class="no-external">
+<p><img src="./posts/post-with-code/images/agreement/hands.jpg" class="thumbnail-image"></p>
+</a><p><a href="./posts/post-with-code/agreement.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/post-with-code/agreement.html" class="no-external">Computing inter-rater aggrement scores using Python</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/post-with-code/agreement.html" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./posts/post-with-code/agreement.html" class="no-external">
+Recently, I was involved in some annotation processes involving two coders and I needed to compute inter-rater reliability scores. There are multiple measures for…</a>
+</div>
+</div>
+<div class="metadata">
+<a href="./posts/post-with-code/agreement.html" class="no-external">
 <div class="listing-date">
 May 21, 2023
 </div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="12" data-categories="python,time-series" data-listing-date-sort="1671055200000" data-listing-file-modified-sort="1709739674579" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="708">
-<a href="./posts/post-with-code/gramian.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./posts/post-with-code/images/gram/gram-4.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Understanding Gramian Angular Field
-</h5>
-<div class="listing-reading-time card-text text-muted">
-4 min
-</div>
-<div class="card-text listing-description">
-In this post, I will share my learning on this topic. I have been searching for a way to use a convolutional neural network (CNN) for my time-series data and this search led…
-</div>
-<div class="card-attribution card-text-small justify">
 <div class="listing-author">
 Pankaj Chejara
 </div>
+<div class="listing-reading-time">
+10 min
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="13" data-categories="python,time-series" data-listing-date-sort="1671055200000" data-listing-file-modified-sort="1709739674579" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="708">
+<div class="thumbnail">
+<p><a href="./posts/post-with-code/gramian.html" class="no-external"></a></p><a href="./posts/post-with-code/gramian.html" class="no-external">
+<p><img src="./posts/post-with-code/images/gram/gram-4.png" class="thumbnail-image"></p>
+</a><p><a href="./posts/post-with-code/gramian.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/post-with-code/gramian.html" class="no-external">Understanding Gramian Angular Field</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/post-with-code/gramian.html" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./posts/post-with-code/gramian.html" class="no-external">In this post, I will share my learning on this topic. I have been searching for a way to use a convolutional neural network (CNN) for my time-series data and this search led…</a>
+</div>
+</div>
+<div class="metadata">
+<a href="./posts/post-with-code/gramian.html" class="no-external">
 <div class="listing-date">
 Dec 15, 2022
 </div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="13" data-categories="r" data-listing-date-sort="1650229200000" data-listing-file-modified-sort="1709739674579" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1291">
-<a href="./posts/post-with-code/data_r.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./posts/post-with-code/images/data_r/image-20210226175840188.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-R tutorial on accessing, filtering, aggregating and plotting data
-</h5>
-<div class="listing-reading-time card-text text-muted">
-7 min
-</div>
-<div class="card-text listing-description">
-This post offers a tutorial on how to access, filter, aggregate and plot the data in R. It will mainly covers following topics
-</div>
-<div class="card-attribution card-text-small justify">
 <div class="listing-author">
 Pankaj Chejara
 </div>
+<div class="listing-reading-time">
+4 min
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="14" data-categories="r" data-listing-date-sort="1650229200000" data-listing-file-modified-sort="1709739674579" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1291">
+<div class="thumbnail">
+<p><a href="./posts/post-with-code/data_r.html" class="no-external"></a></p><a href="./posts/post-with-code/data_r.html" class="no-external">
+<p><img src="./posts/post-with-code/images/data_r/image-20210226175840188.png" class="thumbnail-image"></p>
+</a><p><a href="./posts/post-with-code/data_r.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/post-with-code/data_r.html" class="no-external">R tutorial on accessing, filtering, aggregating and plotting data</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/post-with-code/data_r.html" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./posts/post-with-code/data_r.html" class="no-external">This post offers a tutorial on how to access, filter, aggregate and plot the data in R. It will mainly covers following topics</a>
+</div>
+</div>
+<div class="metadata">
+<a href="./posts/post-with-code/data_r.html" class="no-external">
 <div class="listing-date">
 Apr 18, 2022
 </div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="14" data-categories="python,mqtt" data-listing-date-sort="1642024800000" data-listing-file-modified-sort="1709739674694" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1677">
-<a href="./posts/post-with-code/mqtt.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./posts/post-with-code/images/mqtt/p5.1.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Setting up MQTT server and Client
-</h5>
-<div class="listing-reading-time card-text text-muted">
-9 min
-</div>
-<div class="card-text listing-description">
-This post offers an introduction to the <strong>MQTT</strong> (Message Queuing Telemetry Transport) protocol [1] and also demonstrates its usage with an example in Python (Just for info…
-</div>
-<div class="card-attribution card-text-small justify">
 <div class="listing-author">
 Pankaj Chejara
 </div>
+<div class="listing-reading-time">
+7 min
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="15" data-categories="python,mqtt" data-listing-date-sort="1642024800000" data-listing-file-modified-sort="1709739674694" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1677">
+<div class="thumbnail">
+<p><a href="./posts/post-with-code/mqtt.html" class="no-external"></a></p><a href="./posts/post-with-code/mqtt.html" class="no-external">
+<p><img src="./posts/post-with-code/images/mqtt/p5.1.png" class="thumbnail-image"></p>
+</a><p><a href="./posts/post-with-code/mqtt.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/post-with-code/mqtt.html" class="no-external">Setting up MQTT server and Client</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/post-with-code/mqtt.html" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./posts/post-with-code/mqtt.html" class="no-external">This post offers an introduction to the <strong>MQTT</strong> (Message Queuing Telemetry Transport) protocol [1] and also demonstrates its usage with an example in Python (Just for info…</a>
+</div>
+</div>
+<div class="metadata">
+<a href="./posts/post-with-code/mqtt.html" class="no-external">
 <div class="listing-date">
 Jan 13, 2022
 </div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="15" data-categories="r,statistics" data-listing-date-sort="1624309200000" data-listing-file-modified-sort="1709739674696" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="14" data-listing-word-count-sort="2723">
-<a href="./posts/post-with-code/statistical_test.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./posts/post-with-code/images/statistical_tests/intro.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Statistical tests in R
-</h5>
-<div class="listing-reading-time card-text text-muted">
-14 min
-</div>
-<div class="card-text listing-description">
-This post delves into inferential statistics and explains two different statistical test. Additionally, this post also talks about the need of performing these tests along…
-</div>
-<div class="card-attribution card-text-small justify">
 <div class="listing-author">
 Pankaj Chejara
 </div>
+<div class="listing-reading-time">
+9 min
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="16" data-categories="r,statistics" data-listing-date-sort="1624309200000" data-listing-file-modified-sort="1709739674696" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="14" data-listing-word-count-sort="2723">
+<div class="thumbnail">
+<p><a href="./posts/post-with-code/statistical_test.html" class="no-external"></a></p><a href="./posts/post-with-code/statistical_test.html" class="no-external">
+<p><img src="./posts/post-with-code/images/statistical_tests/intro.png" class="thumbnail-image"></p>
+</a><p><a href="./posts/post-with-code/statistical_test.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/post-with-code/statistical_test.html" class="no-external">Statistical tests in R</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/post-with-code/statistical_test.html" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./posts/post-with-code/statistical_test.html" class="no-external">This post delves into inferential statistics and explains two different statistical test. Additionally, this post also talks about the need of performing these tests along…</a>
+</div>
+</div>
+<div class="metadata">
+<a href="./posts/post-with-code/statistical_test.html" class="no-external">
 <div class="listing-date">
 Jun 22, 2021
 </div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="16" data-categories="python,pandas" data-listing-date-sort="1621198800000" data-listing-file-modified-sort="1709739674695" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1679">
-<a href="./posts/post-with-code/pandas.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./posts/post-with-code/images/pandas/p1.2.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Introduction to Python’s Pandas API
-</h5>
-<div class="listing-reading-time card-text text-muted">
-9 min
-</div>
-<div class="card-text listing-description">
-Pandas is a Python API for processing data in a easy and efficient way. This post offers an introduction to this amazing API , especially for beginners.
-</div>
-<div class="card-attribution card-text-small justify">
 <div class="listing-author">
 Pankaj Chejara
 </div>
+<div class="listing-reading-time">
+14 min
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="17" data-categories="python,pandas" data-listing-date-sort="1621198800000" data-listing-file-modified-sort="1709739674695" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1679">
+<div class="thumbnail">
+<p><a href="./posts/post-with-code/pandas.html" class="no-external"></a></p><a href="./posts/post-with-code/pandas.html" class="no-external">
+<p><img src="./posts/post-with-code/images/pandas/p1.2.png" class="thumbnail-image"></p>
+</a><p><a href="./posts/post-with-code/pandas.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/post-with-code/pandas.html" class="no-external">Introduction to Python’s Pandas API</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/post-with-code/pandas.html" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./posts/post-with-code/pandas.html" class="no-external">Pandas is a Python API for processing data in a easy and efficient way. This post offers an introduction to this amazing API , especially for beginners.</a>
+</div>
+</div>
+<div class="metadata">
+<a href="./posts/post-with-code/pandas.html" class="no-external">
 <div class="listing-date">
 May 17, 2021
 </div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="17" data-categories="machine learning,pca,python,scikit-learn" data-listing-date-sort="1587502800000" data-listing-file-modified-sort="1709739674573" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1649">
-<a href="./posts/concepts/pca.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./posts/concepts/pca-2.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Understanding Principal Component Analysis under the hood
-</h5>
-<div class="listing-reading-time card-text text-muted">
-9 min
-</div>
-<div class="card-text listing-description">
-Let’s assume that you have a dataset with a higher number of attributes and you are thinking <em>Is there any way to compress this information into a smaller number of attributes</em>.
-</div>
-<div class="card-attribution card-text-small justify">
 <div class="listing-author">
 Pankaj Chejara
 </div>
+<div class="listing-reading-time">
+9 min
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="18" data-categories="machine learning,pca,python,scikit-learn" data-listing-date-sort="1587502800000" data-listing-file-modified-sort="1709739674573" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1649">
+<div class="thumbnail">
+<p><a href="./posts/concepts/pca.html" class="no-external"></a></p><a href="./posts/concepts/pca.html" class="no-external">
+<p><img src="./posts/concepts/pca-2.png" class="thumbnail-image"></p>
+</a><p><a href="./posts/concepts/pca.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/concepts/pca.html" class="no-external">Understanding Principal Component Analysis under the hood</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/concepts/pca.html" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./posts/concepts/pca.html" class="no-external">Let’s assume that you have a dataset with a higher number of attributes and you are thinking <em>Is there any way to compress this information into a smaller number of attributes</em>.</a>
+</div>
+</div>
+<div class="metadata">
+<a href="./posts/concepts/pca.html" class="no-external">
 <div class="listing-date">
 Apr 22, 2020
 </div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="18" data-categories="python,openface,facial features" data-listing-date-sort="1585346400000" data-listing-file-modified-sort="1709739674579" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="357">
-<a href="./posts/post-with-code/facial-features.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img data-src="./posts/post-with-code/p1-openface.jpg" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Facial feature extraction using OpenFace
-</h5>
-<div class="listing-reading-time card-text text-muted">
-2 min
-</div>
-<div class="card-text listing-description">
-In this post, I will discuss the work I have been doing recently. I needed to extract facial features from the recorded video and for this task, I decided to use OpenFace…
-</div>
-<div class="card-attribution card-text-small justify">
 <div class="listing-author">
 Pankaj Chejara
 </div>
+<div class="listing-reading-time">
+9 min
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="19" data-categories="python,openface,facial features" data-listing-date-sort="1585346400000" data-listing-file-modified-sort="1709739674579" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="357">
+<div class="thumbnail">
+<p><a href="./posts/post-with-code/facial-features.html" class="no-external"></a></p><a href="./posts/post-with-code/facial-features.html" class="no-external">
+<p><img src="./posts/post-with-code/p1-openface.jpg" class="thumbnail-image"></p>
+</a><p><a href="./posts/post-with-code/facial-features.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/post-with-code/facial-features.html" class="no-external">Facial feature extraction using OpenFace</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/post-with-code/facial-features.html" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./posts/post-with-code/facial-features.html" class="no-external">In this post, I will discuss the work I have been doing recently. I needed to extract facial features from the recorded video and for this task, I decided to use OpenFace…</a>
+</div>
+</div>
+<div class="metadata">
+<a href="./posts/post-with-code/facial-features.html" class="no-external">
 <div class="listing-date">
 Mar 28, 2020
 </div>
+<div class="listing-author">
+Pankaj Chejara
 </div>
-</div>
+<div class="listing-reading-time">
+2 min
 </div>
 </a>
+</div>
 </div>
 </div>
 <div class="listing-no-matching d-none">
 No matching items
 </div>
-<nav id="listing-pagination" class="listing-pagination" aria-label="Page Navigation">
-  <ul class="pagination"></ul>
-</nav>
 </div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
