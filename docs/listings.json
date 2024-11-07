@@ -1,6 +1,40 @@
 [
   {
-    "listing": "/Blog.html",
+    "listing": "/publications.html",
+    "items": [
+      "/articles/2024/cotrack.html",
+      "/articles/2024/bjet.html",
+      "/articles/2024/jla.html",
+      "/articles/2023/jucs.html",
+      "/articles/2023/bjet.html",
+      "/articles/2023/lak1.html",
+      "/articles/2023/lak2.html",
+      "/articles/2023/cmmla.html",
+      "/articles/2023/cscl.html",
+      "/articles/2023/jcal.html",
+      "/articles/2022/cscl.html",
+      "/articles/2022/tkl.html",
+      "/articles/2022/frontiers.html",
+      "/articles/2021/sensors.html",
+      "/articles/2021/ectel.html",
+      "/articles/2021/collabtech.html"
+    ]
+  },
+  {
+    "listing": "/talks.html",
+    "items": [
+      "/talks/spain.html",
+      "/talks/lak24.html",
+      "/talks/bergen.html",
+      "/talks/seminar.html",
+      "/talks/phd.html",
+      "/talks/ectel.html",
+      "/talks/lak23.html",
+      "/talks/finland.html"
+    ]
+  },
+  {
+    "listing": "/blog.html",
     "items": [
       "/posts/post-with-code/Hosting on Render.html",
       "/posts/post-with-code/Train your word embeddings from scratch.html",
