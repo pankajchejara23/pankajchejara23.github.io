@@ -46,7 +46,7 @@
     "href": "index.html",
     "title": "Pankaj Chejara",
     "section": "",
-    "text": "Hi there 👋, I am Pankaj. Professionally, I love tasks around data analysis to gain insights to solve tasks at hand. I am a strong supporter of lifelong learning, and this is also what I have been engaged with since my schooling days. Apart from work, I love to go for long walks in nature, spend time with close family & friends, and watch movies with my son (Yes, you guessed it right, animation movies 😊).\n\n\n Back to top"
+    "text": "Hi there 👋, I am Pankaj. Professionally, I love tasks around data analysis to gain insights to solve problems at hand. I am a strong supporter of lifelong learning, and this is also what I have been engaged with since my schooling days. Apart from work, I love to go for long walks in nature, spend time with close family & friends, and watch movies with my son (Yes, you guessed it right, animation movies 😊).\n\n\n Back to top"
   },
   {
     "objectID": "talks/phd.html",
@@ -61,6 +61,13 @@
     "title": "Classroom collaboration analytics: designing and building automated systems for collaboration monitoring in classroom settings",
     "section": "Abstract",
     "text": "Abstract\nCollaboration is a key skill in current education, also identified as one of the main “21st Century skills”. Moreover, the research evidence on the positive impact of collaboration on learning further underscores the need to develop this skill among students. Teaching students to collaborate effectively involves teachers monitoring each group’s activities and offering support to groups when needed. However, it is extremely difficult for teachers to be aware of how all their students collaborate, especially when multiple groups are working at the same time and their interaction is not only face-to-face but also computer-mediated. Therefore, it is essential to assist teachers in classrooms with monitoring and understanding of their students’ collaboration to effectively develop such skills among students.\nResearchers have explored the use of a wide range of data sources such as audio, log data, video, etc. to understand and support learning and teaching. This field of research is known as Multimodal Learning Analytics (MMLA). MMLA researchers have combined learning traces from digital as well as physical spaces of interaction to holistically understand collaboration. The field has gained substantial traction among researchers from diverse disciplines, such as learning sciences, psychology, computer science, etc. This popularity can also be witnessed in an increasing number of research studies using MMLA with a focus on collaboration, learning and teaching. This area of research has identified data indicators for collaboration, developed tools to support teacher monitoring and understanding of collaboration processes. However, the majority of this research has been conducted in laboratory settings and there is still a lack of understanding of the feasibility of the automated estimation of collaboration measures in authentic settings.\nIn particular, this dissertation has identified and addressed three research gaps: first, a lack of systematisation in the evaluation of machine learning solutions developed in MMLA for collaboration; second, a lack of knowledge on building generalisable machine learning models for collaboration quality and its dimensions (e.g., argumentation) in classroom settings; and third, a lack of understanding of the generalisability of machine learning models for collaboration quality when used in authentic classroom settings."
+  },
+  {
+    "objectID": "talks/seminar.html",
+    "href": "talks/seminar.html",
+    "title": "Classroom collaboration analytics",
+    "section": "",
+    "text": "This talk was delivered in the form of a research seminar for participating students of the Learning Analytics course during a session on Multimodal Learning Analytics. The course was offered by University of Bergen (UiB), KTH Royal Institute of Technology (KTH), and University of Copenhagen (UCPH).\nPresentations slides are available here:   Slides \n\n\n\n Back to top"
   },
   {
     "objectID": "articles/2021/collabtech.html",
@@ -816,7 +823,7 @@
     "href": "about.html#experience",
     "title": "About",
     "section": "Experience",
-    "text": "Experience\nMetrosert AS, Estonia  Data Scientist | Sep 2024 - present\n\nApplying analytical and research knoweldge in the field of bioinformatics (genome analysis)\nContributing in the preparation of research proposals together with health care industries\n\nTallinn University, Estonia  Developer/Researcher | Sep 2019 - present\n\nBuilding interactive data visualization prototypes for educational research projects\nBuilding machine learning models for detecting collaboration levels\nBayesian modeling of learning logs for building open learner models"
+    "text": "Experience\nMetrosert AS, Estonia  Data Scientist | Sep 2024 - present\n\nApplying analytical and research knoweldge in the field of bioinformatics (genome analysis)\nContributing in bridging the gap between academia and industry in health domain\n\nTallinn University, Estonia  Developer/Researcher | Sep 2019 - present\n\nBuilding interactive data visualization prototypes for educational research projects\nBuilding machine learning models for detecting collaboration levels\nBayesian modeling of learning logs for building open learner models"
   },
   {
     "objectID": "about.html#other-academic-research-experience",
