@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.550">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Pankaj Chejara">
+<meta name="dcterms.date" content="2023-10-23">
+
+<title>Pankaj Chejara - Basics of Natural Language Processing in Python</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Pankaj Chejara</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../talks.html"> 
+<span class="menu-text">Talks</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../publications.html"> 
+<span class="menu-text">Publications</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../projects.html"> 
+<span class="menu-text">Projects</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../awards.html"> 
+<span class="menu-text">Awards</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">Pankaj Chejara</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/pankajchejara1"> <i class="bi bi-twitter" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/pankaj-chejara-5ab77855/"> <i class="bi bi-linkedin" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/pankajchejara23"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Basics of Natural Language Processing in Python</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">python</div>
+                <div class="quarto-category">nlp</div>
+                <div class="quarto-category">nltk</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Pankaj Chejara </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">October 23, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#installation" id="toc-installation" class="nav-link active" data-scroll-target="#installation">Installation</a></li>
+  <li><a href="#basic-concepts" id="toc-basic-concepts" class="nav-link" data-scroll-target="#basic-concepts">Basic concepts</a>
+  <ul class="collapse">
+  <li><a href="#tokenization" id="toc-tokenization" class="nav-link" data-scroll-target="#tokenization">Tokenization</a></li>
+  <li><a href="#pos-tagging" id="toc-pos-tagging" class="nav-link" data-scroll-target="#pos-tagging">POS tagging</a></li>
+  <li><a href="#stemming-and-lemmatization" id="toc-stemming-and-lemmatization" class="nav-link" data-scroll-target="#stemming-and-lemmatization">Stemming and Lemmatization</a></li>
+  <li><a href="#stemming" id="toc-stemming" class="nav-link" data-scroll-target="#stemming">Stemming</a></li>
+  <li><a href="#lemmatization" id="toc-lemmatization" class="nav-link" data-scroll-target="#lemmatization">Lemmatization</a></li>
+  <li><a href="#vectorization" id="toc-vectorization" class="nav-link" data-scroll-target="#vectorization">Vectorization</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<p>Natural language processing is an interdisciplinary field combining computer science, artificial intelligence, and linguistics. Natural language processing focuses on the processing of <a href="https://www.thoughtco.com/what-is-a-natural-language-1691422">natural languages</a> (i.e., human languages such as English, and Hindi). This processing aims at comprehending natural languages and generating text in those languages.</p>
+<p>Natural language processing, thus, enables computers to understand and process human languages and presents the enormous potential of building intelligent machines capable of understanding human input in their own languages.</p>
+<p>In this post, we will become familiar with the basics of natural language processing with Python. We will use the NLTK library for the tutorial. The post is targeted at beginners who are just starting to gain first-hand experience with natural language processing. # Basics of Natural Language Processing in Python Natural langauge processing enables computer to human languages. It combines linguistic with statistical modeling. In this post, we will become familiar with basics of nlp with Python. We will use NLTK library for the tutorial.</p>
+<p>Front image by <a href="https://unsplash.com/@santesson89?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Andrea De Santis</a> on Unsplash.</p>
+<section id="installation" class="level2">
+<h2 class="anchored" data-anchor-id="installation">Installation</h2>
+<p>First we need to install nltk library. The following command can be used to do that.</p>
+<div id="9a02da0e" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pip install nltk</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="basic-concepts" class="level2">
+<h2 class="anchored" data-anchor-id="basic-concepts">Basic concepts</h2>
+<p>Now, we will get familiar with the basic concepts of natural language processing. This processing takes place through multiple steps. With each step, a higher level of abstraction is achieved. Let’s understand some basic steps first.</p>
+<p>When a text is preseted to a computer, it only sees the text as a sequence of characters; So, the first step focuses on breaking the character’s sequence into sentences, and then each sentence into words. This step is known as <strong>Tokenization</strong>.</p>
+<p>Next, the sentence structure is understood from a grammatical point of view. This involves identifying nouns, verbs, objects, etc. This step is known as <strong>Parts-of-Speech Tagging</strong>.</p>
+<p>Once the grammatical relavant tags are identified for each word in the sentence, the next step tries to apply a transformation which replaces words with their base form. For example, transforming <code>running</code> into <code>run</code>. This step is known as <strong>Stemming/Lemmatization</strong>. We will later discuss the differences between these two.</p>
+<p>The final step converts the text data into numbers for the computer’s usage. This step is known as <strong>Vectorization</strong>.</p>
+<p>Now we will cover these topics one by one. The list of topics is provided below as well.</p>
+<ul>
+<li>Tokenization</li>
+<li>Parts of Speech Tagging</li>
+<li>Stemming/Lemmatization</li>
+<li>Vectorization</li>
+</ul>
+<section id="tokenization" class="level3">
+<h3 class="anchored" data-anchor-id="tokenization">Tokenization</h3>
+<p>Let’s start with tokenization, the first step in the process. The tokenization step simply breaks down text data into smaller units for analysis purposes such as sentences, words, numbers, etc. These units are also known as tokens.</p>
+<p>The following program performs tokenization, first breaking the text into a group of sentences, and second, breaking each sentence into a group of words.</p>
+<div id="d76b2586" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> nltk <span class="im">import</span> word_tokenize, sent_tokenize</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>text <span class="op">=</span> <span class="st">"""This post offers basics of natural langauge processing (NLP) in Python. </span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="st">    NLP enables computer to human languages. It combines linguistic with statistical modeling.</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="st">    """</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Breaking the text data into sentences</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>sentences <span class="op">=</span> sent_tokenize(text)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Sentences:</span><span class="ch">\n</span><span class="st">'</span>,sentences)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Breaking each sentece into words</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>words <span class="op">=</span> [word_tokenize(sentence) <span class="cf">for</span> sentence <span class="kw">in</span> sentences]</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Words:</span><span class="ch">\n</span><span class="st">'</span>,words)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Sentences:
+ ['This post offers basics of natural langauge processing (NLP) in Python.', 'NLP enables computer to human languages.', 'It combines linguistic with statistical modeling.']
+Words:
+ [['This', 'post', 'offers', 'basics', 'of', 'natural', 'langauge', 'processing', '(', 'NLP', ')', 'in', 'Python', '.'], ['NLP', 'enables', 'computer', 'to', 'human', 'languages', '.'], ['It', 'combines', 'linguistic', 'with', 'statistical', 'modeling', '.']]</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<pre><code>You need to run nltk.download('punkt') only once.</code></pre>
+</div>
+</div>
+</section>
+<section id="pos-tagging" class="level3">
+<h3 class="anchored" data-anchor-id="pos-tagging">POS tagging</h3>
+<p>Let’s move to now understanding grammatical structure of sentences. The step involves identifying whether a word in the sentence is noun, verb, adverb, etc. It is known as <strong>Parts-of-Speech</strong> or <strong>POS tagging</strong>.</p>
+<p>Let’s see our first example of tagging.</p>
+<div id="d69f53a8" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> nltk <span class="im">import</span> word_tokenize, sent_tokenize</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> nltk <span class="im">import</span> pos_tag</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> nltk</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Uncomment the below statement if you get an error of tagger not found</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># nltk.download('averaged_perceptron_tagger')</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># using only word tokenization because there is only one sentence in the text data.</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>words <span class="op">=</span> word_tokenize(<span class="st">'Estonia is a leading country in digital space.'</span>)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co"># applying parts-of-speech tagging</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>tags <span class="op">=</span> pos_tag(words)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(tags)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[('Estonia', 'NNP'), ('is', 'VBZ'), ('a', 'DT'), ('leading', 'JJ'), ('country', 'NN'), ('in', 'IN'), ('digital', 'JJ'), ('space', 'NN'), ('.', '.')]</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<pre><code>You can check the meaning of each tag using ntlk.help.upenn_tagset() function.</code></pre>
+</div>
+</div>
+<div id="b9cbb359" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># checking the meaning of NN</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>nltk.<span class="bu">help</span>.upenn_tagset(<span class="st">'NN'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>NN: noun, common, singular or mass
+    common-carrier cabbage knuckle-duster Casino afghan shed thermostat
+    investment slide humour falloff slick wind hyena override subhumanity
+    machinist ...</code></pre>
+</div>
+</div>
+<p>The result is provided in a form of list of tuples. Each tuple contains a word and corresponding word category (e.g., VBZ for verb). This tuple is also known as <strong>tagged token</strong>. You can read about it in more details <a href="https://www.nltk.org/book/ch05.html">here</a>.</p>
+<p>The complete list is given below.</p>
+<table class="table">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 88%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Tag</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>CC</td>
+<td>coordinating conjunction</td>
+</tr>
+<tr class="even">
+<td>CD</td>
+<td>cardinal digit</td>
+</tr>
+<tr class="odd">
+<td>DT</td>
+<td>determiner</td>
+</tr>
+<tr class="even">
+<td>EX</td>
+<td>existential there (like: “there is” . think of it like “there exists”)</td>
+</tr>
+<tr class="odd">
+<td>FW</td>
+<td>foreign word</td>
+</tr>
+<tr class="even">
+<td>IN</td>
+<td>preposition/subordinating conjunction</td>
+</tr>
+<tr class="odd">
+<td>JJ</td>
+<td>adjective ‘big’</td>
+</tr>
+<tr class="even">
+<td>JJR</td>
+<td>adjective, comparative ‘bigger’</td>
+</tr>
+<tr class="odd">
+<td>JJS</td>
+<td>adjective, superlative ‘biggest’</td>
+</tr>
+<tr class="even">
+<td>LS</td>
+<td>list marker</td>
+</tr>
+<tr class="odd">
+<td>MD</td>
+<td>modal could, will</td>
+</tr>
+<tr class="even">
+<td>NN</td>
+<td>noun, singular ‘desk’</td>
+</tr>
+<tr class="odd">
+<td>NNS</td>
+<td>noun plural ‘desks’</td>
+</tr>
+<tr class="even">
+<td>NNP</td>
+<td>proper noun, singular ‘Harrison’</td>
+</tr>
+<tr class="odd">
+<td>NNPS</td>
+<td>proper noun, plural ‘Americans’</td>
+</tr>
+<tr class="even">
+<td>PDT</td>
+<td>predeterminer ‘all the kids’</td>
+</tr>
+<tr class="odd">
+<td>POS</td>
+<td>possessive ending parent</td>
+</tr>
+<tr class="even">
+<td>PRP</td>
+<td>personal pronoun I, he, she</td>
+</tr>
+<tr class="odd">
+<td>PRP$</td>
+<td>possessive pronoun my, his, hers</td>
+</tr>
+<tr class="even">
+<td>RB</td>
+<td>adverb very, silently,</td>
+</tr>
+<tr class="odd">
+<td>RBR</td>
+<td>adverb, comparative better</td>
+</tr>
+<tr class="even">
+<td>RBS</td>
+<td>adverb, superlative best</td>
+</tr>
+<tr class="odd">
+<td>RP</td>
+<td>particle give up</td>
+</tr>
+<tr class="even">
+<td>TO,</td>
+<td>to go ‘to’ the store.</td>
+</tr>
+<tr class="odd">
+<td>UH</td>
+<td>interjection, errrrrrrrm</td>
+</tr>
+<tr class="even">
+<td>VB</td>
+<td>verb, base form take</td>
+</tr>
+<tr class="odd">
+<td>VBD</td>
+<td>verb, past tense took</td>
+</tr>
+<tr class="even">
+<td>VBG</td>
+<td>verb, gerund/present participle taking</td>
+</tr>
+<tr class="odd">
+<td>VBN</td>
+<td>verb, past participle taken</td>
+</tr>
+<tr class="even">
+<td>VBP</td>
+<td>verb, sing. present</td>
+</tr>
+<tr class="odd">
+<td>VBZ</td>
+<td>verb, third person sing. present takes</td>
+</tr>
+<tr class="even">
+<td>WDT</td>
+<td>wh-determiner which</td>
+</tr>
+<tr class="odd">
+<td>WP</td>
+<td>wh-pronoun who, what</td>
+</tr>
+<tr class="even">
+<td>WP$</td>
+<td>possessive wh-pronoun whose</td>
+</tr>
+<tr class="odd">
+<td>WRB</td>
+<td>wh-abverb where, when</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="stemming-and-lemmatization" class="level3">
+<h3 class="anchored" data-anchor-id="stemming-and-lemmatization">Stemming and Lemmatization</h3>
+<p>This step transforms a word into its root word or base form. For example, car, cars, car’s all share a common root word <code>car</code>. In the linguistic field, such words are known as words with inflection endings or derivationally related words. There is a <a href="https://www.education.vic.gov.au/school/teachers/teachingresources/discipline/english/literacy/readingviewing/Pages/litfocuswordmorph.aspx">nice post</a> which you can refer to understand more about it and also about morphological analysis.</p>
+<p>Here we are briefly discussing inflection and derivational forms of words.</p>
+<p><strong>Inflection forms</strong> These word forms are used to distinct tenses, person, gender, etc. For example, words like go, going, gone, goes. If you notice these words have different endings. These all are called inflection endings in <a href="https://www.education.vic.gov.au/school/teachers/teachingresources/discipline/english/literacy/readingviewing/Pages/litfocuswordmorph.aspx"><strong>linguistic</strong></a> field.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The words with inflection endings do not have a separate entry in the dictionary. You will find all words with inflection endings under a single entry i.e., go.</p>
+</div>
+</div>
+<p><strong>Derivational form</strong></p>
+<p>These word forms are derived from the rood words and create a new meaning. For example, re<code>act</code> and <code>act</code>or both are derived from the word <code>act</code>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The words with derivational forms have a separate entry in the dictionary. You will find a separate entry in the dictionary for act, react, and actor.</p>
+</div>
+</div>
+<p>Now, as we have a preliminary understanding of different forms of words, we next move to the <strong>stemming and lemmatization</strong>. These are two techniques to transform a word from its inflection form (and sometimes derivational form) to the base form.</p>
+</section>
+<section id="stemming" class="level3">
+<h3 class="anchored" data-anchor-id="stemming">Stemming</h3>
+<p><strong>Stemming</strong> is the technique which simply chops off the ending of a word to obtain its base form. For example, removing <code>ing</code> from <code>eating</code> to obain the base form i.e., <code>eat</code>. By default NLTK uses a rule-based stemmer (i.e., Porter Stemmer). There are other stemmer as well. You can check <a href="https://nlp.stanford.edu/IR-book/html/htmledition/stemming-and-lemmatization-1.html">this page</a> for more information on different stemmers.</p>
+<p>Let’s take a look at the following code which perform stemming.</p>
+<div id="fc8d21f7" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> nltk.stem <span class="im">import</span> WordNetLemmatizer</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> nltk.stem <span class="im">import</span> PorterStemmer</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Uncomment the following statement if running it first time</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co">#nltk.download('wordnet')</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize Python porter stemmer</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>ps <span class="op">=</span> PorterStemmer()</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Tokenize the text data</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>words <span class="op">=</span> word_tokenize(<span class="st">'Estonia is a leading country in digital space, and on its way to become the leader.'</span>)</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Printing the data with its base form after stemming operation</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> word <span class="kw">in</span> words:</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Word:</span><span class="sc">{:10}</span><span class="st"> Stem:</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(word,ps.stem(word)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Word:Estonia    Stem:estonia
+Word:is         Stem:is
+Word:a          Stem:a
+Word:leading    Stem:lead
+Word:country    Stem:countri
+Word:in         Stem:in
+Word:digital    Stem:digit
+Word:space      Stem:space
+Word:,          Stem:,
+Word:and        Stem:and
+Word:on         Stem:on
+Word:its        Stem:it
+Word:way        Stem:way
+Word:to         Stem:to
+Word:become     Stem:becom
+Word:the        Stem:the
+Word:leader     Stem:leader
+Word:.          Stem:.</code></pre>
+</div>
+</div>
+<p>In the output, we can see that words <code>leading</code>, <code>country</code>, <code>digital</code> are transformed into <code>lead</code>, <code>countri</code>, and <code>digit</code>, respectively. Now, we will move to Lemmatization.</p>
+</section>
+<section id="lemmatization" class="level3">
+<h3 class="anchored" data-anchor-id="lemmatization">Lemmatization</h3>
+<p>Lemmatization is an another technique which also perform a similar task as Stemming i.e., transforming words into its base forms. However, it differs in its approach. Lemmatization uses <a href="https://www.education.vic.gov.au/school/teachers/teachingresources/discipline/english/literacy/readingviewing/Pages/litfocuswordmorph.aspx">morphological analysis</a> to achieve the goal. The morphological analysis means understanding of words and their parts.</p>
+<p>You can refer to this post to gain more information on different <a href="https://www.machinelearningplus.com/nlp/lemmatization-examples-python/?utm_content=cmp-true">lemmatization approaches</a> in python.</p>
+<div id="bbd15c36" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> nltk.stem <span class="im">import</span> WordNetLemmatizer</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Lemmatizer </span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>wordnet_lemmatizer <span class="op">=</span> WordNetLemmatizer()</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Tokenization</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>words <span class="op">=</span> word_tokenize(<span class="st">'Estonia is a leading country in digital space, and on its way to become the leader.'</span>)</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> word <span class="kw">in</span> words:</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Word:</span><span class="sc">{:10}</span><span class="st"> Lemma:</span><span class="sc">{}</span><span class="st"> Tag:</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(word,wordnet_lemmatizer.lemmatize(word),wordnet_lemmatizer.lemmatize(word)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Word:Estonia    Lemma:Estonia
+Word:is         Lemma:is
+Word:a          Lemma:a
+Word:leading    Lemma:leading
+Word:country    Lemma:country
+Word:in         Lemma:in
+Word:digital    Lemma:digital
+Word:space      Lemma:space
+Word:,          Lemma:,
+Word:and        Lemma:and
+Word:on         Lemma:on
+Word:its        Lemma:it
+Word:way        Lemma:way
+Word:to         Lemma:to
+Word:become     Lemma:become
+Word:the        Lemma:the
+Word:leader     Lemma:leader
+Word:.          Lemma:.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>[nltk_data] Downloading package wordnet to /Users/htk/nltk_data...
+[nltk_data]   Package wordnet is already up-to-date!</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+No change after lemmatization
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you notice in the results there are no changes after applying lemmatization. The reason is that if the word can not be found in WordNet (publicly awailable English dataset) then the word remain unchanged. It can be corrected by providing the pos tag of the word when calling <code>lemmatize</code> function.</p>
+</div>
+</div>
+<p>Now, we will supply pos tag of each word when calling <code>lemmatize</code> function. However, the function only takes a single character for the pos tag. For example, <code>n</code> for nouns, <code>v</code> for verbs, <code>a</code> for adjectives, and <code>r</code> for adverbs.</p>
+<p>So, we need to prepare a mapping which translates pos tags, obtained from <code>nltk.pos_tag()</code> function, into <code>a</code>, <code>r</code>, <code>n</code>, <code>v</code> (depending on the tag).</p>
+<p>We know from the POS tags table above that tags for adjectives starts from ‘J’. So what we can do is, we can take the first character of pos-tag and determine which tag to supply in lemmatize() function.</p>
+<div id="35c9555c" class="cell" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> nltk <span class="im">import</span> pos_tag</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_pos(word):</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># the function returns a list with one tagged tuple, e.g., [('riding','VBD')]</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    tagged_tuple_list <span class="op">=</span> pos_tag([word])</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># fetching the item in the list and then the tag in tuple</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    tagged_tuple <span class="op">=</span> tagged_tuple_list[<span class="dv">0</span>]  <span class="co"># the first index will fetch the fist item in the list</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># fetching the tag from the tagged tuple</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>    tag <span class="op">=</span> tagged_tuple[<span class="dv">1</span>]   <span class="co"># the index will fetch the tag (e.g., 'VBD')</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># extracting the first character</span></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>    tag_char <span class="op">=</span> tag[<span class="dv">0</span>]</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># all these three statement can be combined into a single statement given below</span></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># tag_char = pos_tag([word])[0][1][0]</span></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Now we will create a mapping</span></span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>    pos_to_lemma_tag <span class="op">=</span> {</span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>        <span class="st">'J'</span>: <span class="st">'a'</span>,</span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>        <span class="st">'N'</span>: <span class="st">'n'</span>,</span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>        <span class="st">'R'</span>: <span class="st">'r'</span>,</span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a>        <span class="st">'V'</span>: <span class="st">'v'</span></span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a>    <span class="co"># we will return the tag for usage in lemmatize function</span></span>
+<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pos_to_lemma_tag.get(tag_char,<span class="st">'n'</span>)   <span class="co"># get function will return n if the tag is something else</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="d247a3fe" class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> nltk.stem <span class="im">import</span> WordNetLemmatizer</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Lemmatizer </span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>wordnet_lemmatizer <span class="op">=</span> WordNetLemmatizer()</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Tokenization</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>words <span class="op">=</span> word_tokenize(<span class="st">'Estonia is a leading country in digital space, and on its way to become the leader.'</span>)</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> word <span class="kw">in</span> words:</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Word:</span><span class="sc">{:10}</span><span class="st"> Lemma:</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(word,</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>                                       wordnet_lemmatizer.lemmatize(word,get_pos(word))))</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Word:Estonia    Lemma:Estonia
+Word:is         Lemma:be
+Word:a          Lemma:a
+Word:leading    Lemma:lead
+Word:country    Lemma:country
+Word:in         Lemma:in
+Word:digital    Lemma:digital
+Word:space      Lemma:space
+Word:,          Lemma:,
+Word:and        Lemma:and
+Word:on         Lemma:on
+Word:its        Lemma:it
+Word:way        Lemma:way
+Word:to         Lemma:to
+Word:become     Lemma:become
+Word:the        Lemma:the
+Word:leader     Lemma:leader
+Word:.          Lemma:.</code></pre>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>It worked now like a charm :-)</p>
+</blockquote>
+</section>
+<section id="vectorization" class="level3">
+<h3 class="anchored" data-anchor-id="vectorization">Vectorization</h3>
+<p>Now, we will move to the final step in the aforementioned list of preprocessing steps in natural language processing. This final step is vectorization step. This step translates the text into numbers so that computers can use them for further anlaysis.</p>
+<p>There are multiple techinques of vectorization. In this post, we are going to discuss two basics techniques techniques: count vectorization, and tf-idf vectorization.</p>
+<section id="count-vectorization" class="level4">
+<h4 class="anchored" data-anchor-id="count-vectorization">Count Vectorization</h4>
+<p>In this technique, the input text is first broken down into a set of unique words, and next, each word is assigned a number which represents the frequency of that word.</p>
+<p>Let’s see a working example. For the example, we will use <a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html"><code>CountVectorizer</code></a> from <code>scikit-learn</code>.</p>
+<div id="5302a778" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.feature_extraction.text <span class="im">import</span> CountVectorizer</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co"># input data</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>input_text <span class="op">=</span> [<span class="st">"In this post, we will become familiar with the basics of natural language processing with Python. We will use the NLTK library for the tutorial."</span>] </span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="co"># initialization</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>vect <span class="op">=</span> CountVectorizer()</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="co"># applying count vectorization on the text</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> vect.fit_transform(input_text)</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="co"># printing vocubulary with frequency</span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Shape:'</span>,result.shape, <span class="st">'</span><span class="ch">\n</span><span class="st"> Vector:'</span>,result.toarray())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Shape: (1, 20) 
+ Vector: [[1 1 1 1 1 1 1 1 1 1 1 1 1 3 1 1 1 2 2 2]]</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The result is a single vector of length 20. In out input, we only had a single sentence, therefore, one got a single vector. In case of multiple sentences, we get one vector for each sentence.</p>
+</div>
+</div>
+</section>
+<section id="tf-idf" class="level4">
+<h4 class="anchored" data-anchor-id="tf-idf">TF-IDF</h4>
+<p>The next vectorization technique is TF-IDF (Term Frequency- Inverse Document Frequency). Let’s understand their meaning. <br></p>
+<p><strong>Term Frequency (TF)</strong> This frequency counts the number of times a word occurs in the document.</p>
+<p><strong>Inverse Document Frequency</strong> This is the inverse of how many documents contains the specified term.</p>
+<div id="52e4118a" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.feature_extraction.text <span class="im">import</span> TfidfVectorizer</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co"># input data</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>input_text <span class="op">=</span> [<span class="st">"This is an amazing field with huge potential of building intelligent machine."</span>,</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>              <span class="st">"Those machine would be able to transform people's life."</span>,</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>              <span class="st">"This transformation would significantly improve the quality of life."</span>]</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="co"># TF-IDF intialization</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>tf <span class="op">=</span> TfidfVectorizer()</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="co"># applying vectorizer</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> tf.fit_transform(input_text)</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="co"># print results</span></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Shape:'</span>,result.shape, <span class="st">'</span><span class="ch">\n</span><span class="st"> Vector:'</span>,result.toarray())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Shape: (3, 25) 
+ Vector: [[0.         0.30520733 0.30520733 0.         0.30520733 0.30520733
+  0.30520733 0.         0.30520733 0.30520733 0.         0.23211804
+  0.23211804 0.         0.30520733 0.         0.         0.
+  0.23211804 0.         0.         0.         0.         0.30520733
+  0.        ]
+ [0.35955412 0.         0.         0.35955412 0.         0.
+  0.         0.         0.         0.         0.27345018 0.27345018
+  0.         0.35955412 0.         0.         0.         0.
+  0.         0.35955412 0.35955412 0.35955412 0.         0.
+  0.27345018]
+ [0.         0.         0.         0.         0.         0.
+  0.         0.36977238 0.         0.         0.28122142 0.
+  0.28122142 0.         0.         0.36977238 0.36977238 0.36977238
+  0.28122142 0.         0.         0.         0.36977238 0.
+  0.28122142]]</code></pre>
+</div>
+</div>
+<div id="401e4146" class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>You can check [this blog post](https:<span class="op">//</span>www.turing.com<span class="op">/</span>kb<span class="op">/</span>guide<span class="op">-</span>on<span class="op">-</span>word<span class="op">-</span>embeddings<span class="op">-</span><span class="kw">in</span><span class="op">-</span>nlp) on further information on vectorization.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="2a4ec91e" class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>References</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fl">1.</span> https:<span class="op">//</span>www.learntek.org<span class="op">/</span>blog<span class="op">/</span>categorizing<span class="op">-</span>pos<span class="op">-</span>tagging<span class="op">-</span>nltk<span class="op">-</span>python<span class="op">/</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fl">2.</span> Stemming <span class="kw">and</span> Lemmatization: https:<span class="op">//</span>nlp.stanford.edu<span class="op">/</span>IR<span class="op">-</span>book<span class="op">/</span>html<span class="op">/</span>htmledition<span class="op">/</span>stemming<span class="op">-</span><span class="kw">and</span><span class="op">-</span>lemmatization<span class="op">-</span><span class="fl">1.</span><span class="er">html</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="fl">3.</span> https:<span class="op">//</span>www.nltk.org<span class="op">/</span>book<span class="op">/</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="fl">4.</span> Morphological analysis: https:<span class="op">//</span>www.education.vic.gov.au<span class="op">/</span>school<span class="op">/</span>teachers<span class="op">/</span>teachingresources<span class="op">/</span>discipline<span class="op">/</span>english<span class="op">/</span>literacy<span class="op">/</span>readingviewing<span class="op">/</span>Pages<span class="op">/</span>litfocuswordmorph.aspx</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="fl">5.</span> https:<span class="op">//</span>www.datacamp.com<span class="op">/</span>tutorial<span class="op">/</span>stemming<span class="op">-</span>lemmatization<span class="op">-</span>python</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="fl">6.</span> https:<span class="op">//</span>pianalytix.com<span class="op">/</span>countvectorizer<span class="op">-</span><span class="kw">in</span><span class="op">-</span>nlp<span class="op">/</span><span class="co">#:~:text=CountVectorizer%20means%20breaking%20down%20a,data%20needs%20to%20be%20vectorized.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+
+</section>
+</section>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

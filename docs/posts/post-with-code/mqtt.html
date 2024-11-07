@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.550">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Pankaj Chejara">
+<meta name="dcterms.date" content="2022-01-13">
+
+<title>Pankaj Chejara - Setting up MQTT server and Client</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Pankaj Chejara</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../talks.html"> 
+<span class="menu-text">Talks</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../publications.html"> 
+<span class="menu-text">Publications</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../projects.html"> 
+<span class="menu-text">Projects</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../awards.html"> 
+<span class="menu-text">Awards</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">Pankaj Chejara</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/pankajchejara1"> <i class="bi bi-twitter" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/pankaj-chejara-5ab77855/"> <i class="bi bi-linkedin" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/pankajchejara23"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Setting up MQTT server and Client</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">python</div>
+                <div class="quarto-category">mqtt</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Pankaj Chejara </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">January 13, 2022</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#what-is-mqtt" id="toc-what-is-mqtt" class="nav-link active" data-scroll-target="#what-is-mqtt">What is MQTT?</a>
+  <ul class="collapse">
+  <li><a href="#mqtt-terminology" id="toc-mqtt-terminology" class="nav-link" data-scroll-target="#mqtt-terminology">MQTT Terminology</a></li>
+  <li><a href="#demonstration-of-mqtt-in-python" id="toc-demonstration-of-mqtt-in-python" class="nav-link" data-scroll-target="#demonstration-of-mqtt-in-python">Demonstration of MQTT in Python</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<p>This post offers an introduction to the <strong>MQTT</strong> (Message Queuing Telemetry Transport) protocol [1] and also demonstrates its usage with an example in Python (Just for info: telemetry means the collection of measurement data from a remote location and its transmission <a href="https://en.wikipedia.org/wiki/Telemetry">wiki-link</a>.</p>
+<!-- wp:heading {""level"":3} -->
+<section id="what-is-mqtt" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-mqtt">What is MQTT?</h2>
+<!-- /wp:heading -->
+<p>MQTT is a communication protocol which is actually developed for low-energy devices to transmit data with the low-bandwidth network.<br> It is a <strong>lightweight</strong> protocol built on the top of TCP/IP.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Lightweight: In software/programs, lightweight specify the characteristic of low memory and CPU usage.</p>
+</div>
+</div>
+<p>MQTT allows simple and efficient data transmission from sensors to IoT (Internet of Things) networks. Additionally, it also enables the easy integration of new sensors to the IoT network.</p>
+<!-- wp:heading {""level"":5} -->
+<section id="mqtt-terminology" class="level3">
+<h3 class="anchored" data-anchor-id="mqtt-terminology">MQTT Terminology</h3>
+<!-- /wp:heading -->
+<p>In MQTT, there are five main terminology</p>
+<!-- wp:list -->
+<ul>
+<li>
+<strong>Broker:</strong> It is the middleware between data sender (publisher) and data receiver (subscriber). You can consider it as a server which receives data from sender and forward it to the receiver.
+</li>
+<li>
+<strong>Publisher:</strong> In simple terms, you can think of a device which needs to send data to other parties. This device could be a sensor, laptop, and Raspberry pi board.
+</li>
+<li>
+<strong>Subscriber:</strong> It is the receiver of data sent by the publisher.
+</li>
+<li>
+<strong>Topic:</strong> Publisher and Subscriber do not know each other directly. When the publisher sends some data to Broker, it associates that data with a topic . The topic is a string in the format of hierarchy e.g.&nbsp;sensor/room-1/temprature (it is just an example) where <strong>‘/’</strong> is level separator and each string represents a level. You can define it as per your requirement. When the subscriber connects to the Broker, it specifies the topic in which it is interested in. Then, broker forward published messages to their corresponding subscribers on the basis of the topic. Here, you need to understand <strong>two operators</strong> + and #. Before jumping to these operators, let’s assume a scenario where we have four temperature sensors in four rooms. These sensors are sending their data with the following topics
+</li>
+</ul>
+<!-- /wp:list -->
+<!-- wp:list {""ordered"":true} -->
+<ol>
+<li>
+home/bedroom/temperature
+</li>
+<li>
+home/kitchen/temperature
+</li>
+<li>
+home/dining-room/temperature
+</li>
+<li>
+<p>home/study-room/temperature</p>
+<p>Now, in order to receive data from all four rooms, subscribers need to subscribe to the above topics. One way of doing that is to subscribe to each topic separately. Another way is to use <code>+</code> operator and simply subscribe to the topic <code>home\+\temprature</code> . + operator here matches any single level ( + is known as a single-level wildcard). Therefore, home+will match any topic with three-level hierarchy starting with home&nbsp; and ending with .<br> Coming to second operator <code>#</code> which matches multiple levels in the topic. For instance, <code>home\#</code> will match all the aforementioned four topics.</p>
+<strong>Some examples</strong><br> Let’s say we have multiple sensors which are transmitting data with following topics
+</li>
+</ol>
+<!-- /wp:list -->
+<!-- wp:list -->
+<ul>
+<li><code>school\class-1\group-1\audio</code></li>
+<li><code>school\class-1\group-2\audio</code></li>
+<li><code>school\class-2\group-1\audio</code></li>
+<li><code>school\class-2\group-2\audio</code></li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Which topic to subscribe to receive all data from class-1 ?</strong> <code>school\class-1\#</code></p>
+<p><strong>Which topic to subscribe to receive data from group-1?</strong> <code>school\+\group-1\audio</code></p>
+<p><strong>Which topic to subscribe to receive data from entire school?</strong> <code>school\#</code></p>
+</div>
+</div>
+<div class="callout-error">
+<code>#</code> operator can appear only once in a topic expression e.g.&nbsp;school## is invalid. A topic expression # matches every topic hence subscriber to this topic will receive every message.
+
+</div>
+<ul>
+<li>
+<strong>Message:</strong> It is simply the data which needs to be sent.
+</li>
+</ul>
+<!-- /wp:list -->
+<!-- wp:heading {""level"":3} -->
+</section>
+<section id="demonstration-of-mqtt-in-python" class="level3">
+<h3 class="anchored" data-anchor-id="demonstration-of-mqtt-in-python">Demonstration of MQTT in Python</h3>
+<!-- /wp:heading -->
+<p>Now, we will see a python example of using MQTT protocol for transmitting data. We will use a <strong>python package</strong> [paho-mqtt](https://pypi.org/project/paho-mqtt/ “” target = ““_blank) for creating publisher and subcriber. You can install it using following command</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a> <span class="ex">pip</span> install paho-mqtt </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Next, we need to <strong>set up a Broker</strong>. There are numerous option of this. You can either use a cloud-based broker or you can install a broker on a server in your network. There are multiple cloud services are available with can be used ([Complete list of broker servers](https://github.com/mqtt/mqtt.github.io/wiki/servers “” target = ““_blank)). I would like to mention [MaqiaTTo](https://www.maqiatto.com “” target = ““_blank) which is a free cloud-based MQTT broker. It can be used for testing purpose. In this tutorial, however, we are going to set-up a broker in the network. We will use [Mosquitto](https://mosquitto.org/ “” target = ““_blank) broker server.</p>
+<!-- wp:heading {""level"":5} -->
+<section id="setting-up-mosquitto-broker" class="level4">
+<h4 class="anchored" data-anchor-id="setting-up-mosquitto-broker">Setting up Mosquitto Broker</h4>
+<!-- /wp:heading -->
+<p><a href="https://mosquitto.org/">Mosquitto</a> is an open-source MQTT message broker. Following are the instructions for installing it on your systems.</p>
+<!-- wp:list -->
+<ul>
+<li>
+<strong>Windows users:</strong> Download and install <a href="https://mosquitto.org/files/binary/win64/mosquitto-1.6.4-install-windows-x64.exe">64bit-version</a>, <a href="https://mosquitto.org/files/binary/win32/mosquitto-1.6.2-install-windows-x86.exe">32bit-version</a>(If you are not sure then install 32bit-version)
+</li>
+<li>
+<p><strong>Ubuntu Users:</strong> Run following commands</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-add-repository ppa:mosquitto- dev/mosquitto-ppa</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get update </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</li>
+</ul>
+<!-- wp:list -->
+<ul>
+<li>
+<p><strong>Mac Users:</strong> First install brew package manager using following command</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/usr/bin/ruby</span> <span class="dt">\</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a> <span class="at">-e</span> <span class="st">""</span><span class="va">$(</span><span class="ex">curl</span> <span class="at">-fsSL</span> https://raw.githubusercontent.com/Homebrew/install/master/install<span class="va">)</span><span class="st">""</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Next, install Mosquitto</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install mosquitto </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</li>
+</ul>
+</section>
+<section id="starting-mosquitto-server" class="level4">
+<h4 class="anchored" data-anchor-id="starting-mosquitto-server">Starting Mosquitto Server</h4>
+<p>Now, we are going to start our MQTT broker.<br> Run the following command [Mac users]</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/usr/local/sbin/mosquitto</span> <span class="at">-c</span> /usr/local/etc/mosquitto/mosquitto.conf </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<!-- /wp:code -->
+<blockquote class="blockquote">
+<p>On ubuntu following command can be used to start or stop Mosquitto</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> systemctl <span class="er">(</span><span class="ex">start</span><span class="kw">|</span><span class="ex">stop</span><span class="kw">)</span> <span class="ex">mosquitto</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<!-- /wp:quote -->
+</blockquote>
+<!-- wp:heading {""level"":5} -->
+</section>
+<section id="writing-publisher-and-subscriber-codes" class="level4">
+<h4 class="anchored" data-anchor-id="writing-publisher-and-subscriber-codes">Writing Publisher and Subscriber codes</h4>
+<!-- /wp:heading -->
+<p>Now, we will develop our publisher and subscriber. Following are the steps for developing publisher and subscriber in Python.</p>
+<!-- wp:list -->
+<ul>
+<li>
+Create client
+</li>
+<li>
+Connect to broker
+</li>
+<li>
+Publish/subscribe message
+</li>
+<li>
+Connect callback function
+</li>
+<li>
+Run the loop
+</li>
+<li>
+Disconnect
+</li>
+</ul>
+<!-- /wp:list -->
+<p>Let’s understand these steps in details. The first step is to <strong>create a client</strong>. For this, we will create a <code>Client</code> object from <code>paho-MQTT</code> python package.</p>
+<p>The second step <strong>connects to the broker</strong>. In our case, we are running the broker on the same machine, therefore, we specify the broker’s IP as <code>127.0.0.1</code> and port as <code>1883</code> (default port for Mosquitto broker).</p>
+<p>In third step, you can <strong>publish or subcribe</strong> using publish() and subscribe() function.</p>
+<p>Next, we need to write callback functions. It needs a bit of explanation. <strong>Callback</strong> functions are functions which are executed on the occurrence of particular events. Followings are the table showing the event and their corresponding callback function</p>
+<div>
+<!-- wp:table -->
+<figure class="figure" wp-block-table""="">
+<table data-quarto-postprocess="true" data-""="" class="table">
+<tbody>
+<tr class="odd">
+<td><strong>Event</strong></td>
+<td><strong>Callback Function</strong></td>
+</tr>
+<tr class="even">
+<td>Connection ACK</td>
+<td>on_connect</td>
+</tr>
+<tr class="odd">
+<td>Dis-connection ACK</td>
+<td>on_disconnect</td>
+</tr>
+<tr class="even">
+<td>Publish ACK</td>
+<td>on_publish</td>
+</tr>
+<tr class="odd">
+<td>Subcription ACK</td>
+<td>on_subcribe</td>
+</tr>
+<tr class="even">
+<td>Un-subcription ACK</td>
+<td>on_unsubcribe</td>
+</tr>
+<tr class="odd">
+<td>Message received</td>
+<td>on_message</td>
+</tr>
+</tbody>
+</table>
+</figure>
+<!-- /wp:table -->
+</div>
+<p>Let’s take one example to understand it. When a client connects to the broker, the broker sends an ACK (acknowledgment) to the client. This event triggers the execution of a callback function <code>on_connect</code> .</p>
+</section>
+<section id="running-a-loop-why-we-need-to-start-a-loop" class="level4">
+<h4 class="anchored" data-anchor-id="running-a-loop-why-we-need-to-start-a-loop">Running a loop: Why we need to start a loop?</h4>
+<p>When a publisher sends messages to the broker or subscriber receive messages from the broker, these messages are first stored in the buffer. Now, in order to process all messages (either for sending or receiving), we need to write a loop manually. Thanks to <code>paho-MQTT</code> , it provides three functions for the same purpose, therefore, we don’t need to write message processing loop. These functions are as following</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>
+<strong>loop()</strong>: When you call this function, it will process any pending message sending or receiving action. This function waits for a particular time (you can specify using timeout parameter) for processing buffer for reading or sending a message. After, that its execution completes. Therefore, if you plan to use this function <strong>you need to call it regularly</strong>.
+</li>
+<li>
+<strong>loop_forever()</strong>: This function call results in indefinite execution of your program. This function automatically reconnects to the broker in case of disconnection. This function is blocking type function (you can understand it as an infinite for loop) and it returns when you disconnect with the broker.
+</li>
+<li>
+<strong>loop_start() &amp; loop_stop()</strong>: loop_start() function starts a new background thread and that thread regularly execute loop() function. You can stop this background thread using loop_stop() function.
+</li>
+</ul>
+</div>
+</div>
+<!-- wp:heading {""level"":6} -->
+</section>
+<section id="coding-publisher" class="level4">
+<h4 class="anchored" data-anchor-id="coding-publisher">Coding Publisher</h4>
+<!-- /wp:heading -->
+<p>As we have setup our broker server, now we move towards writing publisher code.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> paho.mqtt.client <span class="im">as</span> MQTT</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">#  function</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> connect_msg():</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Connected to Broker'</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co"># function</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> publish_msg():</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Message Published'</span>)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating client</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>client <span class="op">=</span> mqtt.Client(client_id<span class="op">=</span><span class="st">'publisher-1'</span>)</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Connecting callback functions</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>client.on_connect <span class="op">=</span> connect_msg</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>client.on_publish <span class="op">=</span> publish_msg</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Connect to broker</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>client.<span class="ex">connect</span>(<span class="st">""</span><span class="fl">127.0.0.1</span><span class="st">""</span>,<span class="dv">1883</span>)</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a><span class="co"># if you experience Socket error then replace above statement with following one</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="co"># client.connect(""127.0.0.1"",1883,60)</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Publish a message with topic</span></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>ret<span class="op">=</span> client.publish(<span class="st">""</span>house<span class="op">/</span>light<span class="st">""</span>,<span class="st">""</span>on<span class="st">""</span>)</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Run a loop</span></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>client.loop()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The above code publishes a message on with topic <code>house/light</code>. In this code, we have written two functions connect_msg and publish_msg (you can use any names for functions). We connected these functions to callback functions using client.on_connect = connect_msg . We specified that connect_msg function is callback function and it will be called when the Connection ACK event occurs (events and their callbacks are given in the above table). In this program, we used the loop function which process pending action (sending or receiving) and then returns.</p>
+<!-- wp:heading {""level"":6} -->
+<h5 class="anchored">
+Coding Subscriber
+</h5>
+<!-- /wp:heading -->
+<p>As we have our publisher with topic housetopic, we now develop our subscriber for the same topic.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> paho.mqtt.client <span class="im">as</span> MQTT <span class="co">#import the client</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to process recieved message</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> process_message(client, userdata, message):</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">""</span>message received <span class="st">""</span> ,<span class="bu">str</span>(message.payload.decode(<span class="st">""</span>utf<span class="op">-</span><span class="dv">8</span><span class="st">""</span>)))</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">""</span>message topic<span class="op">=</span><span class="st">""</span>,message.topic)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">""</span>message qos<span class="op">=</span><span class="st">""</span>,message.qos)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">""</span>message retain flag<span class="op">=</span><span class="st">""</span>,message.retain)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Create client</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>client <span class="op">=</span> mqtt.Client(client_id<span class="op">=</span><span class="st">""</span>subscriber<span class="op">-</span><span class="dv">1</span><span class="st">""</span>)</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Assign callback function</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>client.on_message <span class="op">=</span> process_message</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Connect to broker</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>client.<span class="ex">connect</span>(broker_address,<span class="dv">1883</span>,<span class="dv">60</span>)</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Subscriber to topic</span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>client.subscribe(<span class="st">""</span>house<span class="op">/</span>light<span class="st">""</span>)</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Run loop</span></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>client.loop_forever() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<!-- wp:heading {""level"":4} -->
+<h4 class="anchored">
+Execution Results
+</h4>
+<!-- /wp:html -->
+<p><a href="https://www.youtube.com/watch?v=xUoyJKHTrWs"><img src="https://img.youtube.com/vi/xUoyJKHTrWs/0.jpg" class="img-fluid"></a></p>
+<p>References</p>
+<!-- wp:list {""ordered"":true} -->
+<ol>
+<li>
+MQTT Version 5.0. Edited by Andrew Banks, Ed Briggs, Ken Borgendale, and Rahul Gupta. 07 March 2019. OASIS Standard. https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html. Latest version: https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html.
+</li>
+</ol>
+<!-- /wp:list -->
+<p>”</p>
+
+
+</section>
+</section>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

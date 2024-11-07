@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.550">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Pankaj Chejara">
+<meta name="dcterms.date" content="2020-04-22">
+
+<title>Pankaj Chejara - Understanding Principal Component Analysis under the hood</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Pankaj Chejara</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../talks.html"> 
+<span class="menu-text">Talks</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../publications.html"> 
+<span class="menu-text">Publications</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../projects.html"> 
+<span class="menu-text">Projects</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../awards.html"> 
+<span class="menu-text">Awards</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">Pankaj Chejara</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/pankajchejara1"> <i class="bi bi-twitter" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/pankaj-chejara-5ab77855/"> <i class="bi bi-linkedin" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/pankajchejara23"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Understanding Principal Component Analysis under the hood</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">machine learning</div>
+                <div class="quarto-category">pca</div>
+                <div class="quarto-category">python</div>
+                <div class="quarto-category">scikit-learn</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Pankaj Chejara </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">April 22, 2020</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#principal-component-analysis-pca" id="toc-principal-component-analysis-pca" class="nav-link active" data-scroll-target="#principal-component-analysis-pca">Principal Component Analysis (PCA)</a></li>
+  <li><a href="#understanding-mathematics-behind-pca" id="toc-understanding-mathematics-behind-pca" class="nav-link" data-scroll-target="#understanding-mathematics-behind-pca">Understanding Mathematics behind PCA</a></li>
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<p>Let’s assume that you have a dataset with a higher number of attributes and you are thinking <em>Is there any way to compress this information into a smaller number of attributes</em>.</p>
+<p>Well, dimensionality reduction methods offer that functionality. Among many dimensionality reduction methods, PCA (Principal Component Analysis) is widely used and this post introduction to PCA and its working.</p>
+<p>Let’s start with a simple dataset with two attributes, <span class="math inline">\(x\)</span>, and <span class="math inline">\(y\)</span> which we need to reduce from two attributes to one. <!-- /wp:paragraph --></p>
+<div>
+<!-- wp:table -->
+<figure class="figure" wp-block-table""="">
+<table data-quarto-postprocess="true" data-""="" class="table">
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">$x$</td>
+<td data-quarto-table-cell-role="th">$y$</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>12</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>16</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td>20</td>
+<td>7</td>
+</tr>
+<tr class="even">
+<td>19</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+</figure>
+<!-- /wp:table -->
+</div>
+<!-- wp:image -->
+<figure class="figure" wp-block-image""=""><img 2019="" src="" content="" images="" 08="" index.png""="" alt="" ""="" class="figure-img"></figure>
+<!-- /wp:image -->
+<p>The simplest approach is to select one of the attributes. Let’s say we are selecting <span class="math inline">\(x\)</span>. In other words, we are taking the projection of the data points on X-axis (Projection: simply drawing a perpendicular line from data points to the x-axis and taking that corresponding value). For example, in the following diagram, we have taken the projection of data points along the x-axis.</p>
+So here we have two options, we can take the projection of data points to either x-axis or y-axis. Our aim is to select one which offers more information about the data. To measure it, we can use <strong>variance</strong> which computes spread of data or in other words how the values are different from their mean value. So if you have an attribute with zero variance that means all values in that attribute are same. Variance can be computed using the following formula <span class="math display">\[ \sigma^2 = \sum\limits_{i=1}^N (X -\mu)^2 \]</span> <strong>where:</strong> <span class="math inline">\(X\)</span> is the set of data points <span class="math inline">\(\mu\)</span> is the mean <span class="math inline">\(N\)</span> is the number of data points in <span class="math inline">\(X\)</span>
+<p></p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p>
+So, now if we look at our options (projection along x-axis or y-axis) then we find x-axis as a better option due to the larger variance shown in below figure
+</p>
+<!-- /wp:paragraph -->
+<p><img src="./images/pca/p4.3.png" class="img-fluid"></p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Do we really have only these two options?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>No</strong>, there are infinite number of possibilities (<strong>How</strong>: draw any line and take the projection of data points on that line in a similar manner as we did with x/y axis). In this case, if we can find a line which gives maximum variance of the data compared to other possible options then it can be used at the place of <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> attributes.</p>
+</div>
+</div>
+<section id="principal-component-analysis-pca" class="level3">
+<h3 class="anchored" data-anchor-id="principal-component-analysis-pca">Principal Component Analysis (PCA)</h3>
+<p>
+As we discussed in the above section the infinite possibilities for our two-dimensional data, PCA finds the one which offers maximum variance. Let’s go deeper into the mathematics of PCA.
+</p>
+<!-- /wp:paragraph -->
+</section>
+<section id="understanding-mathematics-behind-pca" class="level3">
+<h3 class="anchored" data-anchor-id="understanding-mathematics-behind-pca">Understanding Mathematics behind PCA</h3>
+<!-- wp:paragraph -->
+<p>
+</p><p>First, we are going to write the problem statement (finding a direction/vector/line which offers a maximum variance of projected data) of PCA into mathematics format. First, we need to see how to represent the projection. A projection of a data point along with a line can be computed using <span class="math inline">\(dot\)</span> product. Let’s say we want to compute the projection of the first data point (10,5) on the x-axis.</p>
+Let’s represent our data point as a vector <span class="math inline">\(\vec{x_1}\)</span>. A vector has two properties- direction and magnitude (<a href="https://www.mathsisfun.com/algebra/vectors.html">more info</a>). The unit vector in the direction of x-axis and y-axis is represented by <span class="math inline">\(\hat{i}\)</span> and <span class="math inline">\(\hat{j}\)</span>, respectively. Every vector then denoted by number of units in the direction of x-axis and y-axis. Our data point (10,5) can be represented as 10 units in <strong>x-axis</strong> direction and 5 units in <strong>y-axis</strong> direction. The dot product between <span class="math inline">\(\vec{x_1}\)</span> and <span class="math inline">\(\hat{i}\)</span> will give the projection over the x-axis.
+<p></p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p>
+<span class="math display">\[= (10\hat{i},5\hat{j}) . (\hat{i},0)\]</span>
+</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p>
+<span class="math display">\[= 10\]</span>
+</p>
+<!-- /wp:paragraph -->
+<p><img src="./images/pca/p4.4.png" class="img-fluid"></p>
+<!-- wp:paragraph -->
+<p>
+In simpler terms, if you have two vectors or list of numbers <span class="math inline">\((a_1,a_2,a_3)\)</span> and<span class="math inline">\((b_1,b_2,b_3)\)</span> then their dot product will be <span class="math inline">\(a_1*b_1+a_2*b_2+a_3*b_3\)</span>. It can be written in matrix form as following <span class="math display">\[
+      dot(A,B)=\begin{bmatrix}
+      a_1 &amp; a_2 &amp; a_3\
+      \end{bmatrix}\begin{bmatrix}
+      b_1 \\
+      b_2 \\
+      b_3 \\
+      \end{bmatrix}
+     = A^TB
+  \]</span> here, <span class="math inline">\(A^T\)</span> is transpose of <span class="math inline">\(A\)</span>.
+</p>
+<!-- /wp:paragraph -->
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A dot product of <span class="math inline">\(\vec{A}\)</span> with its own gives you <span class="math inline">\(A^2\)</span>.</p>
+</div>
+</div>
+<span class="math display">\[
+  A^2 = a_1^2+a_2^2+a_3^2 \\
+  = a_1*a_1+a_2*a_2+a_3*a_3
+  = A^TA
+  \]</span>
+<p></p>
+<p>Now coming back to PCA problem statement, let’s denote a direction (/vector/line) <span class="math inline">\(\vec{L}\)</span>. So projection of our dataset <span class="math inline">\(X\)</span> can be written as <span class="math display">\[
+X_{new}=X^TL
+\]</span> here, <span class="math inline">\(X_{new}\)</span> represents the new values obtained after projection of <span class="math inline">\(X\)</span> over <span class="math inline">\(L\)</span>. To ease the understanding of next step, let’s assume we transformed <span class="math inline">\(X_{new}\)</span> in such a way that it has zero mean (we can do that by simply replacing every value in <span class="math inline">\(X_{new}\)</span> by <span class="math inline">\(X_{new}-Mean)\)</span>. Next, we compute the variance of <span class="math inline">\(X_{new}\)</span>.</p>
+<span class="math display">\[
+var(X_{new}) = (X_{new}-0)^2 \\
+= X_{new}^2 \\
+= X_{new}^TX_{new}
+= (X^TL)^T(X^TL)
+= (L^TXX^TL)
+= (L^T  \sum L)
+\]</span>
+<p>
+here, <span class="math inline">\(\sum\)</span> is covariance matrix of <span class="math inline">\(X_{new}\)</span>.
+</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Rule used: <span class="math inline">\((AB)^T = B^TA^T\)</span> and <span class="math inline">\((A^T)^T = A\)</span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We add a constraint that L must be a unit vector which means <span class="math inline">\(L^TL=1\)</span>.</p>
+<p><strong>Why</strong>: In a single direction there can be infinite possibilities for example <span class="math inline">\(2\hat{i}+1\hat{j}\)</span>, <span class="math inline">\(4\hat{i}+2\hat{j}\)</span>, <span class="math inline">\(\hat{i}+.5\hat{j}\)</span> all vectors are in the same direction. Therefore, to avoid it, we put a constraint that we will check only a single vector in a direction and that one with unit vector (to avoid large values).</p>
+</div>
+</div>
+<p><strong>Now, our problem is to find <span class="math inline">\(L\)</span> which maximizes <span class="math inline">\(var(X_{new})\)</span> with constraint <span class="math inline">\(L^TL=1\)</span> (constrain of unit vector). (also known as constrained maximization problem)</strong></p>
+<p>To formulate this problem, we will use <a href="https://en.wikipedia.org/wiki/Lagrange_multiplier"><strong>Lagrange Multiplier</strong></a>. Our problem can be written as follows <span class="math display">\[
+\max_{L} = (L^T\sum L)-\lambda(L^TL-1)
+\]</span></p>
+<p>
+To solve it, we will differentiate it with respect to <span class="math inline">\(L\)</span> and then equate it to zero. As we seen above that <span class="math inline">\(L^TL=L^2\)</span>, therefore, differentiating it gives us <span class="math inline">\(2L\)</span>. <span class="math display">\[
+\sum L - \lambda (L) = 0
+\]</span>
+</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {""level"":4} -->
+<h4 class="anchored">
+<span class="math display">\[ \sum L = \lambda L \]</span>
+</h4>
+<!-- /wp:heading -->
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The above equation is actually stating that <span class="math inline">\(L\)</span> must be <strong>eigenvector</strong> of covariance matrix of <span class="math inline">\(X\)</span>.</p>
+<p><strong>A brief about eigen vector</strong></p>
+<!-- wp:image -->
+<figure class="figure" wp-block-image""=""><img 2019="" src="" content="" images="" 08="" screenshot-2019-08-10-at-2.18.00-pm.png""="" alt="" ""="" class="figure-img"></figure>
+<!-- /wp:image -->
+<!-- wp:paragraph -->
+<p>
+</p><p>Let’s consider a matrix as a system of transformation. When it is multiplied with a vector that vector gets transformed into a new vector. Let’s take an example. We have a matrix <span class="math display">\[ M =
+    \begin{bmatrix}
+      2 &amp; -4 \\
+      -1 &amp;  -1 \\
+      \end{bmatrix}
+  \]</span> We will multiply (or apply) it on a vector <span class="math inline">\(A = [2,3]\)</span>. The multiplication of <span class="math inline">\(M\)</span> and <span class="math inline">\(A\)</span> will give <span class="math display">\[
+  \begin{bmatrix}
+      2 &amp; -4 \\
+      -1 &amp;  -1 \\
+      \end{bmatrix}
+  \begin{bmatrix}
+      3 \\
+      2  \\
+      \end{bmatrix}
+  = \begin{bmatrix}
+      -2 \\
+      -5 \\
+      \end{bmatrix}
+  \]</span> As it’s shown in the below figure that point (3,2) transformed into new point (-2,-5). Now, if we multiply <span class="math inline">\(B = [1,1]\)</span> with M then we will get result in the same direction.</p>
+<p><img src="./images/pca/p4.5.png" class="img-fluid"> <span class="math display">\[
+  \begin{bmatrix}
+      2 &amp; -4 \\
+      -1 &amp;  -1 \\
+      \end{bmatrix}
+  \begin{bmatrix}
+      1 \\
+      1  \\
+      \end{bmatrix}
+  = \begin{bmatrix}
+      -2 \\
+      -1 \\
+      \end{bmatrix}
+  = -2\begin{bmatrix}
+      1 \\
+      1 \\
+      \end{bmatrix}
+  \]</span></p>
+Therefore vector <span class="math inline">\(B\)</span> is <strong>eigen vector</strong> for the matrix in above example.
+<p></p>
+</div>
+</div>
+<p>
+<strong>Coming back</strong> to our last equation <span class="math inline">\(\sum L = \lambda L\)</span>, now the question is which eigenvector (as there can be many eigen vectors of a matrix) to use. Let’s have a look on our variance <span class="math inline">\((L^T\sum L)\)</span> which we want to maximize.
+</p>
+<p><span class="math display">\[
+= (L^T\sum L)
+= (L^T\lambda L)
+= \lambda(L^T L)
+= \lambda
+\]</span> <!-- /wp:paragraph --></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>So, to maximize the variance, we need to take eigenvector with maximum eigen value (<span class="math inline">\(\lambda\)</span>). Here is our first vector, <strong>one with highest Eigen value</strong>.</p>
+</div>
+</div>
+Using this result as a basis, we then have the following steps for PCA
+<p></p>
+<!-- /wp:paragraph -->
+<!-- wp:list -->
+<ul>
+<li>
+Compute Covariance matrix (<span class="math inline">\(\sum\)</span>) of <span class="math inline">\(X\)</span>
+</li>
+<li>
+Subtract <span class="math inline">\(X_\mu\)</span> (mean) from <span class="math inline">\(X\)</span>
+</li>
+<li>
+Compute eigenvector <span class="math inline">\(\sum\)</span>
+</li>
+<li>
+Reorder the eigen vectors according to their corresponding eigen value
+</li>
+<li>
+Project data set on those eigenvectors beginning from the start (as the first eigenvector has the highest eigenvalue, second eigenvector with second-highest, and so on)
+</li>
+</ul>
+<!-- /wp:list -->
+<!-- wp:heading {""level"":4} -->
+<h4 class="anchored">
+Key points
+</h4>
+<!-- /wp:heading -->
+<!-- wp:list -->
+<ul>
+<li>
+PCA is a <code>unsupvervised</code> machine learning algorithm.
+</li>
+<li>
+PCA dimensions are linear combinations of original attributes. Therefore, it is a <code>linear</code> DR method. However, there are variants of PCA (e.g.&nbsp;<code>kernelPCA</code>) which offers non-linearity feature.
+</li>
+<li>
+Uneven data range of attributes can influence the PCA results, therefore, standardize your data before applying PCA.
+</li>
+</ul>
+<!-- /wp:list -->
+<!-- wp:heading {""level"":3} -->
+</section>
+<section id="example" class="level3">
+<h3 class="anchored" data-anchor-id="example">Example</h3>
+Python’s library <a href="https://scikit-learn.org/stable/">scikit-learn</a> has numerous inbuilt functions for dimensionality reduction. In this example, we will see how to use that function. First, we need to import the packages
+<p></p>
+<!-- /wp:paragraph -->
+<!-- wp:code -->
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For loading iris dataset</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn <span class="im">import</span> datasets</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># For standardizing our data</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># For PCA</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn <span class="im">import</span> decomposition</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Load your dataset here</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>iris <span class="op">=</span> datasets.load_iris()</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># In the next step, we will standardize our data.&lt;/p&gt;</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating Standard Scaler</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>scaler <span class="op">=</span> StandardScaler()</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Fitting iris data to a scaler</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>scaler.fit(iris)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Transform the data into standardised form</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>new_iris <span class="op">=</span> scaler.transform(iris)</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Create PCA object</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>pca <span class="op">=</span> decomposition.PCA(n_components<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Fitting data to PCA</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>pca.fit(new_iris)</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Computing new dimensions</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>dr_iris <span class="op">=</span> pca.transform(new_iris)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Let’s check now how much variance offered by new dimensions. There is an attribute of PCA class in <code>sklearn</code> library: <code>explained_variance_ratio_</code> which offer this information.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(PCA.explained_variance_ratio_)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Output</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># array([0.72962445, 0.22850762, 0.03668922])&lt;/code&gt;&lt;/pre&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>As it can be seen that first two principal components offered in total around <code>94%</code> variance o f original data.</p>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
