@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-09-26">
 
-<title>Automated estimation of collaboration quality using multimodal data in classroom – Pankaj Chejara</title>
+<title>Group Conversation Analytics using Raspberry Pi – Pankaj Chejara</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -153,20 +152,21 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Automated estimation of collaboration quality using multimodal data in classroom</h1>
-</div>
+<h1 class="title">Group Conversation Analytics using Raspberry Pi</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Edtech</div>
+    <div class="quarto-category">Python</div>
+    <div class="quarto-category">Web</div>
+    <div class="quarto-category">Signal Processing</div>
+    <div class="quarto-category">IoT</div>
+  </div>
+  </div>
 
 
 
 <div class="quarto-title-meta">
 
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">September 26, 2022</p>
-    </div>
-  </div>
   
     
   </div>
@@ -176,8 +176,51 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="abstract" class="level2">
-<h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
+<section id="project-overview" class="level2">
+<h2 class="anchored" data-anchor-id="project-overview">Project overview</h2>
+<p>Developed during my first-year PhD research, this system captures and visualizes speaking dynamics in face-to-face group conversations. The interactive dashboard provides participants with real-time feedback about their conversation patterns, enabling more balanced and productive discussions.</p>
+<section id="technical-implementation" class="level3">
+<h3 class="anchored" data-anchor-id="technical-implementation">Technical Implementation</h3>
+<p>The solution combines a Raspberry Pi with a ReSpeaker microphone array to create an edge-computing prototype that processes vocal interactions in real time. The system captures two key dimensions of group communication:</p>
+<section id="vocal-activity-detection" class="level4">
+<h4 class="anchored" data-anchor-id="vocal-activity-detection">Vocal Activity Detection</h4>
+<ul>
+<li>Analyzes voice energy signals to identify speaking segments</li>
+</ul>
+</section>
+<section id="spatial-audio-analysis" class="level4">
+<h4 class="anchored" data-anchor-id="spatial-audio-analysis">Spatial Audio Analysis</h4>
+<ul>
+<li><p>Calculates direction-of-arrival (DoA) using beamforming techniques</p></li>
+<li><p>Maps speakers to physical positions around the discussion table</p></li>
+<li><p>Tracks speaking turns and participant engagement</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="key-contributions" class="level2">
+<h2 class="anchored" data-anchor-id="key-contributions">Key Contributions</h2>
+<ul>
+<li>Developed a <a href="https://github.com/pankajchejara23/ReAudio_library"><strong>Python library</strong></a> for processing timestamped directional audio data.</li>
+<li>Built <a href="https://github.com/pankajchejara23/dash-codes"><strong>an interactive dashboard (web-based)</strong></a> to visualize speaking patterns.</li>
+</ul>
+</section>
+<section id="skills-applied" class="level2">
+<h2 class="anchored" data-anchor-id="skills-applied">Skills Applied</h2>
+<p><code>Python</code>, <code>Raspberry Pi</code>, <code>Signal Processing</code>, <code>Web Development</code>, <code>IoT Prototyping</code></p>
+</section>
+<section id="libraries-used" class="level2">
+<h2 class="anchored" data-anchor-id="libraries-used">Libraries Used</h2>
+<p><code>pandas</code>,<code>matplotlib</code>,<code>networkx</code>,<code>numpy</code>, <code>dash</code></p>
+</section>
+<section id="prototype-demo" class="level2">
+<h2 class="anchored" data-anchor-id="prototype-demo">Prototype Demo</h2>
+<iframe width="660" height="315" src="https://www.youtube.com/embed/9xmeXMp7Hp8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+</iframe>
+</section>
+<section id="dashboard" class="level2">
+<h2 class="anchored" data-anchor-id="dashboard">Dashboard</h2>
+<p><img src="./images/rpi_server.png" class="img-fluid"></p>
 
 
 </section>

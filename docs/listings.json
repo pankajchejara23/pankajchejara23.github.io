@@ -21,23 +21,13 @@
     ]
   },
   {
-    "listing": "/talks.html",
-    "items": [
-      "/talks/spain.html",
-      "/talks/lak24.html",
-      "/talks/bergen.html",
-      "/talks/seminar.html",
-      "/talks/phd.html",
-      "/talks/ectel.html",
-      "/talks/lak23.html",
-      "/talks/finland.html"
-    ]
+    "listing": "/docs/blog.html",
+    "items": []
   },
   {
     "listing": "/blog.html",
     "items": [
-      "/posts/bioinformatics/Snakemake intro.html",
-      "/posts/post-with-code/Data viz in R.html",
+      "/posts/post-with-code/Snakemake_first.html",
       "/posts/post-with-code/Hosting on Render.html",
       "/posts/post-with-code/Train your word embeddings from scratch.html",
       "/posts/post-with-code/word_embeddings.html",
@@ -57,6 +47,25 @@
       "/posts/post-with-code/pandas.html",
       "/posts/concepts/pca.html",
       "/posts/post-with-code/facial-features.html"
+    ]
+  },
+  {
+    "listing": "/talks.html",
+    "items": [
+      "/talks/spain.html",
+      "/talks/lak24.html",
+      "/talks/bergen.html",
+      "/talks/seminar.html",
+      "/talks/phd.html",
+      "/talks/ectel.html",
+      "/talks/lak23.html",
+      "/talks/finland.html"
+    ]
+  },
+  {
+    "listing": "/my_projects.html",
+    "items": [
+      "/projects/rpi.html"
     ]
   }
 ]
