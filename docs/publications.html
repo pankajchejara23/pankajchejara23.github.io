@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Publications | AffCom Lab – Pankaj Chejara</title>
+<title>Publications – Pankaj Chejara</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -72,6 +72,34 @@ ul.task-list li input[type="checkbox"] {
 <script>
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-2025 .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-project','listing-website','listing-format','listing-language','listing-title','listing-type','listing-author','listing-year','listing-publication','listing-doi','listing-materials','listing-toc','listing-categories','listing-path','listing-outputHref','listing-description','listing-filename','listing-file-modified','listing-reading-time','listing-word-count',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
+      
+      searchColumns: ["listing-project","listing-website","listing-format","listing-language","listing-title","listing-type","listing-author","listing-year","listing-publication","listing-doi","listing-materials","listing-toc","listing-categories","listing-path","listing-outputHref","listing-description","listing-filename","listing-file-modified","listing-reading-time","listing-word-count"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-2025'] = new List('listing-2025', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
     const listingTargetEl = window.document.querySelector('#listing-2024 .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
@@ -107,9 +135,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-project','listing-website','listing-format','listing-language','listing-title','listing-type','listing-author','listing-year','listing-publication','listing-doi','listing-materials','listing-toc','listing-categories','listing-path','listing-outputHref','listing-description','listing-filename','listing-file-modified','listing-reading-time','listing-word-count','listing-preprint',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
+      valueNames: ['listing-project','listing-website','listing-format','listing-language','listing-title','listing-type','listing-author','listing-year','listing-publication','listing-doi','listing-materials','listing-toc','listing-categories','listing-path','listing-outputHref','listing-description','listing-filename','listing-file-modified','listing-reading-time','listing-word-count',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
       
-      searchColumns: ["listing-project","listing-website","listing-format","listing-language","listing-title","listing-type","listing-author","listing-year","listing-publication","listing-doi","listing-materials","listing-toc","listing-categories","listing-path","listing-outputHref","listing-description","listing-filename","listing-file-modified","listing-reading-time","listing-word-count","listing-preprint"],
+      searchColumns: ["listing-project","listing-website","listing-format","listing-language","listing-title","listing-type","listing-author","listing-year","listing-publication","listing-doi","listing-materials","listing-toc","listing-categories","listing-path","listing-outputHref","listing-description","listing-filename","listing-file-modified","listing-reading-time","listing-word-count"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -306,11 +334,65 @@ window.Quarto = {
 <section id="publications" class="level1">
 <h1>Publications</h1>
 <section id="section" class="level2">
-<h2 class="anchored" data-anchor-id="section">2024</h2>
+<h2 class="anchored" data-anchor-id="section">2025</h2>
+<div id="listing-2025" class="quarto-listing quarto-listing-container-custom">
+<ul class="pub-list list">
+
+  <li class="p-1" data-index="0" data-categories="T3BlbiUyMGxlYXJuZXIlMjBtb2RlbCUyQ0JheWVzaWFuJTIwaW5mZXJlbmNlJTJDTGVhcm5pbmclMjBhbmFseXRpY3M=" data-listing-file-modified-sort="1746119380345" data-listing-reading-time-sort="1" data-listing-word-count-sort="134">
+    <span class="listing-title lead">Supporting Student-Centered Learning with Flexible Learning Trajectories and Open Learner Models</span><br>
+    <span class="listing-author">Chejara, P., Tammets, K., Laanpere, M., Volt, A., Tammets, P., &amp; Savitski, P.</span><br>
+    <span class="listing-publication fst-italic ">15th International Conference on Learning Analytics &amp; Knowledge</span>
+    <span class="listing-year">(2025)</span><br> 
+    <a href="./articles/2025/lak_poster.html" class="btn btn-info  btn-sm">
+      Details
+    </a>
+    
+    <a href="https://doi.org/10.13140/RG.2.2.34284.68489" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer">
+      DOI
+    </a>
+    
+    
+    
+    <a href="./papers/11-LAK25.pdf" class="btn btn-danger btn-sm" target="_blank" rel="noopener noreferrer">
+      <i class="bi bi-file-earmark-pdf "></i> PDF
+    </a>
+    
+  </li>
+  <br>
+
+  <li class="p-1" data-index="1" data-categories="SHlicmlkJTIwSHVtYW4tQUklMjBpbnRlbGxpZ2VuY2UlMkNBSSUyMGluJTIwRWR1Y2F0aW9uJTJDTGVhcm5pbmclMjBBbmFseXRpY3M=" data-listing-file-modified-sort="1746119385251" data-listing-reading-time-sort="2" data-listing-word-count-sort="224">
+    <span class="listing-title lead">Teacher-AI complementarity: From design to implementation and reflection</span><br>
+    <span class="listing-author">Chejara, P., Tammets, K., Laanpere, M., Volt, A., Kasepalu, R., Sarmiento-Márquez, E. M., &amp; Sillat, L. H.</span><br>
+    <span class="listing-publication fst-italic ">15th International Conference on Learning Analytics and Knowledge</span>
+    <span class="listing-year">(2025)</span><br> 
+    <a href="./articles/2025/lak_workshop.html" class="btn btn-info  btn-sm">
+      Details
+    </a>
+    
+    <a href="https://doi.org/10.13140/RG.2.2.25896.07685" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer">
+      DOI
+    </a>
+    
+    
+    
+    <a href="./papers/12-Hybrid intelligence.pdf" class="btn btn-danger btn-sm" target="_blank" rel="noopener noreferrer">
+      <i class="bi bi-file-earmark-pdf "></i> PDF
+    </a>
+    
+  </li>
+  <br>
+
+</ul>
+
+<div class="listing-no-matching d-none">No matching items</div>
+</div>
+</section>
+<section id="section-1" class="level2">
+<h2 class="anchored" data-anchor-id="section-1">2024</h2>
 <div id="listing-2024" class="quarto-listing quarto-listing-container-custom">
 <ul class="pub-list list">
 
-  <li class="p-1" data-index="0" data-categories="bXVsdGltb2RhbCUyMGxlYXJuaW5nJTIwYW5hbHl0aWNzJTJDQ1NDTCUyQ2NvbGxhYm9yYXRpb24lMjBxdWFsaXR5JTJDY29uZmVyZW5jZQ==" data-listing-file-modified-sort="1745141127777" data-listing-reading-time-sort="2" data-listing-word-count-sort="242">
+  <li class="p-1" data-index="0" data-categories="bXVsdGltb2RhbCUyMGxlYXJuaW5nJTIwYW5hbHl0aWNzJTJDQ1NDTCUyQ2NvbGxhYm9yYXRpb24lMjBxdWFsaXR5JTJDY29uZmVyZW5jZQ==" data-listing-file-modified-sort="1746119524500" data-listing-reading-time-sort="2" data-listing-word-count-sort="242">
     <span class="listing-title lead">Bringing Collaborative Analytics using Multimodal Data to the Masses: Evaluation and Design Guidelines for Developing a MMLA System for Research and Teaching Practices in CSCL</span><br>
     <span class="listing-author">Chejara, P., Kasepalu, R., Prieto, L., P., Rodríguez-Triana, M. J., &amp; Ruiz-Calleja, A.</span><br>
     <span class="listing-publication fst-italic ">14th International Learning Analytics and Knowledge Conference</span>
@@ -325,14 +407,14 @@ window.Quarto = {
     
     
     
-    <a href="https://dl.acm.org/doi/pdf/10.1145/3636555.3636877" class="btn btn-danger btn-sm" target="_blank" rel="noopener noreferrer">
+    <a href="./papers/10-LAK.pdf" class="btn btn-danger btn-sm" target="_blank" rel="noopener noreferrer">
       <i class="bi bi-file-earmark-pdf "></i> PDF
     </a>
     
   </li>
   <br>
 
-  <li class="p-1" data-index="1" data-categories="bXVsdGltb2RhbCUyMGxlYXJuaW5nJTIwYW5hbHl0aWNzJTJDQ1NDTCUyQ2NvbGxhYm9yYXRpb24lMjBxdWFsaXR5JTJDam91cm5hbA==" data-listing-file-modified-sort="1745141127777" data-listing-reading-time-sort="2" data-listing-word-count-sort="224">
+  <li class="p-1" data-index="1" data-categories="bXVsdGltb2RhbCUyMGxlYXJuaW5nJTIwYW5hbHl0aWNzJTJDQ1NDTCUyQ2NvbGxhYm9yYXRpb24lMjBxdWFsaXR5JTJDam91cm5hbA==" data-listing-file-modified-sort="1746119468773" data-listing-reading-time-sort="2" data-listing-word-count-sort="224">
     <span class="listing-title lead">How well do collaboration quality estimation models generalize across authentic school contexts</span><br>
     <span class="listing-author">Chejara, P., Kasepalu, R., Prieto, L., P., Rodríguez-Triana, M. J., Ruiz-Calleja, A., &amp; Schneider, B.</span><br>
     <span class="listing-publication fst-italic ">British Journal of Educational Technology</span>
@@ -347,14 +429,14 @@ window.Quarto = {
     
     
     
-    <a href="https://dl.acm.org/doi/pdf/10.1145/3636555.3636877" class="btn btn-danger btn-sm" target="_blank" rel="noopener noreferrer">
+    <a href="./papers/8-BJET'23.pdf" class="btn btn-danger btn-sm" target="_blank" rel="noopener noreferrer">
       <i class="bi bi-file-earmark-pdf "></i> PDF
     </a>
     
   </li>
   <br>
 
-  <li class="p-1" data-index="2" data-categories="bXVsdGltb2RhbCUyMGxlYXJuaW5nJTIwYW5hbHl0aWNzJTJDQ1NDTCUyQ2NvbGxhYm9yYXRpb24lMjBxdWFsaXR5JTJDam91cm5hbA==" data-listing-file-modified-sort="1745141127777" data-listing-reading-time-sort="2" data-listing-word-count-sort="291">
+  <li class="p-1" data-index="2" data-categories="bXVsdGltb2RhbCUyMGxlYXJuaW5nJTIwYW5hbHl0aWNzJTJDQ1NDTCUyQ2NvbGxhYm9yYXRpb24lMjBxdWFsaXR5JTJDam91cm5hbA==" data-listing-file-modified-sort="1746119543236" data-listing-reading-time-sort="2" data-listing-word-count-sort="291">
     <span class="listing-title lead">Impact of data noise on the performance of supervised machine learning models using multimodal data to estimate collaboration quality</span><br>
     <span class="listing-author">Chejara, P., Prieto, L., P., Dimitriadis, Y., Rodríguez-Triana, M. J., Ruiz-Calleja, A., Kasepalu, R., &amp; Shankar, S. K</span><br>
     <span class="listing-publication fst-italic ">Journal of Learning Analytics</span>
@@ -369,7 +451,7 @@ window.Quarto = {
     
     
     
-    <a href="https://dl.acm.org/doi/pdf/10.1145/3636555.3636877" class="btn btn-danger btn-sm" target="_blank" rel="noopener noreferrer">
+    <a href="./papers/9-JLA'24.pdf" class="btn btn-danger btn-sm" target="_blank" rel="noopener noreferrer">
       <i class="bi bi-file-earmark-pdf "></i> PDF
     </a>
     
@@ -381,8 +463,8 @@ window.Quarto = {
 <div class="listing-no-matching d-none">No matching items</div>
 </div>
 </section>
-<section id="section-1" class="level2">
-<h2 class="anchored" data-anchor-id="section-1">2023</h2>
+<section id="section-2" class="level2">
+<h2 class="anchored" data-anchor-id="section-2">2023</h2>
 <div id="listing-2023" class="quarto-listing quarto-listing-container-custom">
 <ul class="pub-list list">
 
@@ -408,7 +490,7 @@ window.Quarto = {
   </li>
   <br>
 
-  <li class="p-1" data-index="1" data-categories="bXVsdGltb2RhbCUyMGxlYXJuaW5nJTIwYW5hbHl0aWNzJTJDQ1NDTCUyQ2NvbGxhYm9yYXRpb24lMjBxdWFsaXR5JTJDam91cm5hbA==" data-listing-file-modified-sort="1745141127776" data-listing-reading-time-sort="1" data-listing-word-count-sort="194">
+  <li class="p-1" data-index="1" data-categories="bXVsdGltb2RhbCUyMGxlYXJuaW5nJTIwYW5hbHl0aWNzJTJDQ1NDTCUyQ2NvbGxhYm9yYXRpb24lMjBxdWFsaXR5" data-listing-file-modified-sort="1746119622906" data-listing-reading-time-sort="1" data-listing-word-count-sort="194">
     <span class="listing-title lead">Exploring indicators for collaboration quality and its dimensions in classroom settings using multimodal learning analytics</span><br>
     <span class="listing-author">Chejara, P., Prieto, L. P., Rodríguez-Triana, M. J., Ruiz-Calleja, A., Kasepalu, R. Chounta, I.-A., &amp; Schneider, B.</span><br>
     <span class="listing-publication fst-italic ">In the 18th European Conference on Technology Enhanced Learning (EC-TEL)</span>
@@ -423,14 +505,14 @@ window.Quarto = {
     
     
     
-    <a href="https://dl.acm.org/doi/pdf/10.1145/3636555.3636877" class="btn btn-danger btn-sm" target="_blank" rel="noopener noreferrer">
+    <a href="./papers/7-ECTEL'23 Exploring collaboration indicators.pdf" class="btn btn-danger btn-sm" target="_blank" rel="noopener noreferrer">
       <i class="bi bi-file-earmark-pdf "></i> PDF
     </a>
     
   </li>
   <br>
 
-  <li class="p-1" data-index="2" data-categories="bXVsdGltb2RhbCUyMGxlYXJuaW5nJTIwYW5hbHl0aWNzJTJDQ1NDTCUyQ2dlbmVyYWxpemFiaWxpdHklMkNtYWNoaW5lJTIwbGVhcm5pbmclMkNjb2xsYWJvcmF0aW9uJTIwcXVhbGl0eSUyQ2NvbmZlcmVuY2U=" data-listing-file-modified-sort="1745141127777" data-listing-reading-time-sort="2" data-listing-word-count-sort="243">
+  <li class="p-1" data-index="2" data-categories="bXVsdGltb2RhbCUyMGxlYXJuaW5nJTIwYW5hbHl0aWNzJTJDQ1NDTCUyQ2dlbmVyYWxpemFiaWxpdHklMkNtYWNoaW5lJTIwbGVhcm5pbmclMkNjb2xsYWJvcmF0aW9uJTIwcXVhbGl0eSUyQ2NvbmZlcmVuY2U=" data-listing-file-modified-sort="1746119713251" data-listing-reading-time-sort="2" data-listing-word-count-sort="243">
     <span class="listing-title lead">How to build more generalizable models for collaboration quality? Lessons learned from exploring multi-contexts audio-log datasets using Multimodal Learning Analytics</span><br>
     <span class="listing-author">Chejara, P., Prieto, L. P., Ruiz-Calleja, A., Rodríguez-Triana, M. J.,   Kasepalu, R. &amp;  Shankar, S. K.,</span><br>
     <span class="listing-publication fst-italic ">13th International Learning Analytics and Knowledge Conference</span>
@@ -444,15 +526,15 @@ window.Quarto = {
     </a>
     
     
-    <a href="https://www.researchgate.net/profile/Pankaj-Chejara/publication/366006966_How_to_Build_More_Generalizable_Models_for_Collaboration_Quality_Lessons_Learned_from_Exploring_Multi-Contexts_Audio-Log_Datasets_using_Multimodal_Learning_Analytics/links/638dcce8658cec2104b1f425/How-to-Build-More-Generalizable-Models-for-Collaboration-Quality-Lessons-Learned-from-Exploring-Multi-Contexts-Audio-Log-Datasets-using-Multimodal-Learning-Analytics.pdf" class="btn btn-light btn-sm" target="_blank" rel="noopener noreferrer">
-      <i class="bi bi-file-earmark-text"></i> Preprint
-    </a>
     
+    <a href="5-LAK'23 How to build more generalizable collaboration quailty estimation models.pdf" class="btn btn-danger btn-sm" target="_blank" rel="noopener noreferrer">
+      <i class="bi bi-file-earmark-pdf "></i> PDF
+    </a>
     
   </li>
   <br>
 
-  <li class="p-1" data-index="3" data-categories="dGVtcG9yYWwlMjB3aW5kb3clMkNtdWx0aW1vZGFsJTIwbGVhcm5pbmclMjBhbmFseXRpY3MlMkNDU0NMJTJDY29sbGFib3JhdGlvbiUyMHF1YWxpdHklMkNjb25mZXJlbmNl" data-listing-file-modified-sort="1745141127777" data-listing-reading-time-sort="2" data-listing-word-count-sort="238">
+  <li class="p-1" data-index="3" data-categories="dGVtcG9yYWwlMjB3aW5kb3clMkNtdWx0aW1vZGFsJTIwbGVhcm5pbmclMjBhbmFseXRpY3MlMkNDU0NMJTJDY29sbGFib3JhdGlvbiUyMHF1YWxpdHklMkNjb25mZXJlbmNl" data-listing-file-modified-sort="1746119740861" data-listing-reading-time-sort="2" data-listing-word-count-sort="238">
     <span class="listing-title lead">Impact of window size on the generalizability of collaboration quality estimation models developed using multimodal learning analytics.</span><br>
     <span class="listing-author">Chejara, P., Prieto, L. P., Rodríguez-Triana, M. J., Ruiz-Calleja, A., &amp; Khalil, M.</span><br>
     <span class="listing-publication fst-italic ">13th International Learning Analytics and Knowledge Conference</span>
@@ -466,15 +548,15 @@ window.Quarto = {
     </a>
     
     
-    <a href="https://www.google.com/url?sa=t&amp;source=web&amp;rct=j&amp;opi=89978449&amp;url=https://www.researchgate.net/publication/366006788_Impact_of_window_size_on_the_generalizability_of_collaboration_quality_estimation_models_developed_using_Multimodal_Learning_Analytics&amp;ved=2ahUKEwizpeuisseJAxUABdsEHV--FgcQFnoECB0QAQ&amp;usg=AOvVaw1-f2Z6MSBrZOjoxnCLNPW-" class="btn btn-light btn-sm" target="_blank" rel="noopener noreferrer">
-      <i class="bi bi-file-earmark-text"></i> Preprint
-    </a>
     
+    <a href="4-LAK'23 Impact of window size on model performance-1.pdf" class="btn btn-danger btn-sm" target="_blank" rel="noopener noreferrer">
+      <i class="bi bi-file-earmark-pdf "></i> PDF
+    </a>
     
   </li>
   <br>
 
-  <li class="p-1" data-index="4" data-categories="YXV0aGVudGljJTIwc2V0dGluZ3MlMkNtdWx0aW1vZGFsJTIwbGVhcm5pbmclMjBhbmFseXRpY3MlMkNDU0NMJTJDY29sbGFib3JhdGlvbiUyMHF1YWxpdHk=" data-listing-file-modified-sort="1745141127776" data-listing-reading-time-sort="1" data-listing-word-count-sort="190">
+  <li class="p-1" data-index="4" data-categories="YXV0aGVudGljJTIwc2V0dGluZ3MlMkNtdWx0aW1vZGFsJTIwbGVhcm5pbmclMjBhbmFseXRpY3MlMkNDU0NMJTJDY29sbGFib3JhdGlvbiUyMHF1YWxpdHk=" data-listing-file-modified-sort="1746119664063" data-listing-reading-time-sort="1" data-listing-word-count-sort="190">
     <span class="listing-title lead">Multimodal Learning Analytics Research in the Wild: Challenges and Their Potential Solutions.</span><br>
     <span class="listing-author">Chejara, P., Kasepalu, R. Prieto, L. P., Ruiz-Calleja, A., Rodríguez-Triana, M. J., &amp; Shankar, S. K.</span><br>
     <span class="listing-publication fst-italic ">13th International Learning Analytics and Knowledge Conference</span>
@@ -489,7 +571,7 @@ window.Quarto = {
     
     
     
-    <a href="https://www.researchgate.net/profile/Pankaj-Chejara/publication/369489506_Multimodal_Learning_Analytics_research_in_the_wild_challenges_and_their_potential_solutions/links/641dbd5e92cfd54f84289df8/Multimodal-Learning-Analytics-research-in-the-wild-challenges-and-their-potential-solutions.pdf" class="btn btn-danger btn-sm" target="_blank" rel="noopener noreferrer">
+    <a href="./papers/6-CrossMMLA'23.pdf" class="btn btn-danger btn-sm" target="_blank" rel="noopener noreferrer">
       <i class="bi bi-file-earmark-pdf "></i> PDF
     </a>
     
@@ -545,8 +627,8 @@ window.Quarto = {
 <div class="listing-no-matching d-none">No matching items</div>
 </div>
 </section>
-<section id="section-2" class="level2">
-<h2 class="anchored" data-anchor-id="section-2">2022</h2>
+<section id="section-3" class="level2">
+<h2 class="anchored" data-anchor-id="section-3">2022</h2>
 <div id="listing-2022" class="quarto-listing quarto-listing-container-custom">
 <ul class="pub-list list">
 
@@ -613,8 +695,8 @@ window.Quarto = {
 <div class="listing-no-matching d-none">No matching items</div>
 </div>
 </section>
-<section id="section-3" class="level2">
-<h2 class="anchored" data-anchor-id="section-3">2021</h2>
+<section id="section-4" class="level2">
+<h2 class="anchored" data-anchor-id="section-4">2021</h2>
 <div id="listing-2021" class="quarto-listing quarto-listing-container-custom">
 <ul class="pub-list list">
 

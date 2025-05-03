@@ -78,9 +78,10 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-project','listing-website','listing-format','listing-language','listing-title','listing-organization','listing-country','listing-event','listing-year','listing-date','listing-toc','listing-slides','listing-image','listing-published','listing-path','listing-outputHref','listing-date-modified','listing-author','listing-description','listing-filename','listing-file-modified','listing-reading-time','listing-word-count',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
-      
-      searchColumns: ["listing-project","listing-website","listing-format","listing-language","listing-title","listing-organization","listing-country","listing-event","listing-year","listing-date","listing-toc","listing-slides","listing-image","listing-published","listing-path","listing-outputHref","listing-date-modified","listing-author","listing-description","listing-filename","listing-file-modified","listing-reading-time","listing-word-count"],
+      valueNames: ['listing-project','listing-website','listing-format','listing-language','listing-title','listing-organization','listing-country','listing-event','listing-year','listing-date','listing-toc','listing-slides','listing-image','listing-summary','listing-path','listing-outputHref','listing-date-modified','listing-author','listing-description','listing-filename','listing-file-modified','listing-reading-time','listing-word-count','listing-published',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
+      page: 5,
+    pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
+      searchColumns: ["listing-project","listing-website","listing-format","listing-language","listing-title","listing-organization","listing-country","listing-event","listing-year","listing-date","listing-toc","listing-slides","listing-image","listing-summary","listing-path","listing-outputHref","listing-date-modified","listing-author","listing-description","listing-filename","listing-file-modified","listing-reading-time","listing-word-count","listing-published"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -221,39 +222,261 @@ window.Quarto = {
 
 
 <div class="quarto-listing quarto-listing-container-custom" id="listing-listing">
-<div class="talk-list list">
-<table class="caption-top table" data-quarto-postprocess="true">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Slides</th>
-<th>Talk</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="vertical-align: middle"><img src="./talks/images/defense_image.png" class="img-fluid"></td>
-<td style="vertical-align: top lead"><a href="./talks/seminar.html"><strong>Research Seminar</strong></a><br>
-<em></em> <span class="badge bg-info lead"> <em></em> Sep 26, 2024 </span> <span class="badge bg-warning"> <em></em> Denmark </span><br>
-<span class="text-body-secondary"> <em></em> Classroom collaboration analytics </span><br>
-<span class="text-dark"> Technical University of Denmark, Denmark </span><br>
-</td>
-</tr>
-<tr class="even">
-<td style="vertical-align: middle"><img src="./talks/images/defense_image.png" class="img-fluid"></td>
-<td style="vertical-align: top lead"><a href="./talks/phd.html"><strong>PhD defense</strong></a><br>
-<em></em> <span class="badge bg-info lead"> <em></em> Aug 15, 2024 </span> <span class="badge bg-warning"> <em></em> Estonia </span><br>
-<span class="text-body-secondary"> <em></em> Classroom collaboration analytics: designing and building automated systems for collaboration monitoring in classroom settings </span><br>
-<span class="text-dark"> Tallinn University, Tallinn </span><br>
-</td>
-</tr>
-</tbody>
-</table>
+<!-- Custom Quarto Listing Template (Grid-like Rows) -->
+<style>
+  @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css");
+.custom-listing {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.listing-item {
+  display: flex;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  background: white;
+  align-items: center;
+  border:1px;
+  border-color: #555;
+}
+.listing-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+.listing-image {
+  width: 30%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.listing-image img {
+  width: 100%;
+  max-height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.listing-details {
+  width: 70%;
+  padding: 16px;
+}
+.listing-title {
+  font-size: .9em;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.listing-description {
+  color: #555;
+  margin-bottom: 3px;
+  font-size: .7em;
+}
+.listing-meta {
+  font-size: 0.7em;
+  color: #777;
+}
+a {
+    text-decoration: none;
+    color:blueviolet;
+  }
+</style>
+<div class="custom-listing">
+  <div class="listing-item">
+    <!-- Left: Image -->
+      <div class="listing-image">
+        <img src="./talks/images/lak25_dublin.png" alt="Teacher-AI complementarity: From design to implementation and reflection">
+      </div>
+    <!-- Right: Metadata -->
+    <div class="listing-details">
+      <div class="listing-title"><a href="./talks/lak25.html">Teacher-AI complementarity: From design to implementation and reflection</a></div>
+      <div class="listing-meta">
+            <span> <i class="fas fa-map-marker-alt"></i>  Learning Analytics &amp; Knowledge Conference, Dublin</span>  
+            <span> | Ireland</span>
+          <span class="mx-3" <span=""> <i class="fas fa-calendar-alt"></i> 03 Mar 2025</span>
+         <br>
+      </div>
+      <div class="listing-description py-2">
+          This talk was at the Hybrid Intelligence: Human-AI Collaboration and Learning workshop at <b>15th International Conference of Learning Analytics &amp; Knowledge</b>. In this talk, I presented three technological AI tools from Tallinn University as cases of human-AI hybrid intelligence from a complementarity point of view.
+      </div>
+    </div>
+  </div>
+  <div class="listing-item">
+    <!-- Left: Image -->
+      <div class="listing-image">
+        <img src="./talks/images/seminar_denmark.png" alt="Classroom collaboration analytics">
+      </div>
+    <!-- Right: Metadata -->
+    <div class="listing-details">
+      <div class="listing-title"><a href="./talks/seminar.html">Classroom collaboration analytics</a></div>
+      <div class="listing-meta">
+            <span> <i class="fas fa-map-marker-alt"></i>  Learning Analytics Course</span>  
+            <span> | Remote</span>
+          <span class="mx-3" <span=""> <i class="fas fa-calendar-alt"></i> 26 September 2024</span>
+         <br>
+      </div>
+      <div class="listing-description py-2">
+          I gave this talk (remote) in a <b>joint Learning Analytics course</b> run by <b>KTH Royal Institute of Technology and University of Bergen</b> coordinated by <b>Prof. Deniel Spikol</b>. The talk shared <b>current research in the area of multimodal collaboration analytics</b>.
+      </div>
+    </div>
+  </div>
+  <div class="listing-item">
+    <!-- Left: Image -->
+      <div class="listing-image">
+        <img src="./talks/images/defense_tallinn.png" alt="Designing and building automated systems for collaboration monitoring in classroom settings">
+      </div>
+    <!-- Right: Metadata -->
+    <div class="listing-details">
+      <div class="listing-title"><a href="./talks/phd.html">Designing and building automated systems for collaboration monitoring in classroom settings</a></div>
+      <div class="listing-meta">
+            <span> <i class="fas fa-map-marker-alt"></i>  PhD Defense, Tallinn</span>  
+            <span> | Estonia</span>
+          <span class="mx-3" <span=""> <i class="fas fa-calendar-alt"></i> 15 August 2024</span>
+         <br>
+      </div>
+      <div class="listing-description py-2">
+          This talk was given to <b>defend my PhD thesis</b> on the topic of <b>Classroom collaboration analytics: designing and building automated systems for collaboration monitoring in classroom settings</b> at <b>Tallinn University</b> 
+      </div>
+    </div>
+  </div>
+  <div class="listing-item">
+    <!-- Left: Image -->
+      <div class="listing-image">
+        <img src="./talks/images/lak24_japan.png" alt="Bringing Collaborative Analytics using Multimodal Data to the Masses">
+      </div>
+    <!-- Right: Metadata -->
+    <div class="listing-details">
+      <div class="listing-title"><a href="./talks/lak24.html">Bringing Collaborative Analytics using Multimodal Data to the Masses</a></div>
+      <div class="listing-meta">
+            <span> <i class="fas fa-map-marker-alt"></i>  Learning Analytics &amp; Knowledge Conference, Kyoto</span>  
+            <span> | Japan</span>
+          <span class="mx-3" <span=""> <i class="fas fa-calendar-alt"></i> 20 Mar 2024</span>
+         <br>
+      </div>
+      <div class="listing-description py-2">
+          This talk was given at the <b>14th International Conference of Learning Analytics &amp; Knowledge</b> to present results from the evaluation of CoTrack (a multimodal learning analytics tool), also published in the form of a conference paper. 
+      </div>
+    </div>
+  </div>
+  <div class="listing-item">
+    <!-- Left: Image -->
+      <div class="listing-image">
+        <img src="./talks/images/ectel23_portugal.png" alt="Exploring indicators for collaboration quality and its dimensions in classroom settings using multimodal learning analytics">
+      </div>
+    <!-- Right: Metadata -->
+    <div class="listing-details">
+      <div class="listing-title"><a href="./talks/ectel.html">Exploring indicators for collaboration quality and its dimensions in classroom settings using multimodal learning analytics</a></div>
+      <div class="listing-meta">
+            <span> <i class="fas fa-map-marker-alt"></i>  EC-TEL Conference, Aveiro</span>  
+            <span> | Portugal</span>
+          <span class="mx-3" <span=""> <i class="fas fa-calendar-alt"></i> 13 September 2023</span>
+         <br>
+      </div>
+      <div class="listing-description py-2">
+          This talk was given at the <b>European conference of technology-enhanced learning</b> to present results from a research study <b>exploring relationships between multimodal data and collaboration quality</b>. 
+      </div>
+    </div>
+  </div>
+  <div class="listing-item">
+    <!-- Left: Image -->
+      <div class="listing-image">
+        <img src="./talks/images/lak23_build.png" alt="How to build more generalizable models for collaboration quality?">
+      </div>
+    <!-- Right: Metadata -->
+    <div class="listing-details">
+      <div class="listing-title"><a href="./talks/lak23.html">How to build more generalizable models for collaboration quality?</a></div>
+      <div class="listing-meta">
+            <span> <i class="fas fa-map-marker-alt"></i>  Learning Analytics &amp; Knowledge Conference, Dallas</span>  
+            <span> | United States</span>
+          <span class="mx-3" <span=""> <i class="fas fa-calendar-alt"></i> 16 March 2023</span>
+         <br>
+      </div>
+      <div class="listing-description py-2">
+          This talk presented a research paper at the <b>14th International Conference of Learning Analytics &amp; Knowledge</b> organized at Arizona State University, Arizona. The paper included results from a study <b>exploring methodologies to build generalizable collaboration prediction</b> models for authentic classroom settings.
+      </div>
+    </div>
+  </div>
+  <div class="listing-item">
+    <!-- Left: Image -->
+      <div class="listing-image">
+        <img src="./talks/images/lak23_window_usa.png" alt="Impact of temporal window on the performance of collaboration prediction models">
+      </div>
+    <!-- Right: Metadata -->
+    <div class="listing-details">
+      <div class="listing-title"><a href="./talks/lak23-2.html">Impact of temporal window on the performance of collaboration prediction models</a></div>
+      <div class="listing-meta">
+            <span> <i class="fas fa-map-marker-alt"></i>  Learning Analytics &amp; Knowledge Conference, Dallas</span>  
+            <span> | United States</span>
+          <span class="mx-3" <span=""> <i class="fas fa-calendar-alt"></i> 15 March 2023</span>
+         <br>
+      </div>
+      <div class="listing-description py-2">
+          This talk presented a research paper at the <b>14th International Conference of Learning Analytics &amp; Knowledge</b> organized at Arizona State University, Arizona. The paper included results from a study <b>investigating impact of using different temporal window sizes for feature aggregation on the performance of collaboration prediction models</b> for authentic classroom settings.
+      </div>
+    </div>
+  </div>
+  <div class="listing-item">
+    <!-- Left: Image -->
+      <div class="listing-image">
+        <img src="./talks/images/valladolid_spain.png" alt="Automated estimation of collaboration quality using multimodal data in classroom">
+      </div>
+    <!-- Right: Metadata -->
+    <div class="listing-details">
+      <div class="listing-title"><a href="./talks/spain.html">Automated estimation of collaboration quality using multimodal data in classroom</a></div>
+      <div class="listing-meta">
+            <span> <i class="fas fa-map-marker-alt"></i>  Research Seminar, Valladolid</span>  
+            <span> | Spain</span>
+          <span class="mx-3" <span=""> <i class="fas fa-calendar-alt"></i> 21 Feb 2022</span>
+         <br>
+      </div>
+      <div class="listing-description py-2">
+          This talk was given during my research stay at the <b>GSIC-EMIC research lab at the University of Valladolid, Spain</b> to introduce my research on Multimodal Learning Analytics to explore collaboration analytics. The talk was attended by most of the lab members including Prof. Yannis Dimitriadis, Prof. Alejandra Martínez Monés, and Prof. Juan Ignacio Asensio Pérez.
+      </div>
+    </div>
+  </div>
+  <div class="listing-item">
+    <!-- Left: Image -->
+      <div class="listing-image">
+        <img src="./talks/images/bergen_norway.png" alt="Building an automated system to detect collaboration quality using multimodal learning analytics">
+      </div>
+    <!-- Right: Metadata -->
+    <div class="listing-details">
+      <div class="listing-title"><a href="./talks/bergen.html">Building an automated system to detect collaboration quality using multimodal learning analytics</a></div>
+      <div class="listing-meta">
+            <span> <i class="fas fa-map-marker-alt"></i>  Research Seminar, Bergen</span>  
+            <span> | Norway</span>
+          <span class="mx-3" <span=""> <i class="fas fa-calendar-alt"></i> 12 January 2022</span>
+         <br>
+      </div>
+      <div class="listing-description py-2">
+          This talk was given during my research stay at the <b>SLATE research group at the University of Bergen, Norway</b>. The talk presented research work on building automated systems to support teachers during collaborative learning activities in classrooms.
+      </div>
+    </div>
+  </div>
+  <div class="listing-item">
+    <!-- Left: Image -->
+      <div class="listing-image">
+        <img src="./talks/images/tampere.png" alt="Supporting Teachers during Collaborative Learning Using MMLA and AI">
+      </div>
+    <!-- Right: Metadata -->
+    <div class="listing-details">
+      <div class="listing-title"><a href="./talks/finland.html">Supporting Teachers during Collaborative Learning Using MMLA and AI</a></div>
+      <div class="listing-meta">
+            <span> <i class="fas fa-map-marker-alt"></i>  Research Seminar, Tampere</span>  
+            <span> | Finland</span>
+          <span class="mx-3" <span=""> <i class="fas fa-calendar-alt"></i> 14 September 2021</span>
+         <br>
+      </div>
+      <div class="listing-description py-2">
+          This talk was given at <b>Tampere University in Finland</b> during a short research visit. In this talk, I presented my research on <b>the potential of Multimodal Learning Analytics to support teachers in collaborative learning activities</b> with monitoring.
+      </div>
+    </div>
+  </div>
 </div>
 <div class="listing-no-matching d-none">No matching items</div>
+<nav id="listing-pagination" class="listing-pagination" aria-label="Page Navigation">
+  <ul class="pagination"></ul>
+</nav>
 </div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main></div>
     </div>
   </div>

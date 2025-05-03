@@ -79,9 +79,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-image','listing-date','listing-title','listing-author','listing-reading-time','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-image','listing-date','listing-title','listing-author','listing-reading-time','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
       
-      searchColumns: ["listing-title","listing-author","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-project","listing-website","listing-format","listing-language","listing-title","listing-year","listing-image","listing-toc","listing-libraries","listing-categories","listing-description","listing-path","listing-outputHref","listing-author","listing-filename","listing-file-modified","listing-reading-time","listing-word-count","listing-technologies"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -205,13 +205,13 @@ window.Quarto = {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
+    <div class="quarto-title column-page">
       <h1 class="title">Projects</h1>
                       </div>
   </div>
     
   
-  <div class="quarto-title-meta column-page-left">
+  <div class="quarto-title-meta column-page">
 
       
     
@@ -222,11 +222,9 @@ window.Quarto = {
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RWR0ZWNo">Edtech <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SW9U">IoT <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UHl0aG9u">Python <span class="quarto-category-count">(1)</span></div><div class="category" data-category="U2lnbmFsJTIwUHJvY2Vzc2luZw==">Signal Processing <span class="quarto-category-count">(1)</span></div><div class="category" data-category="V2Vi">Web <span class="quarto-category-count">(1)</span></div></div></div>
+    
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content quarto-banner-title-block column-page" id="quarto-document-content">
 
 
 
@@ -236,31 +234,346 @@ window.Quarto = {
 
 
 
-<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="RWR0ZWNoJTJDUHl0aG9uJTJDV2ViJTJDU2lnbmFsJTIwUHJvY2Vzc2luZyUyQ0lvVA==" data-listing-file-modified-sort="1745339033641" data-listing-reading-time-sort="1" data-listing-word-count-sort="163">
-<a href="./projects/rpi.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./projects/images/rpi.jpg" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Group Conversation Analytics using Raspberry Pi
-</h5>
-<div class="listing-reading-time card-text text-muted">1 min</div>
-<div class="card-text listing-description delink">
-Developed during my first-year PhD research, this system captures and visualizes speaking dynamics in face-to-face group conversations. The interactive dashboard provides…
+<div class="quarto-listing quarto-listing-container-custom" id="listing-listing">
+<!-- listing.ejs -->
+ <style>
+  a {
+    text-decoration: none;
+    color:blueviolet;
+  }
+ </style>
+<div class="listing-container">
+  
+    <div class="content-card">
+      <!-- Upper half with image -->
+      <div class="card-image">
+       <a href="./projects/cotrack.html"><img src="./projects/images/cotrack.png" alt="Collaboration prediction in real-time"></a>
+      </div>
+      
+      <!-- Lower half with details -->
+      <div class="card-body">
+        <a href="./projects/cotrack.html"><h4 class="card-title anchored">Collaboration prediction in real-time</h4></a>
+        <p class="small text-secondary">Developed an app to allow teachers to create and monitor group activities in their classroom. 🏆 Best Demo Award at LAK'23 Conference, TX, USA</p>
+        <div class="categories-container d-flex flex-wrap gap-1">
+          
+            <span class="badge bg-primary rounded-pill">
+              scikit-learn
+            </span>
+          
+            <span class="badge bg-primary rounded-pill">
+              pandas
+            </span>
+          
+            <span class="badge bg-primary rounded-pill">
+              matplotlib
+            </span>
+          
+            <span class="badge bg-primary rounded-pill">
+              django
+            </span>
+          
+            <span class="badge bg-primary rounded-pill">
+              plotly
+            </span>
+          
+        </div>
+        
+      </div>
+    </div>
+  
+    <div class="content-card">
+      <!-- Upper half with image -->
+      <div class="card-image">
+       <a href="./projects/harvard.html"><img src="./projects/images/mmca_front.jpg" alt="Literature Analytics and Visualization"></a>
+      </div>
+      
+      <!-- Lower half with details -->
+      <div class="card-body">
+        <a href="./projects/harvard.html"><h4 class="card-title anchored">Literature Analytics and Visualization</h4></a>
+        <p class="small text-secondary">Developed a library to process literature review dataset, collected at Harvard University, to visualize key insights</p>
+        <div class="categories-container d-flex flex-wrap gap-1">
+          
+            <span class="badge bg-primary rounded-pill">
+              pandas
+            </span>
+          
+            <span class="badge bg-primary rounded-pill">
+              numpy
+            </span>
+          
+            <span class="badge bg-primary rounded-pill">
+              matplotlib
+            </span>
+          
+            <span class="badge bg-primary rounded-pill">
+              dash
+            </span>
+          
+            <span class="badge bg-primary rounded-pill">
+              plotly
+            </span>
+          
+        </div>
+        
+      </div>
+    </div>
+  
+    <div class="content-card">
+      <!-- Upper half with image -->
+      <div class="card-image">
+       <a href="./projects/rpi.html"><img src="./projects/images/rpi.jpg" alt="Group Conversation Analytics using Raspberry Pi"></a>
+      </div>
+      
+      <!-- Lower half with details -->
+      <div class="card-body">
+        <a href="./projects/rpi.html"><h4 class="card-title anchored">Group Conversation Analytics using Raspberry Pi</h4></a>
+        <p class="small text-secondary">Developed a IoT prototype to process audio data and visualize group speaking analytics through an interactive dashboard</p>
+        <div class="categories-container d-flex flex-wrap gap-1">
+          
+            <span class="badge bg-primary rounded-pill">
+              pandas
+            </span>
+          
+            <span class="badge bg-primary rounded-pill">
+              numpy
+            </span>
+          
+            <span class="badge bg-primary rounded-pill">
+              matplotlib
+            </span>
+          
+            <span class="badge bg-primary rounded-pill">
+              dash
+            </span>
+          
+            <span class="badge bg-primary rounded-pill">
+              networkx
+            </span>
+          
+        </div>
+        
+      </div>
+    </div>
+  
+    <div class="content-card">
+      <!-- Upper half with image -->
+      <div class="card-image">
+       <a href="./projects/vidtrack.html"><img src="./projects/images/moodle.jpg" alt="Moodle plugin to track video watching behavior"></a>
+      </div>
+      
+      <!-- Lower half with details -->
+      <div class="card-body">
+        <a href="./projects/vidtrack.html"><h4 class="card-title anchored">Moodle plugin to track video watching behavior</h4></a>
+        <p class="small text-secondary">Developed a plugin for Moodle LMS to track users' video watching behavior using YouTube API</p>
+        <div class="categories-container d-flex flex-wrap gap-1">
+          
+            <span class="badge bg-primary rounded-pill">
+              YouTube API
+            </span>
+          
+            <span class="badge bg-primary rounded-pill">
+              moodle
+            </span>
+          
+            <span class="badge bg-primary rounded-pill">
+              php
+            </span>
+          
+        </div>
+        
+      </div>
+    </div>
+  
+    <div class="content-card">
+      <!-- Upper half with image -->
+      <div class="card-image">
+       <a href="./projects/genome.html"><img src="./projects/images/genome.jpg" alt="Genome sequencing data processing pipelines"></a>
+      </div>
+      
+      <!-- Lower half with details -->
+      <div class="card-body">
+        <a href="./projects/genome.html"><h4 class="card-title anchored">Genome sequencing data processing pipelines</h4></a>
+        <p class="small text-secondary">Developed upstream and downstream pipelines to process amplicon sequencing data</p>
+        <div class="categories-container d-flex flex-wrap gap-1">
+          
+            <span class="badge bg-primary rounded-pill">
+              pandas
+            </span>
+          
+            <span class="badge bg-primary rounded-pill">
+              matplotlib
+            </span>
+          
+            <span class="badge bg-primary rounded-pill">
+              scikit-learn
+            </span>
+          
+            <span class="badge bg-primary rounded-pill">
+              ggplot2
+            </span>
+          
+            <span class="badge bg-primary rounded-pill">
+              qiime2
+            </span>
+          
+            <span class="badge bg-primary rounded-pill">
+              snakemake
+            </span>
+          
+        </div>
+        
+      </div>
+    </div>
+  
+    <div class="content-card">
+      <!-- Upper half with image -->
+      <div class="card-image">
+       <a href="./projects/cq_window.html"><img src="./projects/images/temporal_front.png" alt="Impact of different temporal lenghts on collaboration quality prediction"></a>
+      </div>
+      
+      <!-- Lower half with details -->
+      <div class="card-body">
+        <a href="./projects/cq_window.html"><h4 class="card-title anchored">Impact of different temporal lenghts on collaboration quality prediction</h4></a>
+        <p class="small text-secondary">Investigated impact of different temporal lengths on the performance of collaboration prediction model</p>
+        <div class="categories-container d-flex flex-wrap gap-1">
+          
+            <span class="badge bg-primary rounded-pill">
+              scikit-learn
+            </span>
+          
+            <span class="badge bg-primary rounded-pill">
+              pandas
+            </span>
+          
+            <span class="badge bg-primary rounded-pill">
+              matplotlib
+            </span>
+          
+            <span class="badge bg-primary rounded-pill">
+              dash
+            </span>
+          
+            <span class="badge bg-primary rounded-pill">
+              plotly
+            </span>
+          
+        </div>
+        
+      </div>
+    </div>
+  
+    <div class="content-card">
+      <!-- Upper half with image -->
+      <div class="card-image">
+       <a href="./projects/bayesian.html"><img src="./projects/images/edu_front.png" alt="Bayesian modeling of students' mathematics skills"></a>
+      </div>
+      
+      <!-- Lower half with details -->
+      <div class="card-body">
+        <a href="./projects/bayesian.html"><h4 class="card-title anchored">Bayesian modeling of students' mathematics skills</h4></a>
+        <p class="small text-secondary">Processed and analyzed students' interaction data from a learning platform to model their mathematics skill mastery levels for 9th standard Algebra curriculam</p>
+        <div class="categories-container d-flex flex-wrap gap-1">
+          
+            <span class="badge bg-primary rounded-pill">
+              pgmpy
+            </span>
+          
+            <span class="badge bg-primary rounded-pill">
+              pandas
+            </span>
+          
+            <span class="badge bg-primary rounded-pill">
+              numpy
+            </span>
+          
+            <span class="badge bg-primary rounded-pill">
+              matplotlib
+            </span>
+          
+            <span class="badge bg-primary rounded-pill">
+              dash
+            </span>
+          
+            <span class="badge bg-primary rounded-pill">
+              plotly
+            </span>
+          
+        </div>
+        
+      </div>
+    </div>
+  
 </div>
-<div class="card-attribution card-text-small start">
-<div class="listing-author">
 
-</div>
-</div>
-</div>
-</div></a>
-</div>
-</div>
+<style>
+.listing-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.content-card {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-color: darkgrey;
+  transition: all 0.3s ease;
+  border:1px;
+}
+.content-card:hover{
+  transform: scale(1.05);
+}
+
+.card-image {
+  height: 60%;
+  overflow: hidden;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 1rem;
+  height: 70%;
+  background-color: aliceblue;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-title {
+  margin: 0 0 1rem 0;
+
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.card-year {
+  font-size: 1rem;
+  color: #666;
+}
+
+.card-technologies {
+  font-size: 1rem;
+  color: #666;
+  font-style: bold;
+}
+.categories-container {
+  grid-template-columns: repeat(5, 1fr);
+  display:flex;
+}
+</style>
 <div class="listing-no-matching d-none">No matching items</div>
 </div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

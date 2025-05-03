@@ -2,6 +2,8 @@
   {
     "listing": "/publications.html",
     "items": [
+      "/articles/2025/lak_poster.html",
+      "/articles/2025/lak_workshop.html",
       "/articles/2024/cotrack.html",
       "/articles/2024/bjet.html",
       "/articles/2024/jla.html",
@@ -21,8 +23,31 @@
     ]
   },
   {
-    "listing": "/docs/blog.html",
-    "items": []
+    "listing": "/my_projects.html",
+    "items": [
+      "/projects/cotrack.html",
+      "/projects/harvard.html",
+      "/projects/rpi.html",
+      "/projects/vidtrack.html",
+      "/projects/genome.html",
+      "/projects/cq_window.html",
+      "/projects/bayesian.html"
+    ]
+  },
+  {
+    "listing": "/talks.html",
+    "items": [
+      "/talks/lak25.html",
+      "/talks/seminar.html",
+      "/talks/phd.html",
+      "/talks/lak24.html",
+      "/talks/ectel.html",
+      "/talks/lak23.html",
+      "/talks/lak23-2.html",
+      "/talks/spain.html",
+      "/talks/bergen.html",
+      "/talks/finland.html"
+    ]
   },
   {
     "listing": "/blog.html",
@@ -47,25 +72,6 @@
       "/posts/post-with-code/pandas.html",
       "/posts/concepts/pca.html",
       "/posts/post-with-code/facial-features.html"
-    ]
-  },
-  {
-    "listing": "/talks.html",
-    "items": [
-      "/talks/spain.html",
-      "/talks/lak24.html",
-      "/talks/bergen.html",
-      "/talks/seminar.html",
-      "/talks/phd.html",
-      "/talks/ectel.html",
-      "/talks/lak23.html",
-      "/talks/finland.html"
-    ]
-  },
-  {
-    "listing": "/my_projects.html",
-    "items": [
-      "/projects/rpi.html"
     ]
   }
 ]
