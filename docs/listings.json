@@ -30,6 +30,7 @@
       "/projects/rpi.html",
       "/projects/vidtrack.html",
       "/projects/genome.html",
+      "/projects/seeds.html",
       "/projects/cq_window.html",
       "/projects/bayesian.html"
     ]
@@ -52,6 +53,7 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/post-with-code/Improve plots.html",
       "/posts/post-with-code/snakemake_testing.html",
       "/posts/post-with-code/data-anonymization.html",
       "/posts/post-with-code/Snakemake_first.html",

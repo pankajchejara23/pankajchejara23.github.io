@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Developed an interactive map-based platform that lets users design and compare sustainable energy transition scenarios.">
 
-<title>Projects – Pankaj Chejara</title>
+<title>Stakeholder-based sustainable energy scenarios – Pankaj Chejara</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,25 +24,26 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-985aa47af68dae11cd4d235c71fb941e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-6bdd2aebeb936dcddaa5f935a5de481c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-985aa47af68dae11cd4d235c71fb941e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-6bdd2aebeb936dcddaa5f935a5de481c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,77 +71,19 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-image','listing-date','listing-title','listing-author','listing-reading-time','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
-      
-      searchColumns: ["listing-project","listing-website","listing-format","listing-language","listing-title","listing-year","listing-image","listing-toc","listing-libraries","listing-categories","listing-description","listing-path","listing-outputHref","listing-author","listing-filename","listing-file-modified","listing-reading-time","listing-word-count","listing-technologies","listing-lightbox"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Pankaj Chejara</span>
     </a>
   </div>
@@ -150,27 +94,27 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./blog.html"> 
+    <a class="nav-link" href="../blog.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./my_projects.html" aria-current="page"> 
+    <a class="nav-link" href="../my_projects.html"> 
 <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./awards.html"> 
+    <a class="nav-link" href="../awards.html"> 
 <span class="menu-text">Awards</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./talks.html"> 
+    <a class="nav-link" href="../talks.html"> 
 <span class="menu-text">Talks</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./publications.html"> 
+    <a class="nav-link" href="../publications.html"> 
 <span class="menu-text">Publications</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
 </ul>
@@ -203,424 +147,102 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page">
-      <h1 class="title">Projects</h1>
-                      </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta column-page">
-
-      
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content quarto-banner-title-block column-page" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Stakeholder-based sustainable energy scenarios</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Python</div>
+    <div class="quarto-category">Web</div>
+  </div>
+  </div>
 
-
-
-
-
-
-
-
-<div class="quarto-listing quarto-listing-container-custom" id="listing-listing">
-<!-- listing.ejs -->
- <style>
-  a {
-    text-decoration: none;
-    color:blueviolet;
-  }
- </style>
-<div class="listing-container">
-  
-    <div class="content-card">
-      <!-- Upper half with image -->
-      <div class="card-image">
-       <a href="./projects/cotrack.html"><img src="./projects/images/cotrack.png" alt="Collaboration prediction in real-time"></a>
-      </div>
-      
-      <!-- Lower half with details -->
-      <div class="card-body">
-        <a href="./projects/cotrack.html"><h4 class="card-title anchored">Collaboration prediction in real-time</h4></a>
-        <p class="small text-secondary">Developed an app to allow teachers to create and monitor group activities in their classroom. 🏆 Best Demo Award at LAK'23 Conference, TX, USA</p>
-        <div class="categories-container d-flex flex-wrap gap-1">
-          
-            <span class="badge bg-primary rounded-pill">
-              scikit-learn
-            </span>
-          
-            <span class="badge bg-primary rounded-pill">
-              pandas
-            </span>
-          
-            <span class="badge bg-primary rounded-pill">
-              matplotlib
-            </span>
-          
-            <span class="badge bg-primary rounded-pill">
-              django
-            </span>
-          
-            <span class="badge bg-primary rounded-pill">
-              plotly
-            </span>
-          
-        </div>
-        
-      </div>
-    </div>
-  
-    <div class="content-card">
-      <!-- Upper half with image -->
-      <div class="card-image">
-       <a href="./projects/harvard.html"><img src="./projects/images/mmca_front.jpg" alt="Literature Analytics and Visualization"></a>
-      </div>
-      
-      <!-- Lower half with details -->
-      <div class="card-body">
-        <a href="./projects/harvard.html"><h4 class="card-title anchored">Literature Analytics and Visualization</h4></a>
-        <p class="small text-secondary">Developed a library to process literature review dataset, collected at Harvard University, to visualize key insights</p>
-        <div class="categories-container d-flex flex-wrap gap-1">
-          
-            <span class="badge bg-primary rounded-pill">
-              pandas
-            </span>
-          
-            <span class="badge bg-primary rounded-pill">
-              numpy
-            </span>
-          
-            <span class="badge bg-primary rounded-pill">
-              matplotlib
-            </span>
-          
-            <span class="badge bg-primary rounded-pill">
-              dash
-            </span>
-          
-            <span class="badge bg-primary rounded-pill">
-              plotly
-            </span>
-          
-        </div>
-        
-      </div>
-    </div>
-  
-    <div class="content-card">
-      <!-- Upper half with image -->
-      <div class="card-image">
-       <a href="./projects/rpi.html"><img src="./projects/images/rpi.jpg" alt="Group Conversation Analytics using Raspberry Pi"></a>
-      </div>
-      
-      <!-- Lower half with details -->
-      <div class="card-body">
-        <a href="./projects/rpi.html"><h4 class="card-title anchored">Group Conversation Analytics using Raspberry Pi</h4></a>
-        <p class="small text-secondary">Developed a IoT prototype to process audio data and visualize group speaking analytics through an interactive dashboard</p>
-        <div class="categories-container d-flex flex-wrap gap-1">
-          
-            <span class="badge bg-primary rounded-pill">
-              pandas
-            </span>
-          
-            <span class="badge bg-primary rounded-pill">
-              numpy
-            </span>
-          
-            <span class="badge bg-primary rounded-pill">
-              matplotlib
-            </span>
-          
-            <span class="badge bg-primary rounded-pill">
-              dash
-            </span>
-          
-            <span class="badge bg-primary rounded-pill">
-              networkx
-            </span>
-          
-        </div>
-        
-      </div>
-    </div>
-  
-    <div class="content-card">
-      <!-- Upper half with image -->
-      <div class="card-image">
-       <a href="./projects/vidtrack.html"><img src="./projects/images/moodle.jpg" alt="Moodle plugin to track video watching behavior"></a>
-      </div>
-      
-      <!-- Lower half with details -->
-      <div class="card-body">
-        <a href="./projects/vidtrack.html"><h4 class="card-title anchored">Moodle plugin to track video watching behavior</h4></a>
-        <p class="small text-secondary">Developed a plugin for Moodle LMS to track users' video watching behavior using YouTube API</p>
-        <div class="categories-container d-flex flex-wrap gap-1">
-          
-            <span class="badge bg-primary rounded-pill">
-              YouTube API
-            </span>
-          
-            <span class="badge bg-primary rounded-pill">
-              moodle
-            </span>
-          
-            <span class="badge bg-primary rounded-pill">
-              php
-            </span>
-          
-        </div>
-        
-      </div>
-    </div>
-  
-    <div class="content-card">
-      <!-- Upper half with image -->
-      <div class="card-image">
-       <a href="./projects/genome.html"><img src="./projects/images/genome.jpg" alt="Genome sequencing data processing pipelines"></a>
-      </div>
-      
-      <!-- Lower half with details -->
-      <div class="card-body">
-        <a href="./projects/genome.html"><h4 class="card-title anchored">Genome sequencing data processing pipelines</h4></a>
-        <p class="small text-secondary">Developed upstream and downstream pipelines to process amplicon sequencing data</p>
-        <div class="categories-container d-flex flex-wrap gap-1">
-          
-            <span class="badge bg-primary rounded-pill">
-              pandas
-            </span>
-          
-            <span class="badge bg-primary rounded-pill">
-              matplotlib
-            </span>
-          
-            <span class="badge bg-primary rounded-pill">
-              scikit-learn
-            </span>
-          
-            <span class="badge bg-primary rounded-pill">
-              ggplot2
-            </span>
-          
-            <span class="badge bg-primary rounded-pill">
-              qiime2
-            </span>
-          
-            <span class="badge bg-primary rounded-pill">
-              snakemake
-            </span>
-          
-        </div>
-        
-      </div>
-    </div>
-  
-    <div class="content-card">
-      <!-- Upper half with image -->
-      <div class="card-image">
-       <a href="./projects/seeds.html"><img src="./projects/images/seeds/main.png" alt="Stakeholder-based sustainable energy scenarios"></a>
-      </div>
-      
-      <!-- Lower half with details -->
-      <div class="card-body">
-        <a href="./projects/seeds.html"><h4 class="card-title anchored">Stakeholder-based sustainable energy scenarios</h4></a>
-        <p class="small text-secondary">Developed an interactive map-based platform that lets users design and compare sustainable energy transition scenarios.</p>
-        <div class="categories-container d-flex flex-wrap gap-1">
-          
-            <span class="badge bg-primary rounded-pill">
-              geopandas
-            </span>
-          
-            <span class="badge bg-primary rounded-pill">
-              pandas
-            </span>
-          
-            <span class="badge bg-primary rounded-pill">
-              numpy
-            </span>
-          
-            <span class="badge bg-primary rounded-pill">
-              matplotlib
-            </span>
-          
-            <span class="badge bg-primary rounded-pill">
-              dash
-            </span>
-          
-            <span class="badge bg-primary rounded-pill">
-              plotly
-            </span>
-          
-            <span class="badge bg-primary rounded-pill">
-              leaflet
-            </span>
-          
-        </div>
-        
-      </div>
-    </div>
-  
-    <div class="content-card">
-      <!-- Upper half with image -->
-      <div class="card-image">
-       <a href="./projects/cq_window.html"><img src="./projects/images/temporal_front.png" alt="Impact of different temporal lenghts on collaboration quality prediction"></a>
-      </div>
-      
-      <!-- Lower half with details -->
-      <div class="card-body">
-        <a href="./projects/cq_window.html"><h4 class="card-title anchored">Impact of different temporal lenghts on collaboration quality prediction</h4></a>
-        <p class="small text-secondary">Investigated impact of different temporal lengths on the performance of collaboration prediction model</p>
-        <div class="categories-container d-flex flex-wrap gap-1">
-          
-            <span class="badge bg-primary rounded-pill">
-              scikit-learn
-            </span>
-          
-            <span class="badge bg-primary rounded-pill">
-              pandas
-            </span>
-          
-            <span class="badge bg-primary rounded-pill">
-              matplotlib
-            </span>
-          
-            <span class="badge bg-primary rounded-pill">
-              dash
-            </span>
-          
-            <span class="badge bg-primary rounded-pill">
-              plotly
-            </span>
-          
-        </div>
-        
-      </div>
-    </div>
-  
-    <div class="content-card">
-      <!-- Upper half with image -->
-      <div class="card-image">
-       <a href="./projects/bayesian.html"><img src="./projects/images/edu_front.png" alt="Bayesian modeling of students' mathematics skills"></a>
-      </div>
-      
-      <!-- Lower half with details -->
-      <div class="card-body">
-        <a href="./projects/bayesian.html"><h4 class="card-title anchored">Bayesian modeling of students' mathematics skills</h4></a>
-        <p class="small text-secondary">Processed and analyzed students' interaction data from a learning platform to model their mathematics skill mastery levels for 9th standard Algebra curriculam</p>
-        <div class="categories-container d-flex flex-wrap gap-1">
-          
-            <span class="badge bg-primary rounded-pill">
-              pgmpy
-            </span>
-          
-            <span class="badge bg-primary rounded-pill">
-              pandas
-            </span>
-          
-            <span class="badge bg-primary rounded-pill">
-              numpy
-            </span>
-          
-            <span class="badge bg-primary rounded-pill">
-              matplotlib
-            </span>
-          
-            <span class="badge bg-primary rounded-pill">
-              dash
-            </span>
-          
-            <span class="badge bg-primary rounded-pill">
-              plotly
-            </span>
-          
-        </div>
-        
-      </div>
-    </div>
-  
+<div>
+  <div class="description">
+    Developed an interactive map-based platform that lets users design and compare sustainable energy transition scenarios.
+  </div>
 </div>
 
-<style>
-.listing-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  padding: 1rem;
-}
 
-.content-card {
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  border-color: darkgrey;
-  transition: all 0.3s ease;
-  border:1px;
-}
-.content-card:hover{
-  transform: scale(1.05);
-}
+<div class="quarto-title-meta">
 
-.card-image {
-  height: 60%;
-  overflow: hidden;
-}
+    
+  
+    
+  </div>
+  
 
-.card-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
 
-.card-body {
-  padding: 1rem;
-  height: 70%;
-  background-color: aliceblue;
-  display: flex;
-  flex-direction: column;
-}
+</header>
 
-.card-title {
-  margin: 0 0 1rem 0;
 
-}
+<p><a href="./images/seeds/main.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="./images/seeds/main.png" class="img-fluid"></a></p>
+<section id="snapshots" class="level2">
+<h2 class="anchored" data-anchor-id="snapshots">Snapshots</h2>
+<div class="grid">
+<div class="g-col-3">
+<p><a href="./images/seeds/one.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="./images/seeds/one.png" class="img-fluid"></a></p>
+</div>
+<div class="g-col-3">
+<p><a href="./images/seeds/two.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="./images/seeds/two.png" class="img-fluid"></a></p>
+</div>
+<div class="g-col-3">
+<p><a href="./images/seeds/three.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="./images/seeds/three.png" class="img-fluid"></a></p>
+</div>
+<div class="g-col-3">
+<p><a href="./images/seeds/four.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="./images/seeds/four.png" class="img-fluid"></a></p>
+</div>
+</div>
+</section>
+<section id="project-overview" class="level2">
+<h2 class="anchored" data-anchor-id="project-overview">Project overview</h2>
+<p>This Django project provides a map-based interactive interface to engage users with environmentally scalable energy scenarios for <strong>Portugal</strong> region. The project utilizes energy data obtained from modeling various sources, such as wind and solar power. The map-based interface offers an intuitive visualization for energy scenarios, which users can vote on and save for later exploration.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://hci.tlu.ee/portfolio/seeds/.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Project link"><img src="https://hci.tlu.ee/portfolio/seeds/.png" class="img-fluid figure-img" alt="Project link"></a></p>
+<figcaption>Project link</figcaption>
+</figure>
+</div>
+<section id="technical-implementation" class="level3">
+<h3 class="anchored" data-anchor-id="technical-implementation">Technical Implementation</h3>
+<p>The project uses Django as the main framework with additional libraries such as <code>leaflet</code> for map-based visualizations and a customized version of <code>django-range-slider</code> for the main interface.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+⚡ Key Contributions
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Preprocessed energy data</strong> for later usage with the application</li>
+<li>Handled the complete development of front-end and backend for the project</li>
+<li>Integrated <strong>map-based dashboards</strong> to visualize location-wise energy scenarios</li>
+</ul>
+</div>
+</div>
+</section>
+</section>
+<section id="skills-applied" class="level2">
+<h2 class="anchored" data-anchor-id="skills-applied">Skills Applied</h2>
+<p><code>Python Programming</code>, <code>Web Development</code>, <code>DevOps</code>, <code>Geo Spatial</code></p>
+</section>
+<section id="libraries-used" class="level2">
+<h2 class="anchored" data-anchor-id="libraries-used">Libraries Used</h2>
+<p><code>geopandas</code>,<code>pandas</code>,<code>matplotlib</code>,<code>numpy</code>,<code>dash</code>, <code>plotly</code></p>
 
-.card-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: auto;
-}
 
-.card-year {
-  font-size: 1rem;
-  color: #666;
-}
+</section>
 
-.card-technologies {
-  font-size: 1rem;
-  color: #666;
-  font-style: bold;
-}
-.categories-container {
-  grid-template-columns: repeat(5, 1fr);
-  display:flex;
-}
-</style>
-<div class="listing-no-matching d-none">No matching items</div>
-</div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -1021,6 +643,38 @@ window.Quarto = {
   });
   </script>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
