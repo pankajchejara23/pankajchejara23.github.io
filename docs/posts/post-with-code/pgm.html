@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Pankaj Chejara">
+<meta name="dcterms.date" content="2025-08-20">
 
-<title>Pankaj Chejara</title>
+<title>Introduction to Probabilistic Graphical Models – Pankaj Chejara</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,22 +25,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-985aa47af68dae11cd4d235c71fb941e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-6bdd2aebeb936dcddaa5f935a5de481c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-985aa47af68dae11cd4d235c71fb941e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-6bdd2aebeb936dcddaa5f935a5de481c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -67,18 +70,47 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="styles.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Pankaj Chejara</span>
     </a>
   </div>
@@ -89,27 +121,27 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./blog.html"> 
+    <a class="nav-link" href="../../blog.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./my_projects.html"> 
+    <a class="nav-link" href="../../my_projects.html"> 
 <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./awards.html"> 
+    <a class="nav-link" href="../../awards.html"> 
 <span class="menu-text">Awards</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./talks.html"> 
+    <a class="nav-link" href="../../talks.html"> 
 <span class="menu-text">Talks</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./publications.html"> 
+    <a class="nav-link" href="../../publications.html"> 
 <span class="menu-text">Publications</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
 </ul>
@@ -142,52 +174,300 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Introduction to Probabilistic Graphical Models</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">python</div>
+                <div class="quarto-category">statistics</div>
+                <div class="quarto-category">bayesian</div>
+                <div class="quarto-category">probability</div>
+                <div class="quarto-category">graphical models</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Pankaj Chejara </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">August 20, 2025</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#probabilistic-model" id="toc-probabilistic-model" class="nav-link active" data-scroll-target="#probabilistic-model">Probabilistic Model</a></li>
+  <li><a href="#probabilistic-graphical-model" id="toc-probabilistic-graphical-model" class="nav-link" data-scroll-target="#probabilistic-graphical-model">Probabilistic Graphical Model</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<div class="quarto-about-jolla">
-  <img src="profile.jpg" class="about-image
-  round " style="height: 15em; width: 15em;">
- <header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Pankaj Chejara</h1>
-</div>
-<div class="quarto-title-meta">
-  </div>
-</header><main class="content" id="quarto-document-content">
-<p>Hi there 👋, I am Pankaj. Professionally, I love tasks around data analysis to gain insights to solve tasks at hand. I am a strong supporter of lifelong learning, and this is also what I have been engaged with since my schooling days. Apart from work, I love to go for long walks in nature, spend time with close family &amp; friends, and watch movies with my son (Yes, you guessed it right, animation movies 😊).</p>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> 
-  <hr class="about-sep">
-   <div class="about-links">
-  <a href="https://twitter.com/pankajchejara1" class="about-link" rel="" target="">
-    <i class="bi bi-twitter"></i>
-     <span class="about-link-text">Twitter</span>
-  </a>
-  <a href="https://www.linkedin.com/in/pankaj-chejara-5ab77855/" class="about-link" rel="" target="">
-    <i class="bi bi-linkedin"></i>
-     <span class="about-link-text">LinkedIn</span>
-  </a>
-  <a href="https://github.com/pankajchejara23" class="about-link" rel="" target="">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">Github</span>
-  </a>
-  <a href="https://scholar.google.com/citations?user=TI9EsF4AAAAJ&amp;hl=en&amp;authuser=1" class="about-link" rel="" target="">
-    <i class="bi bi-google"></i>
-     <span class="about-link-text">Google-Scholar</span>
-  </a>
-  <a href="https://pankajchejara.medium.com/" class="about-link" rel="" target="">
-    <i class="bi bi-medium"></i>
-     <span class="about-link-text">Medium</span>
-  </a>
+
+
+
+<p>In this post, I will give an introduction to <strong>Probabilistic Graphical Models</strong> in simple terms. By the end of this post, you will get an understanding of what PGM is, why probability is needed, and how graphical models help.</p>
+<p>I have structured this post in three short subsections.</p>
+<ul>
+<li>Model</li>
+<li>Probabilistic Model</li>
+<li>Probabilistic Graphical Model</li>
+<li><h1 id="model">Model</h1>
+Let’s begin with understanding the term <strong>“Model”</strong>. We can think about “Model” as a <strong>representation of our understanding of how things work in the world</strong>. For example, based on past experiences, a child might have a model like the one below for handling fire. The model below represents the child’s knowledge gained from our personal encounters with fire.</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
 </div>
 </div>
- <!-- /main -->
+<div class="callout-body-container callout-body">
+<p>A model is a <strong>representation of our understanding</strong> of how things work; it encodes <strong>concepts and relationships</strong> but <strong>not the mechanism</strong> to reason about them.</p>
+</div>
+</div>
+<div id="fig-model" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-model-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./images/bayesian/model.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-model-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Model
+</figcaption>
+</figure>
+</div>
+<p>This is a <strong>declarative representation</strong> (Koller &amp; Friedman, 2009) which describes <strong>What is</strong>, not how to compute. For example, the model above only captures key concepts (e.g., fire, touch, etc.) and relationships between them. To utilize this representation for reasoning a separate mechanism needs to be employed, and this is a key characteristic of this representation of the model (Koller &amp; Friedman, 2009).</p>
+<section id="probabilistic-model" class="level1">
+<h1>Probabilistic Model</h1>
+<p>Let’s consider an example to understand the role of probability here.</p>
+<blockquote class="blockquote">
+<p>Imagine a team of doctors came up with an innovative surgery that can cure disease X. The team performed the surgery on 100 cases and was successful in 85 cases. The surgery was not 100% successful, which means its outcome can go either way. So there is <em>some</em> uncertainty over the result of the surgery, and the question is what is this <strong>some</strong>.</p>
+</blockquote>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Formally, probability <strong>assigns numbers to events to quantify uncertainty</strong> and to support decisions.</p>
+</div>
+</div>
+<p>A patient, who was recently diagnosed with disease X, learned about the surgery and contacted the team. The team will share this data that the surgery tends to have an 85% chance of being successful based on past experiences with similar cases (e.g., cases with a similar age group, lifestyle).</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>As you can see here, probability captures the uncertainty aspect and helps the patient to take into consideration available information for better decision-making.</p>
+</div>
+</div>
+<p>We can write the notation in mathematical form using the given expression. Here, we are using three characteristics (i.e., whether the patient has a family history of the disease X, has an active lifestyle, and consumes the required nutrients) to compute the chances of successful surgery.</p>
+<p><span class="math display">\[ P(S,F,E,N) \]</span> (S = success, F = family history, E = Exercise, N = Nutrient)</p>
+<p>For simplicity’s sake, I am considering variables as binary variables. For the computation of the above expression, we need a probability table consisting of probabilities for each choice of variables. In this case, we need probability values for <strong>16 entries</strong> given in the table below.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>F</th>
+<th>E</th>
+<th>N</th>
+<th>S</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Table size
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For N variables of binary choices, the <strong>table grows exponentially to <span class="math inline">\(2^N\)</span></strong>. In real-world problems, the choices can be more than 2, and that even further increases the table size. This poses challenges in managing &amp; updating those tables.</p>
+</div>
+</div>
+</section>
+<section id="probabilistic-graphical-model" class="level1">
+<h1>Probabilistic Graphical Model</h1>
+<p>Graphical models <strong>solve the problem of huge probability tables</strong> by drawing the <strong>relationships between variables</strong>. Instead of one giant table with every possible combination, a PGM breaks the problem into small pieces and shows which variables directly affect which others. That makes the whole model much smaller and easier to work with.</p>
+<p>Think of a PGM like a <strong>wiring diagram for uncertainty</strong>: each circle (node) is a variable (e.g., Success, Family history, Exercise, Nutrient) and each arrow or line shows a direct influence. Because the graph tells you who depends (or is influenced) on whom, you only need to store a small table for each node that says “given my parents, what are my chances?” — these are called conditional probability tables (CPTs) for directed graphs.</p>
+<p>Two common kinds of PGMs:</p>
+<ul>
+<li>Bayesian networks (directed): arrows show direction of influence (good for cause→effect stories).</li>
+<li>Markov networks (undirected): lines show mutual relationships without direction.</li>
+</ul>
+<p>Why does this help?:</p>
+<ul>
+<li>Much smaller tables: you store many small local tables instead of one enormous one.</li>
+<li>More intuitive: the picture shows the important relationships at a glance.</li>
+<li>Reusable and local: you can update or learn from one local table without rebuilding everything.</li>
+</ul>
+<div id="fig-pgm" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-pgm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./images/bayesian/pgm.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pgm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Graphical model
+</figcaption>
+</figure>
+</div>
+<p>Surgery example: instead of listing probabilities for every possible combination of family history, exercise, nutrients, and success (2^4 = 16 entries), a graphical model stores a CPT for Success given its direct causes and separate simple tables for the other variables — often far fewer numbers overall. Algorithms (exact or approximate) then use these local tables plus the graph to compute the probabilities you care about.</p>
+<p>I hope you find this post helpful in understanding PGM.</p>
+</section>
+<section id="references" class="level1">
+<h1>References</h1>
+<ol type="1">
+<li>Koller, D., &amp; Friedman, N. (2009). Probabilistic graphical models: principles and techniques. MIT Press.</li>
+</ol>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
         if (clz.startsWith('code-annotation-')) {                     
