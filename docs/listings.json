@@ -53,6 +53,7 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/post-with-code/Conditional independence.html",
       "/posts/post-with-code/pgm.html",
       "/posts/post-with-code/Taxa_info.html",
       "/posts/post-with-code/snakemake_testing.html",
