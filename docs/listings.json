@@ -53,6 +53,8 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/mathematics/linear_algebra/positive_finite.html",
+      "/posts/mathematics/linear_algebra/spectral_decompose.html",
       "/posts/post-with-code/Conditional independence.html",
       "/posts/post-with-code/pgm.html",
       "/posts/post-with-code/Taxa_info.html",
@@ -79,5 +81,9 @@
       "/posts/concepts/pca.html",
       "/posts/post-with-code/facial-features.html"
     ]
+  },
+  {
+    "listing": "/docs/blog.html",
+    "items": []
   }
 ]
