@@ -2,13 +2,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.9.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Applied AI across education, genomics and health. Machine learning, Bayesian modeling and multimodal analytics.">
 
-<title>Pankaj Chejara</title>
+<title>Pankaj Chejara — Data Scientist &amp; AI Researcher – Pankaj Chejara</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -30,14 +34,18 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-633b0f05ef8bc0741ed4dfd673d4320c.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-6cb637256db3d017e18d2557035c5142.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -50,7 +58,6 @@ ul.task-list li input[type="checkbox"] {
     "/",
     "s"
   ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -65,12 +72,80 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
 
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-explore .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-project','listing-website','listing-format','listing-engines','listing-language','listing-title','listing-domain','listing-year','listing-image','listing-toc','listing-libraries','listing-categories','listing-description','listing-path','listing-outputHref','listing-author','listing-filename','listing-file-modified','listing-reading-time','listing-word-count','listing-technologies','listing-lightbox','listing-type','listing-publication','listing-doi','listing-materials','listing-freeze','listing-title-block-banner','listing-include-after-body','listing-date','listing-code-block-background','listing-highlight-style','listing-date-modified','listing-code-fold','listing-code-block-border-left','listing-code-block-bg','listing-from','listing-execute',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] }],
+      page: 25,
+    pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
+      searchColumns: ["listing-project","listing-website","listing-format","listing-engines","listing-language","listing-title","listing-domain","listing-year","listing-image","listing-toc","listing-libraries","listing-categories","listing-description","listing-path","listing-outputHref","listing-author","listing-filename","listing-file-modified","listing-reading-time","listing-word-count","listing-technologies","listing-lightbox","listing-type","listing-publication","listing-doi","listing-materials","listing-freeze","listing-title-block-banner","listing-include-after-body","listing-date","listing-code-block-background","listing-highlight-style","listing-date-modified","listing-code-fold","listing-code-block-border-left","listing-code-block-bg","listing-from","listing-execute"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-explore'] = new List('listing-explore', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
+<meta property="og:title" content="Pankaj Chejara — Data Scientist &amp; AI Researcher">
+<meta property="og:description" content="Applied AI across education, genomics and health. Machine learning, Bayesian modeling and multimodal analytics.">
+<meta property="og:image" content="https://pankajchejara23.github.io/images/profile-atlas.jpg">
+<meta property="og:site_name" content="Pankaj Chejara">
+<meta name="twitter:title" content="Pankaj Chejara — Data Scientist &amp; AI Researcher">
+<meta name="twitter:description" content="Applied AI across education, genomics and health. Machine learning, Bayesian modeling and multimodal analytics.">
+<meta name="twitter:image" content="https://pankajchejara23.github.io/images/profile-atlas.jpg">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -95,17 +170,17 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="./my_projects.html"> 
 <span class="menu-text">Projects</span></a>
   </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="./awards.md"> 
-<span class="menu-text"></span></a>
+  <li class="nav-item">
+    <a class="nav-link" href="./publications.html"> 
+<span class="menu-text">Publications</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./talks.html"> 
 <span class="menu-text">Talks</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./publications.html"> 
-<span class="menu-text">Publications</span></a>
+    <a class="nav-link" href="./Awards.html"> 
+<span class="menu-text">Awards</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./about.html"> 
@@ -114,17 +189,22 @@ ul.task-list li input[type="checkbox"] {
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com/pankajchejara1"> <i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://github.com/pankajchejara23"> <i class="bi bi-github" role="img" aria-label="GitHub">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/pankaj-chejara-5ab77855/"> <i class="bi bi-linkedin" role="img">
+    <a class="nav-link" href="https://www.linkedin.com/in/pankaj-chejara-5ab77855/"> <i class="bi bi-linkedin" role="img" aria-label="LinkedIn">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/pankajchejara23"> <i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://scholar.google.com/citations?user=TI9EsF4AAAAJ&amp;hl=en"> <i class="bi bi-mortarboard" role="img" aria-label="Google Scholar">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://pankajchejara.medium.com/"> <i class="bi bi-medium" role="img" aria-label="Medium">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -141,273 +221,1050 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-layout-custom page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
 <!-- main -->
-<div class="quarto-about-jolla">
-  <img src="profile.jpg" class="about-image
-  round " style="height: 15em; width: 15em;">
- <header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Pankaj Chejara</h1>
-</div>
-<div class="quarto-title-meta">
+
+
+
+
+<div class="atlas-wrap atlas-home">
+
+<!-- ============ HERO ============ -->
+<section class="atlas-row" aria-label="Introduction">
+  <div class="atlas-card dark atlas-hero-main">
+    <div style="display:flex;flex-wrap:wrap;gap:8px">
+      <span class="atlas-chip">Data Scientist</span>
+      <span class="atlas-chip">PhD · Learning Analytics</span>
+      <span class="atlas-chip">Tallinn, Estonia</span>
+    </div>
+    <div>
+      <h1>Applied AI across<br>education, genomics<br>&amp; <em>health.</em></h1>
+      <p class="lead">I build models people can trust and interfaces they actually use — from real-time classroom collaboration analytics to microbiome sequencing pipelines.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:26px">
+        <a class="atlas-btn light" href="#explore">Explore my work →</a>
+        <a class="atlas-btn ghost" href="blog.html">Read the blog</a>
+      </div>
+    </div>
   </div>
-</header><main class="content" id="quarto-document-content">
-<p>Hi there 👋, I am Pankaj. Professionally, I love tasks around data analysis to gain insights to solve tasks at hand. I am a strong supporter of lifelong learning, and this is also what I have been engaged with since my schooling days. Apart from work, I love to go for long walks in nature, spend time with close family &amp; friends, and watch movies with my son (Yes, you guessed it right, animation movies 😊).</p>
+  <div class="atlas-hero-side">
+    <div class="atlas-photo"><img src="images/profile-atlas.jpg" alt="Portrait of Pankaj Chejara"></div>
+    <div class="atlas-card atlas-now" style="padding:24px">
+      <span class="atlas-eyebrow atlas-now-label"><span class="atlas-dot"></span>Now · Metrosert AS</span>
+      <h3>Senior Data Scientist</h3>
+      <p>National registry data access, medical health records analysis, bioinformatics pipelines and research proposals with healthcare partners.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS ============ 
+<section class="atlas-row" aria-label="At a glance">
+  <a class="atlas-card atlas-stat" href="publications.html"><div class="num">
+<div id="n-pubs">
+
+</div>
+  </div><span class="lbl">publications · LAK, BJET, ijCSCL</span></a>
+  <a class="atlas-card atlas-stat" href="talks.html"><div class="num">
+<div id="n-talks">
+
+</div>
+  </div><span class="lbl">talks · Dublin, Kyoto, Dallas…</span></a>
+  <a class="atlas-card atlas-stat" href="blog.html"><div class="num">
+<div id="n-posts">
+
+</div>
+  </div><span class="lbl">blog posts</span></a>
+  <a class="atlas-card atlas-stat" href="my_projects.html"><div class="num">
+<div id="n-projects">
+
+</div>
+  </div><span class="lbl">projects shipped</span></a>
+  <div class="atlas-card accent atlas-visiting">
+    <span class="atlas-eyebrow">Visiting researcher</span>
+    <div class="places"><span>Harvard ’23</span><span class="sep">/</span><span>Bergen ’22</span><span class="sep">/</span><span>Valladolid ’22</span></div>
+  </div>
+</section>
+-->
+
+<!-- ============ SEARCH ============ -->
+<button type="button" class="atlas-search" id="atlas-search-btn" aria-label="Search the site">
+  <span class="lbl">Search</span>
+  <span class="txt">Bayesian networks, Snakemake, word embeddings…</span>
+  <kbd>/</kbd>
+</button>
+
+<!-- ============ EXPLORE ============ -->
+<section class="atlas-card" id="explore" style="margin-top:16px">
+  <div class="atlas-explore-head">
+    <div>
+      <span class="atlas-eyebrow">Explore by domain</span>
+      <h2 class="atlas-h2">Projects, papers &amp; posts</h2>
+    </div>
+    <span class="mono atlas-muted" style="font-size:.8rem" id="atlas-explore-count" aria-live="polite"></span>
+  </div>
+<div id="listing-explore" class="quarto-listing quarto-listing-container-custom">
+
+<div class="atlas-tabs" role="group" aria-label="Filter by domain">
+  <button type="button" class="atlas-tab" data-domain="all" aria-pressed="true">All <span class="count">56</span></button>
+  
+  <button type="button" class="atlas-tab" data-domain="la" aria-pressed="false"><span class="atlas-dot d-la"></span>Learning analytics <span class="count">22</span></button>
+  
+  <button type="button" class="atlas-tab" data-domain="gen" aria-pressed="false"><span class="atlas-dot d-gen"></span>Genomics &amp; health <span class="count">6</span></button>
+  
+  <button type="button" class="atlas-tab" data-domain="prob" aria-pressed="false"><span class="atlas-dot d-prob"></span>Bayesian &amp; maths <span class="count">9</span></button>
+  
+  <button type="button" class="atlas-tab" data-domain="nlp" aria-pressed="false"><span class="atlas-dot d-nlp"></span>NLP &amp; LLMs <span class="count">7</span></button>
+  
+  <button type="button" class="atlas-tab" data-domain="data" aria-pressed="false"><span class="atlas-dot d-data"></span>Data &amp; visualization <span class="count">12</span></button>
+  
+</div>
+<div class="atlas-grid" id="atlas-explore-grid">
+
+  <a class="atlas-item" href="./projects/genome.html" data-domain="gen" data-kind="Project">
+    <div class="thumb"><img src="./projects/images/genome.jpg" alt="" loading="lazy"></div>
+    <div class="top">
+      <span class="kind">Project</span>
+      <span class="dom"><span class="atlas-dot d-gen"></span>Genomics &amp; health</span>
+    </div>
+    <span class="ttl">Genome sequencing data processing pipelines</span>
+    <span class="dsc">Developed upstream and downstream pipelines to process amplicon sequencing data</span>
+    <span class="meta">pandas · matplotlib · scikit-learn</span>
+  </a>
+
+  <a class="atlas-item" href="./articles/2026/ijcscl.html" data-domain="la" data-kind="Paper">
+    
+    <div class="top">
+      <span class="kind">Paper</span>
+      <span class="dom"><span class="atlas-dot d-la"></span>Learning analytics</span>
+    </div>
+    <span class="ttl">A quarter century of advances in collaboration sensing: a comprehensive review of high-frequency metrics and their connection to collaborative constructs from 2000 to 2025</span>
+    <span class="dsc">International Journal of Computer-Supported Collaborative Learning</span>
+    <span class="meta">2026</span>
+  </a>
+
+  <a class="atlas-item" href="./posts/regulation/eu_mdr.html" data-domain="gen" data-kind="Post">
+    
+    <div class="top">
+      <span class="kind">Post</span>
+      <span class="dom"><span class="atlas-dot d-gen"></span>Genomics &amp; health</span>
+    </div>
+    <span class="ttl">Is Your Health App a Medical Device? A Simple Guide to Software under EU MDR</span>
+    <span class="dsc">A software application planned for healthcare domain in EU (European Union) countries comes under the same EU regulation sets out for medicinal physical products. However…</span>
+    <span class="meta">Oct 2026 · 5 min</span>
+  </a>
+
+  <a class="atlas-item" href="./projects/bayesian.html" data-domain="prob" data-kind="Project">
+    <div class="thumb"><img src="./projects/images/edu_front.png" alt="" loading="lazy"></div>
+    <div class="top">
+      <span class="kind">Project</span>
+      <span class="dom"><span class="atlas-dot d-prob"></span>Bayesian &amp; maths</span>
+    </div>
+    <span class="ttl">Bayesian modeling of students' mathematics skills</span>
+    <span class="dsc">Processed and analyzed students' interaction data from a learning platform to model their mathematics skill mastery levels for 9t…</span>
+    <span class="meta">pgmpy · pandas · numpy</span>
+  </a>
+
+  <a class="atlas-item" href="./articles/2026/frontiers.html" data-domain="data" data-kind="Paper">
+    
+    <div class="top">
+      <span class="kind">Paper</span>
+      <span class="dom"><span class="atlas-dot d-data"></span>Data &amp; visualization</span>
+    </div>
+    <span class="ttl">Gut microbiome biomarkers for colorectal cancer detection: a systematic review highlighting age as a key confounder</span>
+    <span class="dsc">Frontiers in Oncology</span>
+    <span class="meta">2026</span>
+  </a>
+
+  <a class="atlas-item" href="./posts/mathematics/linear_algebra/positive_finite.html" data-domain="prob" data-kind="Post">
+    
+    <div class="top">
+      <span class="kind">Post</span>
+      <span class="dom"><span class="atlas-dot d-prob"></span>Bayesian &amp; maths</span>
+    </div>
+    <span class="ttl">Positive Definite Matrix</span>
+    <span class="dsc">Positive definite matrices carry the same interpretation of being ‘positive’ as a real positive number and this post will show how the idea of ‘positiveness’ extends from a…</span>
+    <span class="meta">Mar 2026 · 4 min</span>
+  </a>
+
+  <a class="atlas-item" href="./projects/cotrack.html" data-domain="la" data-kind="Project">
+    <div class="thumb"><img src="./projects/images/cotrack.png" alt="" loading="lazy"></div>
+    <div class="top">
+      <span class="kind">Project</span>
+      <span class="dom"><span class="atlas-dot d-la"></span>Learning analytics</span>
+    </div>
+    <span class="ttl">Collaboration prediction in real-time</span>
+    <span class="dsc">Developed an app to allow teachers to create and monitor group activities in their classroom. 🏆 Best Demo Award at LAK'23 Confer…</span>
+    <span class="meta">scikit-learn · pandas · matplotlib</span>
+  </a>
+
+  <a class="atlas-item" href="./articles/2025/lak_poster.html" data-domain="prob" data-kind="Paper">
+    
+    <div class="top">
+      <span class="kind">Paper</span>
+      <span class="dom"><span class="atlas-dot d-prob"></span>Bayesian &amp; maths</span>
+    </div>
+    <span class="ttl">Supporting Student-Centered Learning with Flexible Learning Trajectories and Open Learner Models</span>
+    <span class="dsc">15th International Conference on Learning Analytics &amp; Knowledge</span>
+    <span class="meta">2025</span>
+  </a>
+
+  <a class="atlas-item" href="./posts/mathematics/linear_algebra/spectral_decompose.html" data-domain="prob" data-kind="Post">
+    
+    <div class="top">
+      <span class="kind">Post</span>
+      <span class="dom"><span class="atlas-dot d-prob"></span>Bayesian &amp; maths</span>
+    </div>
+    <span class="ttl">Spectral Decomposition</span>
+    <span class="dsc">Spectral decomsition is a method to factorize a <strong>square matrix</strong> (i.e., matrix with same nuber of rows as columns) into simpler or special matrices which facilitates efficient…</span>
+    <span class="meta">Jan 2026 · 3 min</span>
+  </a>
+
+  <a class="atlas-item" href="./projects/cq_window.html" data-domain="la" data-kind="Project">
+    <div class="thumb"><img src="./projects/images/temporal_front.png" alt="" loading="lazy"></div>
+    <div class="top">
+      <span class="kind">Project</span>
+      <span class="dom"><span class="atlas-dot d-la"></span>Learning analytics</span>
+    </div>
+    <span class="ttl">Impact of different temporal lenghts on collaboration quality prediction</span>
+    <span class="dsc">Investigated impact of different temporal lengths on the performance of collaboration prediction model</span>
+    <span class="meta">scikit-learn · pandas · matplotlib</span>
+  </a>
+
+  <a class="atlas-item" href="./articles/2025/lak_workshop.html" data-domain="la" data-kind="Paper">
+    
+    <div class="top">
+      <span class="kind">Paper</span>
+      <span class="dom"><span class="atlas-dot d-la"></span>Learning analytics</span>
+    </div>
+    <span class="ttl">Teacher-AI complementarity: From design to implementation and reflection</span>
+    <span class="dsc">15th International Conference on Learning Analytics and Knowledge</span>
+    <span class="meta">2025</span>
+  </a>
+
+  <a class="atlas-item" href="./posts/post-with-code/Conditional independence.html" data-domain="prob" data-kind="Post">
+    
+    <div class="top">
+      <span class="kind">Post</span>
+      <span class="dom"><span class="atlas-dot d-prob"></span>Bayesian &amp; maths</span>
+    </div>
+    <span class="ttl">Understanding Conditional Independence</span>
+    <span class="dsc">Conditional independence is a crucial building block of probabilistic graphical models (e.g., Bayesian networks). Thus, having a sound understanding of this concept is a…</span>
+    <span class="meta">Aug 2025 · 4 min</span>
+  </a>
+
+  <a class="atlas-item" href="./projects/seeds.html" data-domain="data" data-kind="Project">
+    <div class="thumb"><img src="./projects/images/seeds/main.png" alt="" loading="lazy"></div>
+    <div class="top">
+      <span class="kind">Project</span>
+      <span class="dom"><span class="atlas-dot d-data"></span>Data &amp; visualization</span>
+    </div>
+    <span class="ttl">Stakeholder-based sustainable energy scenarios</span>
+    <span class="dsc">Developed an interactive map-based platform that lets users design and compare sustainable energy transition scenarios.</span>
+    <span class="meta">geopandas · pandas · numpy</span>
+  </a>
+
+  <a class="atlas-item" href="./articles/2024/cotrack.html" data-domain="la" data-kind="Paper">
+    
+    <div class="top">
+      <span class="kind">Paper</span>
+      <span class="dom"><span class="atlas-dot d-la"></span>Learning analytics</span>
+    </div>
+    <span class="ttl">Bringing Collaborative Analytics using Multimodal Data to the Masses: Evaluation and Design Guidelines for Developing a MMLA System for Research and Teaching Practices in CSCL</span>
+    <span class="dsc">14th International Learning Analytics and Knowledge Conference</span>
+    <span class="meta">2024</span>
+  </a>
+
+  <a class="atlas-item" href="./posts/post-with-code/pgm.html" data-domain="prob" data-kind="Post">
+    
+    <div class="top">
+      <span class="kind">Post</span>
+      <span class="dom"><span class="atlas-dot d-prob"></span>Bayesian &amp; maths</span>
+    </div>
+    <span class="ttl">Introduction to Probabilistic Graphical Models</span>
+    <span class="dsc">In this post, I will give an introduction to <strong>Probabilistic Graphical Models</strong> in simple terms. By the end of this post, you will get an understanding of what PGM is, why…</span>
+    <span class="meta">Aug 2025 · 5 min</span>
+  </a>
+
+  <a class="atlas-item" href="./projects/rpi.html" data-domain="data" data-kind="Project">
+    <div class="thumb"><img src="./projects/images/rpi.jpg" alt="" loading="lazy"></div>
+    <div class="top">
+      <span class="kind">Project</span>
+      <span class="dom"><span class="atlas-dot d-data"></span>Data &amp; visualization</span>
+    </div>
+    <span class="ttl">Group Conversation Analytics using Raspberry Pi</span>
+    <span class="dsc">Developed a IoT prototype to process audio data and visualize group speaking analytics through an interactive dashboard</span>
+    <span class="meta">pandas · numpy · matplotlib</span>
+  </a>
+
+  <a class="atlas-item" href="./articles/2024/bjet.html" data-domain="la" data-kind="Paper">
+    
+    <div class="top">
+      <span class="kind">Paper</span>
+      <span class="dom"><span class="atlas-dot d-la"></span>Learning analytics</span>
+    </div>
+    <span class="ttl">How well do collaboration quality estimation models generalize across authentic school contexts</span>
+    <span class="dsc">British Journal of Educational Technology</span>
+    <span class="meta">2024</span>
+  </a>
+
+  <a class="atlas-item" href="./posts/post-with-code/Taxa_info.html" data-domain="gen" data-kind="Post">
+    
+    <div class="top">
+      <span class="kind">Post</span>
+      <span class="dom"><span class="atlas-dot d-gen"></span>Genomics &amp; health</span>
+    </div>
+    <span class="ttl">Fetching taxonomic information for any micro-bacterium using Python</span>
+    <span class="dsc">In a recent project, I needed to devise a way to harmonize different gut-based bio-markers for colorectal cancer found in the literature. Since studies have reported their…</span>
+    <span class="meta">Jul 2025 · 2 min</span>
+  </a>
+
+  <a class="atlas-item" href="./projects/harvard.html" data-domain="data" data-kind="Project">
+    <div class="thumb"><img src="./projects/images/mmca_front.jpg" alt="" loading="lazy"></div>
+    <div class="top">
+      <span class="kind">Project</span>
+      <span class="dom"><span class="atlas-dot d-data"></span>Data &amp; visualization</span>
+    </div>
+    <span class="ttl">Literature Analytics and Visualization</span>
+    <span class="dsc">Developed a library to process literature review dataset, collected at Harvard University, to visualize key insights</span>
+    <span class="meta">pandas · numpy · matplotlib</span>
+  </a>
+
+  <a class="atlas-item" href="./articles/2024/jla.html" data-domain="la" data-kind="Paper">
+    
+    <div class="top">
+      <span class="kind">Paper</span>
+      <span class="dom"><span class="atlas-dot d-la"></span>Learning analytics</span>
+    </div>
+    <span class="ttl">Impact of data noise on the performance of supervised machine learning models using multimodal data to estimate collaboration quality</span>
+    <span class="dsc">Journal of Learning Analytics</span>
+    <span class="meta">2024</span>
+  </a>
+
+  <a class="atlas-item" href="./posts/post-with-code/snakemake_testing.html" data-domain="gen" data-kind="Post">
+    
+    <div class="top">
+      <span class="kind">Post</span>
+      <span class="dom"><span class="atlas-dot d-gen"></span>Genomics &amp; health</span>
+    </div>
+    <span class="ttl">Generating and Performing Automated Test for Snakemake Workflow</span>
+    <span class="dsc">Snakemake is a workflow manager which simplifies the execution of complex pipelines, but as a workflow grows, testing becomes critical. Automated tests help catch errors…<strong></strong></span>
+    <span class="meta">May 2025 · 5 min</span>
+  </a>
+
+  <a class="atlas-item" href="./projects/vidtrack.html" data-domain="la" data-kind="Project">
+    <div class="thumb"><img src="./projects/images/moodle.jpg" alt="" loading="lazy"></div>
+    <div class="top">
+      <span class="kind">Project</span>
+      <span class="dom"><span class="atlas-dot d-la"></span>Learning analytics</span>
+    </div>
+    <span class="ttl">Moodle plugin to track video watching behavior</span>
+    <span class="dsc">Developed a plugin for Moodle LMS to track users' video watching behavior using YouTube API</span>
+    <span class="meta">YouTube API · moodle · php</span>
+  </a>
+
+  <a class="atlas-item" href="./articles/2023/jucs.html" data-domain="la" data-kind="Paper">
+    
+    <div class="top">
+      <span class="kind">Paper</span>
+      <span class="dom"><span class="atlas-dot d-la"></span>Learning analytics</span>
+    </div>
+    <span class="ttl">CIMLA: A Modular and Modifiable Data Preparation, Organization, and Fusion Infrastructure to Partially Support the Development of Context-aware MMLA Solutions.</span>
+    <span class="dsc">Journal of Universal Computer Science</span>
+    <span class="meta">2023</span>
+  </a>
+
+  <a class="atlas-item" href="./posts/post-with-code/data-anonymization.html" data-domain="gen" data-kind="Post">
+    
+    <div class="top">
+      <span class="kind">Post</span>
+      <span class="dom"><span class="atlas-dot d-gen"></span>Genomics &amp; health</span>
+    </div>
+    <span class="ttl">Introduction to Data Anonymization</span>
+    <span class="dsc">You most likely have heard the term “data anonymization” if you are involved with data directly or indirectly. In this post, <strong>we will learn about this crucial part of the…</strong><strong></strong></span>
+    <span class="meta">May 2025 · 7 min</span>
+  </a>
+
+  <a class="atlas-item" href="./articles/2023/bjet.html" data-domain="la" data-kind="Paper">
+    
+    <div class="top">
+      <span class="kind">Paper</span>
+      <span class="dom"><span class="atlas-dot d-la"></span>Learning analytics</span>
+    </div>
+    <span class="ttl">Exploring indicators for collaboration quality and its dimensions in classroom settings using multimodal learning analytics</span>
+    <span class="dsc">In the 18th European Conference on Technology Enhanced Learning (EC-TEL)</span>
+    <span class="meta">2023</span>
+  </a>
+
+  <a class="atlas-item" href="./posts/post-with-code/Snakemake_first.html" data-domain="gen" data-kind="Post">
+    
+    <div class="top">
+      <span class="kind">Post</span>
+      <span class="dom"><span class="atlas-dot d-gen"></span>Genomics &amp; health</span>
+    </div>
+    <span class="ttl">Writing your first Snakemake rule: A quick startup guide for Snakemake</span>
+    <span class="dsc">A workflow is a series of tasks or programs executed in a specific order to achieve a goal. To automate the execution of these tasks, we use a workflow manager. This <strong>post…</strong></span>
+    <span class="meta">Jan 2025 · 8 min</span>
+  </a>
+
+  <a class="atlas-item" href="./articles/2023/lak1.html" data-domain="la" data-kind="Paper">
+    
+    <div class="top">
+      <span class="kind">Paper</span>
+      <span class="dom"><span class="atlas-dot d-la"></span>Learning analytics</span>
+    </div>
+    <span class="ttl">How to build more generalizable models for collaboration quality? Lessons learned from exploring multi-contexts audio-log datasets using Multimodal Learning Analytics</span>
+    <span class="dsc">13th International Learning Analytics and Knowledge Conference</span>
+    <span class="meta">2023</span>
+  </a>
+
+  <a class="atlas-item" href="./posts/post-with-code/A primer on data distribution fundamentals .html" data-domain="prob" data-kind="Post">
+    
+    <div class="top">
+      <span class="kind">Post</span>
+      <span class="dom"><span class="atlas-dot d-prob"></span>Bayesian &amp; maths</span>
+    </div>
+    <span class="ttl">A primer on discrete data distribution fundamentals</span>
+    <span class="dsc">This post offers an introduction to discrete data distributions which are essential to know for every data scientist. The post starts by explaining what does it mean by <strong>data…</strong></span>
+    <span class="meta">Nov 2024 · 17 min</span>
+  </a>
+
+  <a class="atlas-item" href="./articles/2023/lak2.html" data-domain="la" data-kind="Paper">
+    
+    <div class="top">
+      <span class="kind">Paper</span>
+      <span class="dom"><span class="atlas-dot d-la"></span>Learning analytics</span>
+    </div>
+    <span class="ttl">Impact of window size on the generalizability of collaboration quality estimation models developed using multimodal learning analytics.</span>
+    <span class="dsc">13th International Learning Analytics and Knowledge Conference</span>
+    <span class="meta">2023</span>
+  </a>
+
+  <a class="atlas-item" href="./posts/post-with-code/Hosting on Render.html" data-domain="data" data-kind="Post">
+    
+    <div class="top">
+      <span class="kind">Post</span>
+      <span class="dom"><span class="atlas-dot d-data"></span>Data &amp; visualization</span>
+    </div>
+    <span class="ttl">How to Successfully host your Dash application on Render</span>
+    <span class="dsc">This post will provide detailed instructions on the hosting process of a <strong>dash</strong> application on Render. Render is a hosting service provider. It offers a free tier that can be…</span>
+    <span class="meta">Jun 2024 · 3 min</span>
+  </a>
+
+  <a class="atlas-item" href="./articles/2023/cmmla.html" data-domain="la" data-kind="Paper">
+    
+    <div class="top">
+      <span class="kind">Paper</span>
+      <span class="dom"><span class="atlas-dot d-la"></span>Learning analytics</span>
+    </div>
+    <span class="ttl">Multimodal Learning Analytics Research in the Wild: Challenges and Their Potential Solutions.</span>
+    <span class="dsc">13th International Learning Analytics and Knowledge Conference</span>
+    <span class="meta">2023</span>
+  </a>
+
+  <a class="atlas-item" href="./posts/post-with-code/Train your word embeddings from scratch.html" data-domain="nlp" data-kind="Post">
+    
+    <div class="top">
+      <span class="kind">Post</span>
+      <span class="dom"><span class="atlas-dot d-nlp"></span>NLP &amp; LLMs</span>
+    </div>
+    <span class="ttl">Guide to train word embeddings from scratch</span>
+    <span class="dsc">This blog post explains the procedure to train word embeddings from scratch. Word embeddings are dense vector representation of text data (Check this blog pos for the basics).</span>
+    <span class="meta">Jan 2024 · 6 min</span>
+  </a>
+
+  <a class="atlas-item" href="./articles/2023/cscl.html" data-domain="la" data-kind="Paper">
+    
+    <div class="top">
+      <span class="kind">Paper</span>
+      <span class="dom"><span class="atlas-dot d-la"></span>Learning analytics</span>
+    </div>
+    <span class="ttl">Studying teacher withitness in the wild: comparing a mirroring and an alerting &amp; guiding dashboard for collaborative learning</span>
+    <span class="dsc">International Journal of Computer-Supported Collaborative Learning</span>
+    <span class="meta">2023</span>
+  </a>
+
+  <a class="atlas-item" href="./posts/post-with-code/word_embeddings.html" data-domain="nlp" data-kind="Post">
+    
+    <div class="top">
+      <span class="kind">Post</span>
+      <span class="dom"><span class="atlas-dot d-nlp"></span>NLP &amp; LLMs</span>
+    </div>
+    <span class="ttl">Introduction to word embeddings with hands-on exercises</span>
+    <span class="dsc">A word embedding is a numeric representation of text in natural language processing. The representation is in the form of a vector where each number represents a dimension…</span>
+    <span class="meta">Jan 2024 · 4 min</span>
+  </a>
+
+  <a class="atlas-item" href="./articles/2023/jcal.html" data-domain="la" data-kind="Paper">
+    
+    <div class="top">
+      <span class="kind">Paper</span>
+      <span class="dom"><span class="atlas-dot d-la"></span>Learning analytics</span>
+    </div>
+    <span class="ttl">Towards a partnership of teachers and intelligent learning technology: A systematic literature review of model‐based learning analytics</span>
+    <span class="dsc">International Journal of Computer-Assisted Learning</span>
+    <span class="meta">2023</span>
+  </a>
+
+  <a class="atlas-item" href="./posts/post-with-code/Surname_prediction_using_Pytorch.html" data-domain="nlp" data-kind="Post">
+    
+    <div class="top">
+      <span class="kind">Post</span>
+      <span class="dom"><span class="atlas-dot d-nlp"></span>NLP &amp; LLMs</span>
+    </div>
+    <span class="ttl">Building a surname classifier using PyTorch</span>
+    <span class="dsc">This post presents an NLP (Natural language processing) example based on the book NLP with PyTorch:Building intelligent language applications using deep learning. In the…<strong></strong></span>
+    <span class="meta">Jan 2024 · 10 min</span>
+  </a>
+
+  <a class="atlas-item" href="./articles/2022/cscl.html" data-domain="la" data-kind="Paper">
+    
+    <div class="top">
+      <span class="kind">Paper</span>
+      <span class="dom"><span class="atlas-dot d-la"></span>Learning analytics</span>
+    </div>
+    <span class="ttl">Co-designing a multimodal dashboard for collaborative analytics</span>
+    <span class="dsc">15th International Conference on Computer-Supported Collaborative Learning (CSCL)</span>
+    <span class="meta">2022</span>
+  </a>
+
+  <a class="atlas-item" href="./posts/post-with-code/llama.html" data-domain="nlp" data-kind="Post">
+    
+    <div class="top">
+      <span class="kind">Post</span>
+      <span class="dom"><span class="atlas-dot d-nlp"></span>NLP &amp; LLMs</span>
+    </div>
+    <span class="ttl">Hands-on experience with `llama2` with Python: Building a simple Q&amp;A app</span>
+    <span class="dsc">This post shares the step-by-step process of running the LLAMA2 model locally on MAC. The post is a reflection of my learning of Large Language Models and their practical…</span>
+    <span class="meta">Dec 2023 · 2 min</span>
+  </a>
+
+  <a class="atlas-item" href="./articles/2022/tkl.html" data-domain="la" data-kind="Paper">
+    
+    <div class="top">
+      <span class="kind">Paper</span>
+      <span class="dom"><span class="atlas-dot d-la"></span>Learning analytics</span>
+    </div>
+    <span class="ttl">Do teachers find dashboards trustworthy, actionable and useful? A vignette study using a logs and audio dashboard</span>
+    <span class="dsc">Technology, Knowledge and Learning</span>
+    <span class="meta">2022</span>
+  </a>
+
+  <a class="atlas-item" href="./posts/post-with-code/Sentiment prediction.html" data-domain="nlp" data-kind="Post">
+    
+    <div class="top">
+      <span class="kind">Post</span>
+      <span class="dom"><span class="atlas-dot d-nlp"></span>NLP &amp; LLMs</span>
+    </div>
+    <span class="ttl">Sentiment prediction using Pytorch</span>
+    <span class="dsc">This year, I started exploring NLP (natural language processing) given its huge potential for building intelligent systems capable of understanding and generating text in…</span>
+    <span class="meta">Nov 2023 · 7 min</span>
+  </a>
+
+  <a class="atlas-item" href="./articles/2021/sensors.html" data-domain="la" data-kind="Paper">
+    
+    <div class="top">
+      <span class="kind">Paper</span>
+      <span class="dom"><span class="atlas-dot d-la"></span>Learning analytics</span>
+    </div>
+    <span class="ttl">EFAR-MMLA: An evaluation framework to assess and report generalizability of machine learning models in MMLA</span>
+    <span class="dsc">Sensors</span>
+    <span class="meta">2022</span>
+  </a>
+
+  <a class="atlas-item" href="./posts/post-with-code/basics_nlp.html" data-domain="nlp" data-kind="Post">
+    
+    <div class="top">
+      <span class="kind">Post</span>
+      <span class="dom"><span class="atlas-dot d-nlp"></span>NLP &amp; LLMs</span>
+    </div>
+    <span class="ttl">Basics of Natural Language Processing in Python</span>
+    <span class="dsc">Natural language processing is an interdisciplinary field combining computer science, artificial intelligence, and linguistics. Natural language processing focuses on the…</span>
+    <span class="meta">Oct 2023 · 10 min</span>
+  </a>
+
+  <a class="atlas-item" href="./articles/2022/frontiers.html" data-domain="la" data-kind="Paper">
+    
+    <div class="top">
+      <span class="kind">Paper</span>
+      <span class="dom"><span class="atlas-dot d-la"></span>Learning analytics</span>
+    </div>
+    <span class="ttl">Teacher AI-Supported Pedagogical Actions in Collaborative Learning Coregulation: A Wizard-of-Oz Study</span>
+    <span class="dsc">Frontiers in Education</span>
+    <span class="meta">2022</span>
+  </a>
+
+  <a class="atlas-item" href="./posts/post-with-code/Regular expression.html" data-domain="nlp" data-kind="Post">
+    
+    <div class="top">
+      <span class="kind">Post</span>
+      <span class="dom"><span class="atlas-dot d-nlp"></span>NLP &amp; LLMs</span>
+    </div>
+    <span class="ttl">Introduction to Regular Expressions</span>
+    <span class="dsc">This post will explain the basics of regular expression. Regular expression (regexp in short) is a powerful technique of text searching and text manipulation. If you are…</span>
+    <span class="meta">Oct 2023 · 8 min</span>
+  </a>
+
+  <a class="atlas-item" href="./articles/2021/ectel.html" data-domain="la" data-kind="Paper">
+    
+    <div class="top">
+      <span class="kind">Paper</span>
+      <span class="dom"><span class="atlas-dot d-la"></span>Learning analytics</span>
+    </div>
+    <span class="ttl">Exploring the triangulation of dimensionality reduction when interpreting multimodal learning data from authentic settings</span>
+    <span class="dsc">14th European Conference on Technology Enhanced Learning (EC-TEL)</span>
+    <span class="meta">2021</span>
+  </a>
+
+  <a class="atlas-item" href="./posts/post-with-code/Bike sharing map visualization.html" data-domain="data" data-kind="Post">
+    
+    <div class="top">
+      <span class="kind">Post</span>
+      <span class="dom"><span class="atlas-dot d-data"></span>Data &amp; visualization</span>
+    </div>
+    <span class="ttl">Location data visualization on Map using Python</span>
+    <span class="dsc">This tutorial will show you how to work with geospatial data using Python with library geoPandas. For this exercise, I have used Boston Bike Sharing dataset which is…</span>
+    <span class="meta">Sep 2023 · 2 min</span>
+  </a>
+
+  <a class="atlas-item" href="./articles/2021/collabtech.html" data-domain="la" data-kind="Paper">
+    
+    <div class="top">
+      <span class="kind">Paper</span>
+      <span class="dom"><span class="atlas-dot d-la"></span>Learning analytics</span>
+    </div>
+    <span class="ttl">Quantifying collaboration quality in face-to-face classroom settings using MMLA</span>
+    <span class="dsc">International Conference on Collaboration Technologies and Social Computing (CollabTech)</span>
+    <span class="meta">2021</span>
+  </a>
+
+  <a class="atlas-item" href="./posts/post-with-code/dash.html" data-domain="data" data-kind="Post">
+    
+    <div class="top">
+      <span class="kind">Post</span>
+      <span class="dom"><span class="atlas-dot d-data"></span>Data &amp; visualization</span>
+    </div>
+    <span class="ttl">Introduction to Python Dash Framework</span>
+    <span class="dsc">Dashboards play a crucial role in conveying useful and actionable information from collected data regardless of context. As with economically feasible sensors, improved…</span>
+    <span class="meta">Jun 2023 · 5 min</span>
+  </a>
+
+  <a class="atlas-item" href="./posts/post-with-code/agreement.html" data-domain="data" data-kind="Post">
+    
+    <div class="top">
+      <span class="kind">Post</span>
+      <span class="dom"><span class="atlas-dot d-data"></span>Data &amp; visualization</span>
+    </div>
+    <span class="ttl">Computing inter-rater aggrement scores using Python</span>
+    <span class="dsc">
+Recently, I was involved in some annotation processes involving two coders and I needed to compute inter-rater reliability scores. There are multiple measures for…</span>
+    <span class="meta">May 2023 · 10 min</span>
+  </a>
+
+  <a class="atlas-item" href="./posts/post-with-code/gramian.html" data-domain="data" data-kind="Post">
+    
+    <div class="top">
+      <span class="kind">Post</span>
+      <span class="dom"><span class="atlas-dot d-data"></span>Data &amp; visualization</span>
+    </div>
+    <span class="ttl">Understanding Gramian Angular Field</span>
+    <span class="dsc">In this post, I will share my learning on this topic. I have been searching for a way to use a convolutional neural network (CNN) for my time-series data and this search led…</span>
+    <span class="meta">Dec 2022 · 4 min</span>
+  </a>
+
+  <a class="atlas-item" href="./posts/post-with-code/data_r.html" data-domain="data" data-kind="Post">
+    
+    <div class="top">
+      <span class="kind">Post</span>
+      <span class="dom"><span class="atlas-dot d-data"></span>Data &amp; visualization</span>
+    </div>
+    <span class="ttl">R tutorial on accessing, filtering, aggregating and plotting data</span>
+    <span class="dsc">This post offers a tutorial on how to access, filter, aggregate and plot the data in R. It will mainly covers following topics</span>
+    <span class="meta">Apr 2022 · 7 min</span>
+  </a>
+
+  <a class="atlas-item" href="./posts/post-with-code/mqtt.html" data-domain="data" data-kind="Post">
+    
+    <div class="top">
+      <span class="kind">Post</span>
+      <span class="dom"><span class="atlas-dot d-data"></span>Data &amp; visualization</span>
+    </div>
+    <span class="ttl">Setting up MQTT server and Client</span>
+    <span class="dsc">This post offers an introduction to the <strong>MQTT</strong> (Message Queuing Telemetry Transport) protocol [1] and also demonstrates its usage with an example in Python (Just for info…</span>
+    <span class="meta">Jan 2022 · 9 min</span>
+  </a>
+
+  <a class="atlas-item" href="./posts/post-with-code/statistical_test.html" data-domain="prob" data-kind="Post">
+    
+    <div class="top">
+      <span class="kind">Post</span>
+      <span class="dom"><span class="atlas-dot d-prob"></span>Bayesian &amp; maths</span>
+    </div>
+    <span class="ttl">Statistical tests in R</span>
+    <span class="dsc">This post delves into inferential statistics and explains two different statistical test. Additionally, this post also talks about the need of performing these tests along…</span>
+    <span class="meta">Jun 2021 · 14 min</span>
+  </a>
+
+  <a class="atlas-item" href="./posts/post-with-code/pandas.html" data-domain="data" data-kind="Post">
+    
+    <div class="top">
+      <span class="kind">Post</span>
+      <span class="dom"><span class="atlas-dot d-data"></span>Data &amp; visualization</span>
+    </div>
+    <span class="ttl">Introduction to Python's Pandas API</span>
+    <span class="dsc">Pandas is a Python API for processing data in a easy and efficient way. This post offers an introduction to this amazing API , especially for beginners.</span>
+    <span class="meta">May 2021 · 9 min</span>
+  </a>
+
+  <a class="atlas-item" href="./posts/concepts/pca.html" data-domain="prob" data-kind="Post">
+    
+    <div class="top">
+      <span class="kind">Post</span>
+      <span class="dom"><span class="atlas-dot d-prob"></span>Bayesian &amp; maths</span>
+    </div>
+    <span class="ttl">Understanding Principal Component Analysis under the hood</span>
+    <span class="dsc">Let’s assume that you have a dataset with a higher number of attributes and you are thinking <em>Is there any way to compress this information into a smaller number of attributes</em>.</span>
+    <span class="meta">Apr 2020 · 9 min</span>
+  </a>
+
+  <a class="atlas-item" href="./posts/post-with-code/facial-features.html" data-domain="la" data-kind="Post">
+    
+    <div class="top">
+      <span class="kind">Post</span>
+      <span class="dom"><span class="atlas-dot d-la"></span>Learning analytics</span>
+    </div>
+    <span class="ttl">Facial feature extraction using OpenFace</span>
+    <span class="dsc">In this post, I will discuss the work I have been doing recently. I needed to extract facial features from the recorded video and for this task, I decided to use OpenFace…</span>
+    <span class="meta">Mar 2020 · 2 min</span>
+  </a>
+
+</div>
+<div class="atlas-more"><button type="button" class="atlas-btn outline" id="atlas-explore-more">Show more</button></div>
+<div class="listing-no-matching d-none">No matching items</div>
+<nav id="explore-pagination" class="listing-pagination" aria-label="Page Navigation">
+  <ul class="pagination"></ul>
+</nav>
+</div>
+</section>
+
+<!-- ============ RECOGNITION + PATH ============ -->
+<section class="atlas-row" style="margin-top:16px">
+  <div class="atlas-card" style="flex:1 1 300px">
+    <span class="atlas-eyebrow">Recognition</span>
+    <h2 class="atlas-h2" style="font-size:2rem">Best Demo Award, LAK ’23</h2>
+    <p class="atlas-muted" style="margin:12px 0 18px;line-height:1.6">Plus a Best Paper nomination at LAK ’23, the Estonian Youth Board Special Research Award, and EC-TEL and Dora Plus scholarships.</p>
+    <a class="atlas-btn outline" href="Awards.html">All awards</a>
+  </div>
+  <div class="atlas-card" style="flex:2 1 620px">
+    <span class="atlas-eyebrow">Path</span>
+    <div class="atlas-path">
+      <div class="now"><span class="yr">2024 →</span><span class="org">Metrosert AS</span><span class="role">Data Scientist</span></div>
+      <div><span class="yr">2018 – 2024</span><span class="org">Tallinn University</span><span class="role">PhD · Developer / Researcher</span></div>
+      <div><span class="yr">2022 – 2023</span><span class="org">Harvard · Bergen · Valladolid</span><span class="role">Visiting researcher</span></div>
+      <div><span class="yr">2007 – 2012</span><span class="org">MNIT Jaipur</span><span class="role">MCA · MTech</span></div>
+    </div>
+    <div style="margin-top:22px"><a class="atlas-btn outline" href="about.html">Full story</a></div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="atlas-card dark atlas-contact" style="margin-top:16px" id="contact">
+  <h2>Let’s make your data <em>think.</em></h2>
+  <div class="links">
+    <a class="atlas-btn light" href="https://www.linkedin.com/in/pankaj-chejara-5ab77855/">Connect on LinkedIn</a>
+    <!-- To add email: <a class="atlas-btn light" href="mailto:you@example.com">you@example.com</a> -->
+    <a class="atlas-btn ghost" href="https://github.com/pankajchejara23">GitHub</a>
+    <a class="atlas-btn ghost" href="https://scholar.google.com/citations?user=TI9EsF4AAAAJ&amp;hl=en">Scholar</a>
+  </div>
+</section>
+
+</div>
+
+<script>
+(function () {
+  // Explore filter: domain tabs + "show more" paging
+  var PAGE = window.matchMedia('(max-width: 600px)').matches ? 6 : 12;
+  var grid = document.getElementById('atlas-explore-grid');
+  if (grid) {
+    var items = Array.prototype.slice.call(grid.querySelectorAll('.atlas-item'));
+    var tabs = Array.prototype.slice.call(document.querySelectorAll('.atlas-tab'));
+    var more = document.getElementById('atlas-explore-more');
+    var countEl = document.getElementById('atlas-explore-count');
+    var domain = 'all', limit = PAGE;
+    var apply = function () {
+      var matching = items.filter(function (el) { return domain === 'all' || el.dataset.domain === domain; });
+      items.forEach(function (el) { el.hidden = true; });
+      matching.forEach(function (el, i) { el.hidden = i >= limit; });
+      var shown = Math.min(limit, matching.length);
+      if (countEl) countEl.textContent = 'Showing ' + shown + ' of ' + matching.length;
+      if (more) more.parentElement.style.display = matching.length > limit ? '' : 'none';
+    };
+    tabs.forEach(function (t) {
+      t.addEventListener('click', function () {
+        domain = t.dataset.domain; limit = PAGE;
+        tabs.forEach(function (o) { o.setAttribute('aria-pressed', o === t ? 'true' : 'false'); });
+        apply();
+      });
+    });
+    if (more) more.addEventListener('click', function () { limit += PAGE; apply(); });
+    apply();
+  }
+  // Hero search button opens Quarto's search overlay
+  var btn = document.getElementById('atlas-search-btn');
+  if (btn) btn.addEventListener('click', function () {
+    var q = document.querySelector('#quarto-search .aa-DetachedSearchButton, #quarto-search button, .aa-DetachedSearchButton');
+    if (q) { q.click(); }
+  });
+})();
+</script>
 
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> 
-  <hr class="about-sep">
-   <div class="about-links">
-  <a href="https://twitter.com/pankajchejara1" class="about-link" rel="" target="">
-    <i class="bi bi-twitter"></i>
-     <span class="about-link-text">Twitter</span>
-  </a>
-  <a href="https://www.linkedin.com/in/pankaj-chejara-5ab77855/" class="about-link" rel="" target="">
-    <i class="bi bi-linkedin"></i>
-     <span class="about-link-text">LinkedIn</span>
-  </a>
-  <a href="https://github.com/pankajchejara23" class="about-link" rel="" target="">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">Github</span>
-  </a>
-  <a href="https://github.com/pankajchejara23" class="about-link" rel="" target="">
-    <i class="bi bi-google"></i>
-     <span class="about-link-text">Google-Scholar</span>
-  </a>
-</div>
-</div>
- <!-- /main -->
+
+
+
 <script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
-    }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
       }
+      return false;
     }
-    return false;
-  }
-  const onCopySuccess = function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
       }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
       for (const childEl of codeEl.children) {
         if (isCodeAnnotation(childEl)) {
           childEl.remove();
         }
       }
       return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
-  });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/pankajchejara23\.github\.io");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
         }
       }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-    const config = {
-      allowHTML: true,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start',
-    };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
       }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
         }
-      }
+      });
     }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
           }
         }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
         }
-        return container.innerHTML
       } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      // TODO in 1.5, we should make sure this works without a callout special case
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
       }
     }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
           }
         } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
+            const note = htmlDoc.querySelector('main.content');
             if (note !== null) {
-              const html = processXRef(id, note);
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -415,188 +1272,178 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            div.style.left = 0;
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+      }, function(instance) {
       });
     }
-  }
-});
-</script>
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2026 Pankaj Chejara · Tallinn, Estonia</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Built with Quarto · GitHub Pages</p>
+</div>
+  </div>
+</footer>
 
 
 
 
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>
